@@ -8,6 +8,7 @@ import {
   acessibilidade,
   classificacaoAria,
   compartilhar,
+  legendaMapa,
   diaDaVotacao,
   fases,
   ficha,
@@ -38,6 +39,7 @@ export const textos = {
   rodape,
   paginas,
   classificacaoAria,
+  legendaMapa,
   acessibilidade,
   sistema,
 } as const

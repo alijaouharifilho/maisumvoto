@@ -14,6 +14,7 @@ export const PALETA = {
   petroleo: '#115667',
   petroleoClaro: '#d7ecf4',
   alerta: '#be241f',
+  adversario: '#cc272e',
   branco: '#ffffff',
 } as const
 

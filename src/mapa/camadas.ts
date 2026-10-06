@@ -102,18 +102,18 @@ export function camadaDensidade(id: string, fonte: string, faixa: { minzoom?: nu
     type: 'circle',
     source: fonte,
     ...faixa,
-    paint: { 'circle-color': PALETA.mata, 'circle-radius': RAIO_DENSIDADE, 'circle-opacity': OPACIDADE_DENSIDADE },
+    paint: { 'circle-color': PALETA.tintaSuave, 'circle-radius': RAIO_DENSIDADE, 'circle-opacity': OPACIDADE_DENSIDADE },
   }
 }
 
 export function camadasRaio(): [FillLayerSpecification, LineLayerSpecification] {
   return [
-    { id: CAMADAS.raioPreenchimento, type: 'fill', source: FONTES.raio, paint: { 'fill-color': PALETA.mata, 'fill-opacity': 0.05 } },
+    { id: CAMADAS.raioPreenchimento, type: 'fill', source: FONTES.raio, paint: { 'fill-color': PALETA.petroleo, 'fill-opacity': 0.05 } },
     {
       id: CAMADAS.raioContorno,
       type: 'line',
       source: FONTES.raio,
-      paint: { 'line-color': PALETA.mata, 'line-width': 1.5, 'line-dasharray': [3, 4] },
+      paint: { 'line-color': PALETA.petroleo, 'line-width': 1.5, 'line-dasharray': [3, 4] },
     },
   ]
 }

@@ -2,6 +2,7 @@
 // rodapé, páginas de conteúdo, acessibilidade e mensagens do sistema.
 import type { Classificacao, IdFase } from '../../../nucleo/tipos.ts'
 import { contagem, formatarNumero as numero, listaHumana as emLista, plural } from '../../../nucleo/frases.ts'
+import type { GrupoLegenda } from '../../mapa/simbologia.ts'
 import type { Apoiado, Nomes, Responsavel } from './tipos.ts'
 
 /** "no sábado, 24/10, às 22h" / "na segunda-feira, 05/10": a data por extenso com a preposição certa. */
@@ -105,8 +106,6 @@ export const diaDaVotacao = {
 export const rodape = {
   natureza: (apoiado: Apoiado) =>
     `Site independente de apoio a ${apoiado.nome} (${apoiado.numero}). Não é o site oficial de nenhuma campanha, candidato ou partido.`,
-  responsavel: (r: Responsavel) =>
-    r.nome === null ? 'Responsável: a definir' : `Responsável: ${r.nome}${r.contato === null ? '' : ` · ${r.contato}`}`,
   dados: 'Dados: Tribunal Superior Eleitoral (CC-BY), com modificações. Mapa: © colaboradores do OpenStreetMap, OpenFreeMap.',
   sobre: 'Sobre e método',
   privacidade: 'Privacidade',
@@ -145,7 +144,13 @@ export const paginas = {
     pdfCompleto: 'Ler o plano completo (PDF do TSE)',
     conferido: (data: string) => `Trechos conferidos página a página contra o PDF ${naData(data)}.`,
   },
-  sobre: { titulo: 'Sobre', privacidade: 'Privacidade' },
+  sobre: {
+    titulo: 'Sobre',
+    privacidade: 'Privacidade',
+    /** Linha discreta no fim da página Sobre (Lei 9.504, art. 57-D: o site não pode ser anônimo). */
+    responsavel: (r: Responsavel) =>
+      r.nome === null ? 'Responsável pelo site: a definir' : `Responsável pelo site: ${r.nome}${r.contato === null ? '' : ` · ${r.contato}`}`,
+  },
 } as const
 
 /** Rótulo de acessibilidade de cada classificação (marcadores e filtros). */
@@ -157,6 +162,16 @@ export const classificacaoAria: Record<Classificacao, (nomes: Nomes) => string> 
   alvoNaFrente: (n) => `${n.alvo} à frente`,
   aVirar: (n) => `${n.adversario} à frente, em tese dá para virar`,
   dificil: (n) => `${n.adversario} bem à frente`,
+}
+
+/** Legenda do mapa e da lista: a cor diz quem ficou à frente no local no 1º turno; o miolo, onde a conversa pode mudar o lado. */
+export const legendaMapa: Record<GrupoLegenda, (nomes: Nomes) => string> = {
+  adversarioVirar: (n) => `${n.adversario} à frente, em tese dá para virar`,
+  alvoDefender: (n) => `${n.alvo} à frente, vantagem a defender`,
+  empate: () => 'Empate',
+  alvoFrente: (n) => `${n.alvo} à frente`,
+  adversarioFrente: (n) => `${n.adversario} à frente`,
+  semVotos: () => 'Sem votos válidos',
 }
 
 export const acessibilidade = {

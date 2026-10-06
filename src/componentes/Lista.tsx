@@ -4,8 +4,7 @@ import { formatarDistancia, nomeLocal } from '../../nucleo/frases.ts'
 import { agruparPorBairro, type GrupoBairro, type ItemLista } from '../../nucleo/ranking.ts'
 import { textos } from '../conteudo/textos.ts'
 import { NOMES, RAIO_TEXTO } from '../config.ts'
-import { ORDEM_LEGENDA, type Classe } from '../mapa/simbologia.ts'
-import { primeiraMaiuscula } from '../util/formatar.ts'
+import { CLASSE_DO_GRUPO, GRUPO_DA_CLASSE, ORDEM_LEGENDA, type GrupoLegenda } from '../mapa/simbologia.ts'
 import { Selo } from './Selo.tsx'
 
 const t = textos.lista
@@ -53,16 +52,16 @@ export function Lista({ lista, semResultado, onAbrir }: Props) {
 }
 
 function Legenda({ lista, semResultado }: { lista: readonly ItemLista[]; semResultado: number }) {
-  const presentes = new Set<Classe>(lista.map((i) => i.metricas.classificacao))
-  const classes = ORDEM_LEGENDA.filter((c) => presentes.has(c))
+  const presentes = new Set<GrupoLegenda>(lista.map((i) => GRUPO_DA_CLASSE[i.metricas.classificacao]))
+  const grupos = ORDEM_LEGENDA.filter((g) => presentes.has(g))
   return (
     <div className="flex flex-col gap-1 text-sm">
       <p className="font-bold">{t.legendaComResultado}</p>
       <ul className="flex flex-wrap gap-x-4 gap-y-1">
-        {classes.map((c) => (
-          <li key={c} className="flex items-center gap-1.5">
-            <Selo classe={c} tamanho={16} />
-            {primeiraMaiuscula(textos.classificacaoAria[c === 'semResultado' ? 'semVotos' : c](NOMES))}
+        {grupos.map((g) => (
+          <li key={g} className="flex items-center gap-1.5">
+            <Selo classe={CLASSE_DO_GRUPO[g]} tamanho={16} />
+            {textos.legendaMapa[g](NOMES)}
           </li>
         ))}
         {semResultado > 0 ? (

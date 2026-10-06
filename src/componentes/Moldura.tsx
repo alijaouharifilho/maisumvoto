@@ -3,7 +3,7 @@ import type { MouseEvent } from 'react'
 import type { Rota } from '../../nucleo/link.ts'
 import type { IdFase } from '../../nucleo/tipos.ts'
 import { textos } from '../conteudo/textos.ts'
-import { APOIADO, candidatura, FIM_CONVERSA, ID_CONTEUDO, NOME_SITE, ORDEM_ROTAS } from '../config.ts'
+import { APOIADO, FIM_CONVERSA, ID_CONTEUDO, NOME_SITE, ORDEM_ROTAS } from '../config.ts'
 import { hrefDe } from '../rotas.ts'
 import { Icone } from './Icone.tsx'
 
@@ -82,7 +82,6 @@ export function Rodape() {
   return (
     <footer className="flex flex-col gap-2 border-t border-linha pt-4 pb-[calc(1rem+env(safe-area-inset-bottom))] text-sm text-tinta-suave">
       <p className="font-bold text-tinta">{t.natureza(APOIADO)}</p>
-      <p>{t.responsavel(candidatura.site.responsavel)}</p>
       <p>{t.dados}</p>
       <p className="flex gap-4">
         <a href={hrefDe('sobre')} className="inline-block py-1.5">{t.sobre}</a>

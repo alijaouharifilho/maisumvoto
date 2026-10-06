@@ -1,7 +1,8 @@
-// Como cada classificação aparece no mapa e na lista. A diferença nunca é só a cor:
-// cheio × vazado, ponto no centro e espessura do contorno separam as classes também em preto e branco.
-// "folga" (verde-claro, quase o papel) e "difícil" (papel) são opostas e vazadas as duas: o contorno grosso (3 px)
-// × fino (1,5 px) as separa sem cor (WCAG 1.4.1; testes/front/mapa.test.ts).
+// Como cada classificação aparece no mapa e na lista. A cor diz quem ficou à frente no local no 1º turno:
+// verde = candidato apoiado, vermelho = adversário, âmbar = empate. Como vermelho e verde se confundem para
+// quem tem daltonismo, a cor nunca está sozinha: o verde tem contorno branco e o vermelho, contorno escuro
+// (diferença de luminosidade visível em preto e branco), e o ponto âmbar no centro marca onde a conversa pode
+// mudar o lado (WCAG 1.4.1; testes/front/mapa.test.ts).
 import type { Classificacao } from '../../nucleo/tipos.ts'
 import { PALETA } from '../estilo/paleta.ts'
 
@@ -11,23 +12,50 @@ export type Simbolo = {
   readonly preenchimento: string
   readonly contorno: string
   readonly largura: number
-  /** Ponto no centro: lugares onde a conversa pode mudar o lado (empate, a defender, a virar). */
+  /** Ponto no centro: lugares onde a conversa pode mudar o lado (a defender, a virar). */
   readonly centro: boolean
 }
 
+const ALVO_A_FRENTE: Simbolo = { preenchimento: PALETA.mata, contorno: PALETA.branco, largura: 2, centro: false }
+const ADVERSARIO_A_FRENTE: Simbolo = { preenchimento: PALETA.adversario, contorno: PALETA.tinta, largura: 2.5, centro: false }
+const SEM_VOTOS: Simbolo = { preenchimento: PALETA.branco, contorno: PALETA.tintaSuave, largura: 2, centro: false }
+
 export const SIMBOLOGIA: Readonly<Record<Classe, Simbolo>> = {
-  folga: { preenchimento: PALETA.mataClara, contorno: PALETA.mata, largura: 3, centro: false },
-  alvoNaFrente: { preenchimento: PALETA.mata, contorno: PALETA.branco, largura: 2, centro: false },
-  aDefender: { preenchimento: PALETA.mata, contorno: PALETA.branco, largura: 2, centro: true },
-  empate: { preenchimento: PALETA.ambar, contorno: PALETA.tinta, largura: 3, centro: true },
-  aVirar: { preenchimento: PALETA.papel, contorno: PALETA.petroleo, largura: 3, centro: true },
-  dificil: { preenchimento: PALETA.papel, contorno: PALETA.petroleo, largura: 1.5, centro: false },
-  semVotos: { preenchimento: PALETA.branco, contorno: PALETA.tintaSuave, largura: 2, centro: false },
-  semResultado: { preenchimento: PALETA.branco, contorno: PALETA.mata, largura: 2.5, centro: false },
+  folga: ALVO_A_FRENTE,
+  alvoNaFrente: ALVO_A_FRENTE,
+  aDefender: { ...ALVO_A_FRENTE, centro: true },
+  empate: { preenchimento: PALETA.ambar, contorno: PALETA.tinta, largura: 2.5, centro: false },
+  aVirar: { ...ADVERSARIO_A_FRENTE, centro: true },
+  dificil: ADVERSARIO_A_FRENTE,
+  semVotos: SEM_VOTOS,
+  semResultado: SEM_VOTOS,
+}
+
+/** Entradas da legenda: uma por símbolo diferente (classes com o mesmo símbolo dividem a entrada). */
+export type GrupoLegenda = 'adversarioVirar' | 'alvoDefender' | 'empate' | 'alvoFrente' | 'adversarioFrente' | 'semVotos'
+
+export const GRUPO_DA_CLASSE: Readonly<Record<Classificacao, GrupoLegenda>> = {
+  aVirar: 'adversarioVirar',
+  aDefender: 'alvoDefender',
+  empate: 'empate',
+  alvoNaFrente: 'alvoFrente',
+  folga: 'alvoFrente',
+  dificil: 'adversarioFrente',
+  semVotos: 'semVotos',
+}
+
+/** Classe usada para desenhar a miniatura de cada entrada da legenda. */
+export const CLASSE_DO_GRUPO: Readonly<Record<GrupoLegenda, Classe>> = {
+  adversarioVirar: 'aVirar',
+  alvoDefender: 'aDefender',
+  empate: 'empate',
+  alvoFrente: 'alvoNaFrente',
+  adversarioFrente: 'dificil',
+  semVotos: 'semVotos',
 }
 
 /** Ordem da legenda: primeiro onde a conversa mais pode mudar o resultado. */
-export const ORDEM_LEGENDA: readonly Classe[] = ['aVirar', 'aDefender', 'empate', 'alvoNaFrente', 'folga', 'dificil', 'semVotos']
+export const ORDEM_LEGENDA: readonly GrupoLegenda[] = ['adversarioVirar', 'alvoDefender', 'empate', 'alvoFrente', 'adversarioFrente', 'semVotos']
 
 export const CENTRO = { preenchimento: PALETA.ambar, contorno: PALETA.tinta, raio: 3.5, largura: 1.5 } as const
 

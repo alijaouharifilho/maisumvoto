@@ -6,8 +6,6 @@
 
 O {{site.nome}} é um site independente, de apoio a {{alvo.nomeUrna}} ({{alvo.numero}}) no 2º turno. **Não é o site oficial de nenhuma campanha, candidato ou partido.**
 
-Responsável: {{responsavel.nome}}. Contato: {{responsavel.contato}}.
-
 O site não tem anúncios, não aceita doações e não paga para aparecer em redes sociais nem em buscadores.
 
 ## Para que serve

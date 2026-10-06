@@ -6,7 +6,7 @@ import { haversineKm } from '../../nucleo/geo.ts'
 import { featuresRegioes, foraDoRaio, quadradosNaCaixa, type Marcador, type PontoLatLon } from '../../src/mapa/camadas.ts'
 import { Densidade, type Desenhar } from '../../src/mapa/densidade.ts'
 import { PALETA } from '../../src/estilo/paleta.ts'
-import { raioMarcador, SIMBOLOGIA } from '../../src/mapa/simbologia.ts'
+import { CLASSE_DO_GRUPO, GRUPO_DA_CLASSE, ORDEM_LEGENDA, raioMarcador, SIMBOLOGIA } from '../../src/mapa/simbologia.ts'
 import { localeDoMapa } from '../../src/mapa/rotulos.ts'
 import { textos } from '../../src/conteudo/textos.ts'
 
@@ -48,14 +48,29 @@ describe('marcadores', () => {
     expect(Math.max(...f.map((p) => p.ordem))).toBe(f[1]?.ordem)
   })
 
-  it('cada classe se distingue por algo além da cor (cheio/vazado, ponto central ou espessura)', () => {
-    // "Cheio" só se o preenchimento se destaca do papel (contraste ≥ 1,5:1): o verde-claro da folga (1,16:1) é vazado.
-    const assinaturas = Object.values(SIMBOLOGIA).map((s) => `${contraste(s.preenchimento, PALETA.papel) >= 1.5 ? 'cheio' : 'vazado'}|${s.centro}|${s.largura}`)
-    expect(new Set(assinaturas).size).toBe(assinaturas.length)
+  it('a cor diz quem ficou à frente: verde para o candidato apoiado, vermelho para o adversário', () => {
+    for (const c of ['alvoNaFrente', 'folga', 'aDefender'] as const) expect(SIMBOLOGIA[c].preenchimento).toBe(PALETA.mata)
+    for (const c of ['aVirar', 'dificil'] as const) expect(SIMBOLOGIA[c].preenchimento).toBe(PALETA.adversario)
+    expect(SIMBOLOGIA.empate.preenchimento).toBe(PALETA.ambar)
   })
 
-  it('folga e difícil (classes opostas) diferem na forma: contorno com pelo menos 1 px de diferença', () => {
-    expect(Math.abs(SIMBOLOGIA.folga.largura - SIMBOLOGIA.dificil.largura)).toBeGreaterThanOrEqual(1)
+  it('verde e vermelho se distinguem também sem cor (daltonismo): contorno claro × escuro, contraste ≥ 3:1', () => {
+    expect(contraste(SIMBOLOGIA.alvoNaFrente.contorno, SIMBOLOGIA.dificil.contorno)).toBeGreaterThanOrEqual(3)
+    for (const c of ['alvoNaFrente', 'dificil', 'empate'] as const) expect(contraste(SIMBOLOGIA[c].preenchimento, PALETA.papel)).toBeGreaterThanOrEqual(1.5)
+  })
+
+  it('cada entrada da legenda tem um símbolo que se reconhece em preto e branco', () => {
+    const faixa = (hex: string): string => (luminancia(hex) < 0.2 ? 'escuro' : luminancia(hex) < 0.7 ? 'medio' : 'claro')
+    const assinaturas = ORDEM_LEGENDA.map((g) => {
+      const s = SIMBOLOGIA[CLASSE_DO_GRUPO[g]]
+      return `${faixa(s.preenchimento)}|${faixa(s.contorno)}|${s.centro}`
+    })
+    expect(new Set(assinaturas).size).toBe(ORDEM_LEGENDA.length)
+  })
+
+  it('toda classificação tem entrada na legenda, e o miolo marca só onde a conversa pode mudar o lado', () => {
+    for (const grupo of Object.values(GRUPO_DA_CLASSE)) expect(ORDEM_LEGENDA).toContain(grupo)
+    expect(Object.entries(SIMBOLOGIA).filter(([, s]) => s.centro).map(([c]) => c).sort()).toEqual(['aDefender', 'aVirar'])
   })
 })
 

@@ -4,6 +4,8 @@ import { markdown } from '../conteudo/conteudo.ts'
 import { lerMarkdown } from '../conteudo/markdown.ts'
 import { preencherModelo } from '../conteudo/modelo.ts'
 import { Rodape } from '../componentes/Moldura.tsx'
+import { candidatura } from '../config.ts'
+import { textos } from '../conteudo/textos.ts'
 import { useRolarParaAncora } from '../rotas.ts'
 import { Markdown } from './Markdown.tsx'
 import { useValoresModelo } from './valores.ts'
@@ -20,6 +22,7 @@ export function PaginaSobre({ ancora }: { ancora: string | null }) {
       <Markdown blocos={sobre} />
       <hr className="my-6 border-linha" />
       <Markdown blocos={privacidade} deslocamento={1} />
+      <p className="mt-4 text-xs text-tinta-suave">{textos.paginas.sobre.responsavel(candidatura.site.responsavel)}</p>
       <Rodape />
     </article>
   )

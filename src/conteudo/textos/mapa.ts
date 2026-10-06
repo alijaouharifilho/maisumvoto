@@ -168,7 +168,7 @@ export const lista = {
   perto: 'Mais gente',
   porBairro: 'Por bairro',
   raio: (raio: string) => `Num raio de ${raio}`,
-  legendaComResultado: 'Com resultado',
+  legendaComResultado: 'Cor: quem ficou à frente no 1º turno. Miolo: onde a conversa pode mudar o lado.',
   legendaSemResultado: 'Sem resultado ainda',
   itemDetalhe: (partes: { bairro: string; distancia: string; eleitores: number; alvo: string; fracaoAlvo: number | null }) =>
     [partes.bairro, partes.distancia, contagem(partes.eleitores, 'pessoa', 'pessoas'),
