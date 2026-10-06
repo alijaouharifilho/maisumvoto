@@ -1,14 +1,15 @@
-"""Confere, página a página, os trechos citados do plano de governo contra o PDF registrado no TSE.
+"""Confere, página a página, os trechos citados dos planos de governo contra os PDFs registrados no TSE.
 
 Uso (sempre pelo Python do venv):
-  npm run py -- ferramentas/conferir_citacoes.py                # src/conteudo/plano.json + roteiros.json
+  npm run py -- ferramentas/conferir_citacoes.py                # plano.json, roteiros.json e comparacao.json
   npm run py -- ferramentas/conferir_citacoes.py --autoteste    # testes da própria ferramenta
   npm run py -- ferramentas/conferir_citacoes.py --fonte outro=dados/fontes/outro.pdf arquivo.json
 Saída: 0 = tudo confere; 1 = algum trecho falhou; 2 = faltou PDF, hash ou pdftotext.
 
 Regra: todo objeto JSON com "trecho" e "pagina" é uma citação. O trecho, com espaços normalizados, tem de
 aparecer na página indicada do PDF (texto do pdftotext -layout; quebra de linha com hífen tolerada) e ter
-no máximo 25 palavras. "fonte" ausente = "plano".
+no máximo 25 palavras. "fonte" ausente = "plano" (dados/fontes/plano-<alvo>.pdf); "adversario" =
+dados/fontes/plano-<adversário>.pdf. Só se exige o PDF das fontes que os arquivos usam.
 """
 from __future__ import annotations
 
@@ -28,7 +29,12 @@ RAIZ = Path(__file__).resolve().parent.parent
 MAX_PALAVRAS = 25
 MIN_PROPOSTAS, MAX_PROPOSTAS = 3, 6
 FONTE_PADRAO = "plano"
-CONTEUDO_PADRAO = ("src/conteudo/plano.json", "src/conteudo/roteiros.json")
+FONTE_ADVERSARIO = "adversario"
+# Papel na config de cada fonte padrão: o PDF é dados/fontes/plano-<número do candidato>.pdf.
+PAPEL_DA_FONTE = {FONTE_PADRAO: "alvo", FONTE_ADVERSARIO: "adversario"}
+# Bloco do JSON que descreve o documento citado (com o sha256 registrado) → fonte a que ele se refere.
+DOCUMENTO_DA_FONTE = {"documento": FONTE_PADRAO, "documentoAdversario": FONTE_ADVERSARIO}
+CONTEUDO_PADRAO = ("src/conteudo/plano.json", "src/conteudo/roteiros.json", "src/conteudo/comparacao.json")
 PDFTOTEXT_CONHECIDOS = (
     r"C:\Program Files\Git\mingw64\bin\pdftotext.exe",
     "/mingw64/bin/pdftotext",
@@ -170,14 +176,29 @@ def motivo_falha(c: Citacao, paginas: dict[str, Paginas]) -> str | None:
     return None
 
 
-def conferir_arquivos(arquivos: list[Path], paginas: dict[str, Paginas], hash_plano: str) -> int:
+def checar_documentos(dado: dict, hashes: dict[str, str]) -> list[str]:
+    """O sha256 registrado em "documento"/"documentoAdversario" tem de ser o do PDF que se está usando."""
+    problemas: list[str] = []
+    for chave, fonte in DOCUMENTO_DA_FONTE.items():
+        doc = dado.get(chave)
+        sha_doc = doc.get("sha256") if isinstance(doc, dict) else None
+        if sha_doc is not None and sha_doc != hashes.get(fonte):
+            problemas.append(f"{chave}.sha256 ({sha_doc}) difere do hash do PDF da fonte '{fonte}' ({hashes.get(fonte)})")
+    return problemas
+
+
+def fontes_usadas(dados: list[object]) -> set[str]:
+    """Fontes citadas nos arquivos, mais as dos blocos de documento: só delas se exige o PDF."""
+    usadas = {c.fonte for dado in dados for c in coletar_citacoes(dado, "")}
+    usadas |= {fonte for dado in dados if isinstance(dado, dict) for chave, fonte in DOCUMENTO_DA_FONTE.items() if chave in dado}
+    return usadas
+
+
+def conferir_arquivos(dados: dict[Path, dict], paginas: dict[str, Paginas], hashes: dict[str, str]) -> int:
     falhas = total = 0
-    for arquivo in arquivos:
-        dado = json.loads(arquivo.read_text(encoding="utf-8"))
+    for arquivo, dado in dados.items():
         problemas = checar_plano(dado) if "capitulos" in dado else []
-        sha_doc = dado.get("documento", {}).get("sha256") if isinstance(dado.get("documento"), dict) else None
-        if sha_doc is not None and sha_doc != hash_plano:
-            problemas.append(f"documento.sha256 ({sha_doc}) difere do hash do PDF ({hash_plano})")
+        problemas += checar_documentos(dado, hashes)
         for p in problemas:
             falhas += 1
             print(f"FALHA {arquivo.name}: {p}")
@@ -191,9 +212,9 @@ def conferir_arquivos(arquivos: list[Path], paginas: dict[str, Paginas], hash_pl
     return 1 if falhas else 0
 
 
-def pdf_padrao() -> Path:
+def pdf_padrao(papel: str = "alvo") -> Path:
     cfg = json.loads((RAIZ / "config" / "candidatura.json").read_text(encoding="utf-8"))
-    return RAIZ / "dados" / "fontes" / f"plano-{cfg['alvo']['numero']}.pdf"
+    return RAIZ / "dados" / "fontes" / f"plano-{cfg[papel]['numero']}.pdf"
 
 
 def _argumentos(argv: list[str]) -> argparse.Namespace:
@@ -212,13 +233,18 @@ def principal(argv: list[str]) -> int:
         return _autoteste()
     try:
         exe = achar_pdftotext(args.pdftotext)
-        fontes = {FONTE_PADRAO: args.pdf or pdf_padrao()}
+        arquivos = [Path(a) for a in args.arquivos] or [RAIZ / a for a in CONTEUDO_PADRAO]
+        dados = {a: json.loads(a.read_text(encoding="utf-8")) for a in arquivos}
+        fontes = {fonte: pdf_padrao(papel) for fonte, papel in PAPEL_DA_FONTE.items()}
+        if args.pdf:
+            fontes[FONTE_PADRAO] = args.pdf
         fontes.update({i: Path(p) for i, _, p in (f.partition("=") for f in args.fonte)})
+        usadas = fontes_usadas(list(dados.values()))
+        fontes = {i: p for i, p in fontes.items() if i in usadas}
         for pdf in fontes.values():
             conferir_pdf(pdf)
-        arquivos = [Path(a) for a in args.arquivos] or [RAIZ / a for a in CONTEUDO_PADRAO]
-        hash_plano = sha256_arquivo(fontes[FONTE_PADRAO])
-        return conferir_arquivos(arquivos, {i: Paginas(exe, p) for i, p in fontes.items()}, hash_plano)
+        hashes = {i: sha256_arquivo(p) for i, p in fontes.items()}
+        return conferir_arquivos(dados, {i: Paginas(exe, p) for i, p in fontes.items()}, hashes)
     except (ErroAmbiente, OSError, json.JSONDecodeError) as erro:
         print(f"ERRO: {erro}", file=sys.stderr)
         return 2
@@ -256,6 +282,15 @@ def _autoteste() -> int:
     curto = {"capitulos": [{"chave": "c2", "paginas": [1, 2], "propostas": [{"trecho": "t", "pagina": 1}]}]}
     igual(checar_plano(curto), ["capítulo c2: 1 propostas (o mínimo é 3, o máximo é 6)"], "poucas propostas")
     igual(ler_hash("# comentário\nABCDEF0123  plano.pdf\n# origem: x\n"), "abcdef0123", "lê o hash ignorando comentários")
+    comparacao = {"documentoAdversario": {"sha256": "bb"},
+                  "temas": [{"alvo": {"citacoes": [{"trecho": "a", "pagina": 1}]},
+                             "adversario": {"citacoes": [{"trecho": "b", "pagina": 2, "fonte": "adversario"}]}}]}
+    igual(fontes_usadas([comparacao]), {"plano", "adversario"}, "fontes usadas: citações e bloco de documento")
+    igual(fontes_usadas([{"documento": {"sha256": "aa"}}]), {"plano"}, "só o plano: o PDF do adversário não é exigido")
+    igual(checar_documentos(comparacao, {"adversario": "bb"}), [], "hash do documento do adversário confere")
+    igual(checar_documentos(comparacao, {"adversario": "cc"}),
+          ["documentoAdversario.sha256 (bb) difere do hash do PDF da fonte 'adversario' (cc)"],
+          "hash do documento do adversário diferente")
     igual(motivo_falha(Citacao("o", "a " * 26, 1, "plano"), {"plano": _PaginasFixas("a " * 30)}),
           "26 palavras (máximo 25)", "trecho longo demais")
     igual(motivo_falha(Citacao("o", "a", 1, "outra"), {}), "fonte 'outra' sem PDF configurado", "fonte desconhecida")

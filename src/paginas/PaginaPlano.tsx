@@ -2,6 +2,7 @@
 // por que faz sentido, pergunta para puxar o assunto) e, em cada um, o trecho literal com link para a página do PDF.
 import { plano, type Capitulo } from '../conteudo/conteudo.ts'
 import { dia, textos } from '../conteudo/textos.ts'
+import { AbasDoPlano } from '../componentes/AbasDoPlano.tsx'
 import { CartaoDoPlano } from '../componentes/CartaoDoPlano.tsx'
 import { Rodape } from '../componentes/Moldura.tsx'
 import { NOMES } from '../config.ts'
@@ -47,6 +48,7 @@ export function PaginaPlano({ ancora }: { ancora: string | null }) {
   return (
     <article className="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-8">
       <header className="flex flex-col gap-2">
+        <AbasDoPlano atual="plano" />
         <h1 className="font-titulo text-3xl font-extrabold">{t.titulo(NOMES.alvo)}</h1>
         <p className="text-lg">{t.chamada}</p>
         <p>

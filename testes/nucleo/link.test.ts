@@ -70,6 +70,8 @@ describe('lerHash', () => {
     ['#/mapa/@-25.430,-49.275', { rota: 'mapa', ancora: '@-25.430,-49.275' }],
     ['#/prosa/abstencao', { rota: 'prosa', ancora: 'abstencao' }],
     ['#/plano', { rota: 'plano', ancora: null }],
+    ['#/comparar', { rota: 'comparar', ancora: null }],
+    ['#/comparar/seguranca', { rota: 'comparar', ancora: 'seguranca' }],
     ['#/sobre', { rota: 'sobre', ancora: null }],
     ['#/PROSA', { rota: 'prosa', ancora: null }],
     ['/prosa/nulo', { rota: 'prosa', ancora: 'nulo' }],

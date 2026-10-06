@@ -3,7 +3,7 @@ import type { MouseEvent } from 'react'
 import type { Rota } from '../../nucleo/link.ts'
 import type { IdFase } from '../../nucleo/tipos.ts'
 import { textos } from '../conteudo/textos.ts'
-import { APOIADO, FIM_CONVERSA, ID_CONTEUDO, NOME_SITE, ORDEM_ROTAS } from '../config.ts'
+import { APOIADO, FIM_CONVERSA, ID_CONTEUDO, NOME_SITE, ORDEM_ROTAS, secaoDaRota } from '../config.ts'
 import { hrefDe } from '../rotas.ts'
 import { Icone } from './Icone.tsx'
 
@@ -43,8 +43,8 @@ export function Cabecalho({ rota }: { rota: Rota }) {
               <li key={r}>
                 <a
                   href={hrefDe(r)}
-                  aria-current={r === rota ? 'page' : undefined}
-                  className="flex min-h-11 items-center rounded-lg px-2 py-2 text-[0.95rem] font-bold text-tinta no-underline hover:bg-papel-2 aria-[current=page]:bg-mata aria-[current=page]:text-branco sm:px-3"
+                  aria-current={r === rota ? 'page' : r === secaoDaRota(rota) ? 'true' : undefined}
+                  className="flex min-h-11 items-center rounded-lg px-2 py-2 text-[0.95rem] font-bold text-tinta no-underline hover:bg-papel-2 aria-[current]:bg-mata aria-[current]:text-branco sm:px-3"
                 >
                   {textos.navegacao.rotas[r]}
                 </a>

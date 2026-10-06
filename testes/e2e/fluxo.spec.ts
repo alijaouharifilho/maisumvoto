@@ -16,6 +16,7 @@ const CSP = (JSON.parse(readFileSync(join(RAIZ, 'deploy', 'cabecalhos-seguranca.
 const cfg = JSON.parse(readFileSync(join(RAIZ, 'config', 'candidatura.json'), 'utf8')) as {
   site: { nome: string }
   alvo: { nomeCurto: string }
+  adversario: { nomeCurto: string }
 }
 const RE_LINK = /#\/mapa\/@(-?\d{1,2}\.\d{3}),(-?\d{1,2}\.\d{3})$/
 
@@ -219,5 +220,29 @@ test('plano: um cartão por proposta, com número, fonte e pergunta; o trecho li
   const link = cartao.getByRole('link', { name: new RegExp(`^${textos.paginas.plano.pagina(primeira.pagina)}`) })
   await expect(link).toBeVisible()
   await expect(link).toHaveAttribute('href', new RegExp(`#page=${primeira.pagina}$`))
+  expect(erros, erros.join('\n')).toEqual([])
+})
+
+test('comparar: a aba do plano leva à comparação, com os dois lados de cada assunto e o link da página de cada PDF', async ({ page }) => {
+  const erros = vigiarConsole(page)
+  await aplicarCsp(page)
+  const comparacao = JSON.parse(readFileSync(join(RAIZ, 'src', 'conteudo', 'comparacao.json'), 'utf8')) as {
+    documentoAdversario: { url: string }
+    temas: { titulo: string; adversario: { citacoes: { pagina: number }[] } }[]
+  }
+  const [tema] = comparacao.temas
+  const [citacao] = tema?.adversario.citacoes ?? []
+  if (tema === undefined || citacao === undefined) throw new Error('comparação sem assunto ou sem trecho')
+
+  await page.goto('/#/plano')
+  await page.getByRole('link', { name: textos.paginas.abasPlano.comparar }).click()
+  await expect(page).toHaveURL(/#\/comparar$/)
+  await expect(page.getByRole('heading', { level: 1, name: textos.paginas.comparar.titulo })).toBeVisible()
+  await expect(page.getByRole('region')).toHaveCount(comparacao.temas.length)
+
+  const bloco = page.getByRole('region', { name: tema.titulo })
+  const nome = `${textos.paginas.plano.pagina(citacao.pagina)} ${textos.paginas.comparar.paginaComplemento(cfg.adversario.nomeCurto)}`
+  const link = bloco.getByRole('link', { name: new RegExp(`^${nome}`) }).first()
+  await expect(link).toHaveAttribute('href', `${comparacao.documentoAdversario.url}#page=${citacao.pagina}`)
   expect(erros, erros.join('\n')).toEqual([])
 })

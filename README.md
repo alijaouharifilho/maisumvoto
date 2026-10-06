@@ -2,13 +2,13 @@
 
 Mapa para conversar com quem ainda pode decidir o 2º turno de 2026. Para qualquer ponto do país, o site mostra
 quantas pessoas votam ali que **não votaram em nenhum dos dois finalistas** no 1º turno (abstenção, brancos, nulos
-e eleitores de outros candidatos), como foi a disputa em cada local de votação e o que conversar, com propostas do
+e eleitores de outros candidatos), o resultado de cada local de votação e o que conversar, com propostas do
 plano de governo citadas ao pé da letra.
 
 Site independente de apoio ao candidato definido em `config/candidatura.json`. Não é o site oficial de nenhuma
 campanha, candidato ou partido. Dados públicos do Tribunal Superior Eleitoral.
 
-**No ar:** https://maisumvoto2026.vercel.app
+**No ar:** https://maisumvoto.vercel.app
 
 ## Como funciona
 
@@ -20,9 +20,9 @@ campanha, candidato ou partido. Dados públicos do Tribunal Superior Eleitoral.
    locais num raio de 1 km do ponto escolhido, calcula o "até" (quantas pessoas, no máximo, dá para chamar para a
    conversa), a disputa e a lista de locais. O mapa usa MapLibre com tiles do OpenFreeMap.
 3. **Conteúdo** (`src/conteudo/`). Roteiros de conversa e cartões do plano de governo: cada proposta em uma frase,
-   um número oficial com fonte, por que faz sentido e uma pergunta para puxar o assunto. Todo trecho do plano é
-   conferido contra o PDF registrado no TSE, e todos os textos passam pela aprovação do responsável
-   (`src/conteudo/APROVACAO.md`).
+   um número oficial com fonte, por que faz sentido e uma pergunta para puxar o assunto; e uma comparação, por
+   assunto, entre os planos dos dois finalistas. Todo trecho citado é conferido contra o PDF registrado no TSE, e
+   todos os textos passam pela aprovação do responsável (`src/conteudo/APROVACAO.md`).
 4. **Publicação** (Vercel). Cada push no `main` publica, desde que a trava de produção deixe (ver abaixo).
 
 ## Estrutura

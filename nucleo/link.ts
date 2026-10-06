@@ -1,8 +1,8 @@
 // Link compartilhável por hash (CONTRATO §1): #/<rota>/<âncora>, com o ponto arredondado à grade.
 
-export type Rota = 'mapa' | 'prosa' | 'plano' | 'sobre'
+export type Rota = 'mapa' | 'prosa' | 'plano' | 'comparar' | 'sobre'
 
-export const ROTAS: readonly Rota[] = ['mapa', 'prosa', 'plano', 'sobre']
+export const ROTAS: readonly Rota[] = ['mapa', 'prosa', 'plano', 'comparar', 'sobre']
 export const ROTA_PADRAO: Rota = 'mapa'
 
 // Caixa do Brasil: fora dela a âncora é ignorada.

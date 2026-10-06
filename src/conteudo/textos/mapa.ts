@@ -22,10 +22,10 @@ export const abertura = {
   selo: (dia2T: string) => `2º turno: ${dia2T}`,
   titulo: (nomeSite: string) => `${nomeSite} começa numa conversa`,
   chamada: (alvo: string, fimConversa: string) =>
-    `Muita gente não votou em nenhum dos dois finalistas no 1º turno. Escolha um ponto e veja quantas delas votam ali, como foi a disputa e que assunto do plano de ${alvo} puxar. Conversa de vizinho para vizinho, até ${fimConversa}.`,
+    `Muita gente não votou em nenhum dos dois finalistas no 1º turno. Escolha um ponto e veja quantas dessas pessoas votam ali, qual foi o resultado e que assunto do plano de ${alvo} puxar. Conversa de vizinho para vizinho, até ${fimConversa}.`,
   /** Fases fechadas (pausa, votação, encerrada): sem convite para conversar, só consulta. */
   chamadaConsulta: (fimConversa: string) =>
-    `Aqui ficam, para consulta, os números do 1º turno: onde votam as pessoas que não votaram em nenhum dos dois finalistas e como foi a disputa em cada local. A conversa terminou ${naData(fimConversa)}.`,
+    `Aqui ficam, para consulta, os números do 1º turno: onde votam as pessoas que não votaram em nenhum dos dois finalistas e o resultado de cada local. A conversa terminou ${naData(fimConversa)}.`,
   brasilAte: 'pessoas no Brasil não votaram em nenhum dos dois finalistas no 1º turno',
   brasilViraveis: 'pontos do mapa (locais de votação) onde, em tese, dá para virar',
   notaViraveis: (nomes: Nomes, regra: RegraViravel) =>
@@ -121,7 +121,7 @@ export const alvoAqui = {
   valor: (fracao: number, votosAlvo: number) => `${porcento(fracao)} dos votos válidos (${votos(votosAlvo)})`,
   notaValidos: 'Votos válidos são os dados a algum candidato. Brancos e nulos ficam de fora.',
   notaFolga: (alvo: string, limiar: number) =>
-    `Aqui, ${alvo} teve ${porcento(limiar)} ou mais dos votos válidos. A conversa costuma render mais onde a disputa está apertada: vale olhar os locais vizinhos.`,
+    `Aqui, ${alvo} teve ${porcento(limiar)} ou mais dos votos válidos. A conversa costuma render mais onde o resultado foi mais equilibrado: vale olhar os locais vizinhos.`,
   ariaBarra: (alvo: string, fracao: number) => `${alvo}: ${porcento(fracao)} dos votos válidos. A marca do meio é 50%.`,
 } as const
 
@@ -151,7 +151,7 @@ export const disputa: Record<Classificacao, (p: DadosDisputa) => string> = {
   empate: (p) =>
     `Empate: ${votos(p.votosAlvo)} para cada um. E ${ficouFora(p.reservatorio, p.regra)}. Aqui, cada conversa pode desempatar.`,
   folga: (p) =>
-    `${p.nomes.alvo} ficou bem à frente: ${placar(p, true)}. A vantagem é confortável; a conversa pode render mais onde a disputa está apertada.`,
+    `${p.nomes.alvo} ficou bem à frente: ${placar(p, true)}. A vantagem é confortável; a conversa pode render mais onde o resultado foi mais equilibrado.`,
   aDefender: (p) =>
     `${p.nomes.alvo} ficou à frente por ${diferenca(p)} (${placar(p, true)}). Mas ${ficouFora(p.reservatorio, p.regra)}, mais do que essa diferença. Aqui, conversar é cuidar da vantagem.`,
   alvoNaFrente: (p) =>
@@ -159,7 +159,7 @@ export const disputa: Record<Classificacao, (p: DadosDisputa) => string> = {
   aVirar: (p) =>
     `${p.nomes.adversario} ficou à frente por ${diferenca(p)} (${placar(p, false)}). Como ${ficouFora(p.reservatorio, p.regra)}, mais do que essa diferença, em tese dá para virar. É um teto, não uma previsão.`,
   dificil: (p) =>
-    `${p.nomes.adversario} ficou à frente por ${diferenca(p)} (${placar(p, false)}), ${igualOuMaior(p) ? 'o mesmo número de' : 'mais do que as'} pessoas que ficaram fora dos dois (${numero(p.reservatorio)}). Virar aqui é difícil, mas para presidente todo voto soma no total do país.`,
+    `${p.nomes.adversario} ficou à frente por ${diferenca(p)} (${placar(p, false)}), ${igualOuMaior(p) ? 'o mesmo número de' : 'mais do que as'} pessoas que ficaram fora dos dois (${numero(p.reservatorio)}). Mesmo assim, para presidente, todo voto soma no total do país.`,
 }
 
 export const lista = {
@@ -168,7 +168,7 @@ export const lista = {
   perto: 'Mais gente',
   porBairro: 'Por bairro',
   raio: (raio: string) => `Num raio de ${raio}`,
-  legendaComResultado: 'Cor: quem ficou à frente no 1º turno. Miolo: onde a conversa pode mudar o lado.',
+  legendaComResultado: 'Cor: quem ficou à frente no 1º turno. Miolo: onde, em tese, o resultado pode mudar.',
   legendaSemResultado: 'Sem resultado ainda',
   itemDetalhe: (partes: { bairro: string; distancia: string; eleitores: number; alvo: string; fracaoAlvo: number | null }) =>
     [partes.bairro, partes.distancia, contagem(partes.eleitores, 'pessoa', 'pessoas'),

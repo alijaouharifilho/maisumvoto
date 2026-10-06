@@ -19,16 +19,26 @@ function proximo(n: Nivel): Nivel {
   return n === 2 ? 3 : 4
 }
 
-export function CitacaoDoPlano({ citacao }: { citacao: Citacao }) {
+type PropsCitacao = {
+  citacao: Citacao
+  /** Endereço da página citada; o padrão é o PDF do plano do candidato apoiado. */
+  href?: string
+  /** Lido só pelo leitor de tela depois de "p. N" (de qual documento é a página). */
+  complemento?: string
+  /** Classe da cor da barra lateral. */
+  borda?: string
+}
+
+export function CitacaoDoPlano({ citacao, href, complemento = t.plano.paginaComplemento, borda = 'border-mata' }: PropsCitacao) {
   return (
-    <figure className="flex flex-col gap-1 border-l-4 border-mata pl-3">
+    <figure className={`flex flex-col gap-1 border-l-4 ${borda} pl-3`}>
       <blockquote className="italic">“{citacao.trecho}”</blockquote>
       <figcaption className="text-sm">
-        <a href={linkPagina(citacao.pagina)} target="_blank" rel="noopener noreferrer" className="inline-block py-1">
+        <a href={href ?? linkPagina(citacao.pagina)} target="_blank" rel="noopener noreferrer" className="inline-block py-1">
           {t.plano.pagina(citacao.pagina)}
           <span className="sr-only">
             {' '}
-            {t.plano.paginaComplemento} {textos.acessibilidade.novaAba}
+            {complemento} {textos.acessibilidade.novaAba}
           </span>
         </a>
       </figcaption>

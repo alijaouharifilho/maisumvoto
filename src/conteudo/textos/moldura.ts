@@ -13,7 +13,7 @@ export function naData(data: string): string {
 export const meta = {
   titulo: (nomeSite: string) => `${nomeSite}: mapa para conversar antes do 2º turno`,
   descricao: (apoiado: Apoiado) =>
-    `Escolha um ponto no mapa e veja onde votam pessoas que não votaram em nenhum dos dois finalistas no 1º turno, como foi a disputa ali e o que conversar. Site independente de apoio a ${apoiado.nome} (${apoiado.numero}); não é oficial.`,
+    `Escolha um ponto no mapa e veja onde votam pessoas que não votaram em nenhum dos dois finalistas no 1º turno, qual foi o resultado ali e o que conversar. Site independente de apoio a ${apoiado.nome} (${apoiado.numero}); não é oficial.`,
   ogTitulo: (nomeSite: string) => `${nomeSite}: uma conversa de cada vez`,
   /** Vai também no index.html estático (robôs de prévia não rodam JS): sem nome, mas dizendo que é de apoio e não
    *  é oficial (item A4 do checklist; testes/front/identidade.test.ts confere a igualdade). */
@@ -78,7 +78,7 @@ export const compartilhar = {
       m.ate === undefined
         ? 'Achei um mapa que mostra onde votam pessoas que não votaram em nenhum dos dois finalistas no 1º turno.'
         : `Perto deste ponto, até ${contagem(m.ate, 'pessoa', 'pessoas')} ${plural(m.ate, 'não votou', 'não votaram')} em nenhum dos dois finalistas no 1º turno.`,
-      `O ${m.nomeSite} mostra esses lugares, como foi a disputa em cada um e o que conversar, com trechos do plano de ${m.alvo}. Site independente de apoio a ${m.alvo}, não é oficial.`,
+      `O ${m.nomeSite} mostra esses lugares, o resultado de cada um e o que conversar, com trechos do plano de ${m.alvo}. Site independente de apoio a ${m.alvo}, não é oficial.`,
       m.link,
       'Se for repassar: só para quem topar, sem adicionar ninguém a grupo e sem envio em massa.',
     ].join('\n\n'),
@@ -143,6 +143,25 @@ export const paginas = {
     paginaComplemento: 'do plano no PDF do TSE',
     pdfCompleto: 'Ler o plano completo (PDF do TSE)',
     conferido: (data: string) => `Trechos conferidos página a página contra o PDF ${naData(data)}.`,
+  },
+  /** As duas páginas da seção "Plano": as propostas do candidato apoiado e a comparação entre os planos. */
+  abasPlano: {
+    rotulo: 'Páginas do plano',
+    propostas: (alvo: string) => `Propostas de ${alvo}`,
+    comparar: 'Comparar os planos',
+  },
+  comparar: {
+    titulo: 'Os dois planos, lado a lado',
+    chamada: (n: Nomes) =>
+      `Os mesmos assuntos nos planos que ${n.alvo} e ${n.adversario} registraram no TSE. Para cada lado, um resumo e o trecho do próprio plano, com a página.`,
+    indice: 'Assuntos',
+    planoDe: (nome: string) => `Plano de ${nome}`,
+    pdfDe: (nome: string) => `Plano de ${nome} (PDF do TSE)`,
+    emComum: 'Em comum:',
+    diferenca: 'A diferença:',
+    /** Completa "p. N" só para o leitor de tela (WCAG 2.5.3: o nome do link começa pelo texto visível). */
+    paginaComplemento: (nome: string) => `do plano de ${nome} no PDF do TSE`,
+    conferido: (data: string) => `Trechos dos dois planos conferidos página a página contra os PDFs ${naData(data)}.`,
   },
   sobre: {
     titulo: 'Sobre',

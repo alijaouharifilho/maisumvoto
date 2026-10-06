@@ -1,4 +1,4 @@
-// Moldura do site e roteamento por hash. Conversa, Plano, Sobre e a Ficha são carregados sob demanda.
+// Moldura do site e roteamento por hash. Conversa, Plano, Comparar, Sobre e a Ficha são carregados sob demanda.
 import { lazy, Suspense, useEffect, useRef } from 'react'
 import { textos } from './conteudo/textos.ts'
 import { Carregando } from './componentes/Estados.tsx'
@@ -17,13 +17,14 @@ import type { IdFase } from '../nucleo/tipos.ts'
 
 const PaginaProsa = lazy(() => import('./paginas/PaginaProsa.tsx').then((m) => ({ default: m.PaginaProsa })))
 const PaginaPlano = lazy(() => import('./paginas/PaginaPlano.tsx').then((m) => ({ default: m.PaginaPlano })))
+const PaginaComparar = lazy(() => import('./paginas/PaginaComparar.tsx').then((m) => ({ default: m.PaginaComparar })))
 const PaginaSobre = lazy(() => import('./paginas/PaginaSobre.tsx').then((m) => ({ default: m.PaginaSobre })))
 
 /** Título da aba por página: quem usa leitor de tela ouve a página nova ao trocar pelo menu. */
 function tituloDaRota(rota: Rota): string {
   const p = textos.paginas
   if (rota === 'mapa') return textos.meta.titulo(NOME_SITE)
-  const pagina = rota === 'prosa' ? p.prosa.titulo : rota === 'plano' ? p.plano.titulo(NOMES.alvo) : p.sobre.titulo
+  const pagina = { prosa: p.prosa.titulo, plano: p.plano.titulo(NOMES.alvo), comparar: p.comparar.titulo, sobre: p.sobre.titulo }[rota]
   return `${pagina} · ${NOME_SITE}`
 }
 
@@ -64,6 +65,7 @@ function Conteudo({ rota, fase, estadoMapa }: PropsConteudo) {
   if (rota.rota === 'mapa') return votacao ? <VotacaoHoje /> : <PaginaMapa estado={estadoMapa} />
   if (rota.rota === 'prosa') return votacao ? <VotacaoHoje /> : <PaginaProsa ancora={rota.ancora} />
   if (rota.rota === 'plano') return <PaginaPlano ancora={rota.ancora} />
+  if (rota.rota === 'comparar') return <PaginaComparar ancora={rota.ancora} />
   return <PaginaSobre ancora={rota.ancora} />
 }
 

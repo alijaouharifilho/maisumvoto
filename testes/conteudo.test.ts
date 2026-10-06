@@ -15,6 +15,7 @@ import {
   valoresDoModelo,
   type ValoresModelo,
 } from '../src/conteudo/modelo.ts'
+import { comparacao } from '../src/conteudo/comparacao.ts'
 import planoJson from '../src/conteudo/plano.json' with { type: 'json' }
 import roteirosJson from '../src/conteudo/roteiros.json' with { type: 'json' }
 import { dataHora, dia, prazo, textos } from '../src/conteudo/textos.ts'
@@ -221,6 +222,58 @@ describe('cartões de conversa do plano (simples e com fonte)', () => {
   it('cada pergunta para puxar conversa é diferente das outras', () => {
     const perguntas = cartoes.map((c) => c.paraPuxar)
     expect(new Set(perguntas).size).toBe(perguntas.length)
+  })
+})
+
+describe('comparação entre os planos (mesmos assuntos, os dois lados com trecho do próprio plano)', () => {
+  const palavras = (s: string): number => s.trim().split(/\s+/).length
+  // Os textos nossos citam os candidatos por {{alvo.nomeCurto}} e {{adversario.nomeCurto}}: confere já preenchido.
+  const { documentoAdversario: doc, temas } = preencherTudo(comparacao, valores())
+  // A comparação descreve propostas: sem dizer qual é melhor e sem palavra de ataque, nos textos nossos.
+  const JULGAMENTO = /\b(melhor|pior|fracass\w*|desastr\w*|mentir\w*|mentiros\w*|vergonh\w*|absurd\w*|perigos\w*|radica\w*|extremis\w*|culpa\w*)\b/i
+
+  it('o PDF do outro plano é o registrado em dados/fontes (mesmo SHA-256) e fica no site do TSE', () => {
+    const registrado = readFileSync(join(import.meta.dirname, '..', 'dados', 'fontes', `plano-${candidatura.adversario.numero}.sha256`), 'utf8')
+    expect(registrado.split(/\s+/)[0]).toBe(doc.sha256)
+    expect(registrado).toContain(doc.url)
+    const url = new URL(doc.url)
+    expect(url.protocol).toBe('https:')
+    expect(url.hostname.endsWith('tse.jus.br')).toBe(true)
+    expect(doc.conferidoEm).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+  })
+
+  it('usa só chaves de modelo conhecidas e fica sem {{ depois de preenchida', () => {
+    expect(chavesDesconhecidas(JSON.stringify(comparacao))).toEqual([])
+    expect(JSON.stringify(temas)).not.toContain('{{')
+  })
+
+  it('assuntos com chave única, que serve de âncora no link (#/comparar/<chave>)', () => {
+    expect(temas.length).toBeGreaterThanOrEqual(4)
+    expect(new Set(temas.map((t) => t.chave)).size).toBe(temas.length)
+    for (const t of temas) expect(t.chave).toMatch(/^[a-z0-9-]+$/)
+  })
+
+  it.each(temas.map((t) => [t.titulo, t] as const))('“%s”: resumos curtos, trecho dos dois lados, sem julgamento', (_titulo, t) => {
+    expect(palavras(t.pergunta)).toBeLessThanOrEqual(20)
+    expect(palavras(t.diferenca)).toBeLessThanOrEqual(45)
+    if (t.emComum !== null) expect(palavras(t.emComum)).toBeLessThanOrEqual(35)
+    for (const lado of [t.alvo, t.adversario]) {
+      expect(palavras(lado.resumo)).toBeLessThanOrEqual(40)
+      expect(lado.citacoes.length).toBeGreaterThan(0)
+    }
+    for (const c of t.alvo.citacoes) {
+      expect(c.fonte ?? 'plano').toBe('plano')
+      expect(c.pagina >= 1 && c.pagina <= planoJson.documento.paginas, `p. ${c.pagina}`).toBe(true)
+    }
+    for (const c of t.adversario.citacoes) {
+      expect(c.fonte).toBe('adversario')
+      expect(c.pagina >= 1 && c.pagina <= doc.paginas, `p. ${c.pagina}`).toBe(true)
+    }
+    for (const texto of [t.titulo, t.pergunta, t.alvo.resumo, t.adversario.resumo, t.diferenca, t.emComum ?? 'ok']) {
+      expect(texto.trim().length).toBeGreaterThan(0)
+      expect(texto).not.toMatch(BURACO)
+      expect(texto).not.toMatch(JULGAMENTO)
+    }
   })
 })
 

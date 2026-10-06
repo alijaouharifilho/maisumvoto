@@ -16,7 +16,7 @@
   --color-petroleo: oklch(42% 0.070 220);      /* #115667 informação, legendas */
   --color-petroleo-claro: oklch(93% 0.025 220);/* #d7ecf4 caixas "de onde vem o dado" */
   --color-alerta: oklch(52% 0.190 28);         /* #be241f só erros */
-  --color-adversario: oklch(55% 0.200 25);     /* #cc272e bolinha do mapa: adversário à frente no local */
+  --color-adversario: oklch(55% 0.200 25);     /* #cc272e adversário: bolinha do mapa e o lado dele na comparação */
   --color-branco: #ffffff;
 
   --font-*: initial;

@@ -10,7 +10,7 @@ O site não tem anúncios, não aceita doações e não paga para aparecer em re
 
 ## Para que serve
 
-Você escolhe um ponto no mapa. O site mostra onde votam, ali perto, pessoas que no 1º turno não votaram em nenhum dos dois finalistas, como foi a disputa em cada local e que assunto puxar.
+Você escolhe um ponto no mapa. O site mostra onde votam, ali perto, pessoas que no 1º turno não votaram em nenhum dos dois finalistas, o resultado de cada local e que assunto puxar.
 
 A ideia é conversa pessoal, de vizinho para vizinho, com respeito. A conversa vai até {{fimConversa}}. No dia da votação, o site fica só para consulta.
 

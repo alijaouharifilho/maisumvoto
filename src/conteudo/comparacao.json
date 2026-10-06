@@ -1,0 +1,362 @@
+{
+  "esquema": 1,
+  "documentoAdversario": {
+    "descricao": "Plano de governo do candidato nº 13 a Presidente (Eleições 2026), registrado no TSE",
+    "url": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/arquivos/proposta-pt/@@display-file/file/proposta-pt.pdf",
+    "sha256": "e1c162c20c81dafadf69b10bab230b5a6dc48f6b6c27c2cfce853b131a8bcc36",
+    "paginas": 84,
+    "conferidoEm": "2026-10-06"
+  },
+  "temas": [
+    {
+      "chave": "seguranca",
+      "titulo": "Segurança pública",
+      "pergunta": "O que cada plano propõe para a segurança pública?",
+      "alvo": {
+        "resumo": "Declarar as facções organizações narcoterroristas, reduzir a maioridade penal para 16 anos, criar presídios de segurança máxima e dobrar o investimento federal na área.",
+        "citacoes": [
+          {
+            "trecho": "PCC, CV, milícias e todas as outras facções serão declaradas como organizações narcoterroristas.",
+            "pagina": 13
+          },
+          {
+            "trecho": "O novo governo do Brasil vai apoiar e sancionar a redução da maioridade penal de 18 para 16 anos.",
+            "pagina": 13
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Aprovada a PEC, criar o Ministério da Segurança Pública, integrar União, estados e municípios, asfixiar financeiramente o crime organizado e manter o controle de armas.",
+        "citacoes": [
+          {
+            "trecho": "Uma vez aprovada a PEC da Segurança Pública proposta pelo Executivo, criaremos o Ministério da Segurança Pública para coordenar, em articulação com estados e municípios",
+            "pagina": 30,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "Manteremos a estratégia de asfixia financeira do crime organizado por meio de ações articuladas",
+            "pagina": 27,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois propõem atacar as finanças do crime organizado, isolar seus chefes nos presídios e agir com estados e municípios.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} prioriza penas mais duras e presídios de segurança máxima; o de {{adversario.nomeCurto}}, coordenação federal, controle de armas e prevenção da violência."
+    },
+    {
+      "chave": "saude",
+      "titulo": "Saúde",
+      "pergunta": "O que cada plano propõe para a saúde?",
+      "alvo": {
+        "resumo": "Implantar prontuário único, usar inteligência artificial no agendamento, buscar corrigir a tabela SUS, ampliar a Saúde da Família e contratar exames na rede privada.",
+        "citacoes": [
+          {
+            "trecho": "Vamos garantir as condições para que seja possível a correção efetiva da tabela SUS.",
+            "pagina": 37
+          },
+          {
+            "trecho": "vamos completar a digitalização do SUS e usar inteligência artificial para agilizar o agendamento de consultas e exames",
+            "pagina": 26
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Impulsionar o Agora Tem Especialistas, manter a Farmácia Popular gratuita, incluindo exames, adotar fila única digital por risco clínico e acelerar o prontuário único.",
+        "citacoes": [
+          {
+            "trecho": "As ações do Agora Tem Especialistas serão ainda mais impulsionadas.",
+            "pagina": 37,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "Aprimoraremos ainda mais a regulação do acesso à atenção especializada, garantindo maior transparência das filas e utilizando inteligência artificial, com fila única digital",
+            "pagina": 38,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois propõem prontuário único, inteligência artificial nas filas e exames da rede privada para o SUS.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} destaca a correção da tabela SUS e a prevenção; o de {{adversario.nomeCurto}}, a expansão de programas atuais, como Agora Tem Especialistas e Farmácia Popular."
+    },
+    {
+      "chave": "educacao",
+      "titulo": "Educação",
+      "pergunta": "O que cada plano propõe para a educação?",
+      "alvo": {
+        "resumo": "Alfabetizar pelo método fônico, vincular verbas a metas de aprendizagem, ampliar escolas cívico-militares, dar voucher onde faltar vaga pública e expandir o ensino técnico.",
+        "citacoes": [
+          {
+            "trecho": "Vamos priorizar o método fônico, que é o de melhor resultado comprovado pela ciência, ensinando a criança a ligar cada som à sua letra",
+            "pagina": 35
+          },
+          {
+            "trecho": "Vamos ampliar as Escolas Cívico-Militares",
+            "pagina": 35
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Buscar 80% das crianças alfabetizadas na idade certa, priorizar o tempo integral, expandir institutos federais, fortalecer o Pé-de-Meia e manter o piso do magistério.",
+        "citacoes": [
+          {
+            "trecho": "O fomento à expansão da educação em tempo integral terá absoluta prioridade no novo mandato.",
+            "pagina": 31,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "Vamos dar continuidade e fortalecer o Pé-de-Meia.",
+            "pagina": 32,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois apoiam escola em tempo integral, alfabetização na idade certa, mais creches e mais ensino técnico.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} propõe método fônico, escolas cívico-militares, verba por resultado e voucher onde faltar vaga; o de {{adversario.nomeCurto}}, fortalecer programas federais, como Pé-de-Meia e institutos federais."
+    },
+    {
+      "chave": "trabalho",
+      "titulo": "Trabalho e emprego",
+      "pergunta": "O que cada plano propõe para o trabalho e o emprego?",
+      "alvo": {
+        "resumo": "Reduzir o custo do trabalho sem retirar direitos, criar contratos para jovens e pessoas com 50 anos ou mais e defender negociado sobre legislado.",
+        "citacoes": [
+          {
+            "trecho": "Vamos reduzir gradualmente o custo do trabalho, sem retirar direitos, para que mais brasileiros tenham carteira assinada",
+            "pagina": 43
+          },
+          {
+            "trecho": "defendemos o negociado sobre o legislado, ou seja, permitir que trabalhador e empresa combinem diretamente as condições de trabalho que funcionam para os dois",
+            "pagina": 44
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Manter a valorização do salário mínimo, apoiar o fim da escala 6x1 com 40 horas sem redução salarial e regular o trabalho por plataformas digitais.",
+        "citacoes": [
+          {
+            "trecho": "assegurar o fim da escala 6x1 e a redução da jornada de trabalho para 40 horas, sem redução salarial",
+            "pagina": 75,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "o novo mandato de Lula dará continuidade à política de valorização do salário mínimo como meio estratégico de distribuição de renda",
+            "pagina": 74,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois prometem proteção a trabalhadores de aplicativos e uma plataforma nacional de vagas de emprego.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} prioriza custo menor para contratar e acordos diretos com a empresa; o de {{adversario.nomeCurto}}, o fim da escala 6x1 e a negociação coletiva."
+    },
+    {
+      "chave": "programas-sociais",
+      "titulo": "Combate à pobreza e programas sociais",
+      "pergunta": "O que cada plano propõe para os programas sociais?",
+      "alvo": {
+        "resumo": "Manter os programas sociais combatendo fraudes, dar prioridade aos beneficiários em qualificação e emprego e garantir a volta sem fila ao benefício após o seguro-desemprego.",
+        "citacoes": [
+          {
+            "trecho": "vamos manter os programas sociais existentes, com aperfeiçoamento da gestão, correção de distorções e combate às fraudes.",
+            "pagina": 42
+          },
+          {
+            "trecho": "o beneficiário de programa social terá prioridade em todas as ações do Estado voltadas ao trabalho",
+            "pagina": 43
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Manter, aperfeiçoar e ampliar a proteção social, fortalecer a assistência social (SUAS), dar escala à Política Nacional de Cuidados e enfrentar a pobreza infantil.",
+        "citacoes": [
+          {
+            "trecho": "devemos manter, aperfeiçoar e ampliar as políticas de proteção social para quem mais necessita.",
+            "pagina": 18,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "Continuaremos buscando ampliar e fortalecer as políticas para nossas crianças, por meio do enfrentamento da pobreza infantil",
+            "pagina": 24,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois prometem manter e aperfeiçoar os programas sociais.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} foca em levar beneficiários ao trabalho, com prioridade em qualificação e emprego; o de {{adversario.nomeCurto}}, em ampliar a rede de proteção social e de cuidados."
+    },
+    {
+      "chave": "custo-de-vida",
+      "titulo": "Impostos e custo de vida",
+      "pergunta": "O que cada plano propõe para impostos e custo de vida?",
+      "alvo": {
+        "resumo": "Rever a reforma tributária para reduzir o IVA, cortar impostos sobre energia e combustíveis, simplificar a conta de luz e baratear o frete.",
+        "citacoes": [
+          {
+            "trecho": "reduzir o IVA, hoje projetado num dos patamares mais altos do mundo",
+            "pagina": 30
+          },
+          {
+            "trecho": "Vamos reduzir impostos sobre energia elétrica e combustíveis",
+            "pagina": 31
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Manter a inflação sob controle, com renda crescendo acima do custo de vida, consolidar a reforma tributária, buscar justiça tributária e debater energia mais barata.",
+        "citacoes": [
+          {
+            "trecho": "Manteremos a inflação sob controle de forma duradoura e sustentável, garantindo que a renda real da população cresça acima do custo de vida.",
+            "pagina": 49,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "Nosso desafio é sustentar taxas robustas de crescimento, ampliar os investimentos, elevar a produtividade e consolidar os avanços promovidos pela reforma tributária",
+            "pagina": 48,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois tratam do endividamento das famílias e propõem conter gastos com apostas on-line.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} propõe rever a reforma tributária para cortar impostos sobre consumo, luz e combustíveis; o de {{adversario.nomeCurto}}, consolidar a reforma já aprovada, com justiça tributária."
+    },
+    {
+      "chave": "moradia",
+      "titulo": "Moradia",
+      "pergunta": "O que cada plano propõe para a moradia?",
+      "alvo": {
+        "resumo": "Retomar o Casa Verde e Amarela com meta de 2,5 milhões de moradias, dar escritura a quem já mora e acelerar concessões de saneamento.",
+        "citacoes": [
+          {
+            "trecho": "Vamos retomar o Casa Verde e Amarela, com meta de 2,5 milhões de residências e a menor taxa de juros possível no financiamento.",
+            "pagina": 47
+          },
+          {
+            "trecho": "Vamos promover a urbanização de áreas degradadas, evitando o risco de deslizamentos em encostas, e incentivar a regularização fundiária",
+            "pagina": 47
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Manter e ampliar o Minha Casa Minha Vida para todas as faixas, com foco na baixa renda, usar terrenos da União e urbanizar favelas.",
+        "citacoes": [
+          {
+            "trecho": "O MCMV será mantido e ampliado no próximo mandato, para todas as faixas de renda e preservando seu foco nas famílias de mais baixa renda.",
+            "pagina": 45,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "Continuaremos, no próximo mandato, a perseguir o objetivo de apoiar estados e municípios a universalizar acesso à água tratada e ao esgotamento sanitário",
+            "pagina": 46,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois propõem programa habitacional federal, regularização fundiária, urbanização de favelas e áreas degradadas, e saneamento universal.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} retoma o Casa Verde e Amarela, com escrituras e parcerias privadas; o de {{adversario.nomeCurto}} amplia o Minha Casa Minha Vida, com terrenos da União."
+    },
+    {
+      "chave": "meio-ambiente",
+      "titulo": "Meio ambiente",
+      "pergunta": "O que cada plano propõe para o meio ambiente?",
+      "alvo": {
+        "resumo": "Zerar o desmatamento ilegal até 2029, fiscalizar com satélite e inteligência artificial, ampliar o pagamento por serviços ambientais e tratar o produtor legal como parceiro.",
+        "citacoes": [
+          {
+            "trecho": "Teremos a meta de zerar o desmatamento ilegal até 2029",
+            "pagina": 58
+          },
+          {
+            "trecho": "Vamos criar mecanismos de incentivo econômico à preservação, ampliando o pagamento por serviços ambientais",
+            "pagina": 57
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Buscar desmatamento líquido zero até 2030, cumprir a nova meta climática (NDC), ampliar o financiamento climático e fiscalizar com satélite e inteligência artificial.",
+        "citacoes": [
+          {
+            "trecho": "No próximo mandato, continuaremos trabalhando para alcançar o desmatamento líquido zero até 2030, meta que reafirmamos.",
+            "pagina": 70,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "Vamos expandir monitoramento satelital e uso de inteligência artificial no combate a crimes ambientais.",
+            "pagina": 72,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois propõem fiscalização com satélite e inteligência artificial, pagamento por serviços ambientais e mercado regulado de carbono.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} mira o desmatamento ilegal zero até 2029, sem novas exigências ao produtor legal; o de {{adversario.nomeCurto}}, o desmatamento líquido zero até 2030 e metas climáticas."
+    },
+    {
+      "chave": "mulheres",
+      "titulo": "Mulheres",
+      "pergunta": "O que cada plano propõe para as mulheres?",
+      "alvo": {
+        "resumo": "Abrir Centrais da Mulher, criar a assistente virtual ClarIA, monitorar agressores com tornozeleira, oferecer capacitação gratuita e garantir creche ou voucher-creche.",
+        "citacoes": [
+          {
+            "trecho": "A Central da Mulher será um espaço físico onde a mulher resolve a vida sem perder tempo nem percorrer a cidade inteira.",
+            "pagina": 17
+          },
+          {
+            "trecho": "Pelo chat da ClarIA será possível registrar ocorrência, pedir medida protetiva e receber orientação e acolhimento.",
+            "pagina": 19
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Manter o Pacto de Enfrentamento ao Feminicídio, concluir 30 Casas da Mulher Brasileira, distribuir kits para monitorar agressores e reforçar a Lei da Igualdade Salarial.",
+        "citacoes": [
+          {
+            "trecho": "concluiremos as 30 Casas da Mulher Brasileira e os 15 Centros de Referência da Mulher Brasileira",
+            "pagina": 21,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "Ampliaremos as Salas Lilás e vamos adquirir e distribuir aos Estados kits para aprimorar o monitoramento de agressores.",
+            "pagina": 21,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois propõem centros de atendimento à mulher, monitoramento de agressores e cuidado com câncer e endometriose.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} destaca aplicativo, assistente virtual e autonomia financeira; o de {{adversario.nomeCurto}}, a rede pública de proteção, o Pacto de Enfrentamento ao Feminicídio e a igualdade salarial."
+    },
+    {
+      "chave": "contas-publicas",
+      "titulo": "Economia e contas públicas",
+      "pergunta": "O que cada plano propõe para a economia e as contas públicas?",
+      "alvo": {
+        "resumo": "Criar novas regras fiscais para reduzir a dívida, entregar superávits primários, cortar ao menos 10 ministérios e retomar a desestatização caso a caso.",
+        "citacoes": [
+          {
+            "trecho": "Vamos construir o equilíbrio fiscal duradouro, entregando superávits primários e limitando o crédito subsidiado com recursos do Tesouro",
+            "pagina": 71
+          },
+          {
+            "trecho": "Isso inclui o corte de no mínimo 10 ministérios, a redução de cargos comissionados e de despesas administrativas",
+            "pagina": 69
+          }
+        ]
+      },
+      "adversario": {
+        "resumo": "Manter o arcabouço fiscal, buscar resultado fiscal com crescimento, controle do gasto e justiça tributária, elevar o investimento e criar condições para juros menores.",
+        "citacoes": [
+          {
+            "trecho": "manteremos o novo arcabouço fiscal, que controlou o crescimento das despesas sem prejudicar as políticas sociais",
+            "pagina": 49,
+            "fonte": "adversario"
+          },
+          {
+            "trecho": "vamos criar as condições para uma redução sustentada das taxas de juros, com inflação controlada e assegurando uma política fiscal responsável",
+            "pagina": 49,
+            "fonte": "adversario"
+          }
+        ]
+      },
+      "emComum": "Os dois prometem responsabilidade fiscal e buscam juros menores com inflação sob controle.",
+      "diferenca": "O plano de {{alvo.nomeCurto}} propõe novas regras fiscais, superávits e corte de ministérios, com foco no investimento privado; o de {{adversario.nomeCurto}} mantém o arcabouço atual, com o Estado induzindo investimentos."
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { act, cleanup, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { candidatura } from '../../nucleo/candidatura.ts'
@@ -17,6 +17,11 @@ vi.mock('../../src/mapa/hospedeiro.ts', () => ({
 }))
 
 const nomeSite = candidatura.site.nome
+
+/** O menu principal do cabeçalho (a página do plano tem outra navegação, a das abas). */
+function menu(): HTMLElement {
+  return screen.getByRole('navigation', { name: textos.navegacao.rotulo })
+}
 
 function irPara(hash: string): void {
   act(() => {
@@ -47,11 +52,22 @@ describe('rotas por hash', () => {
     comDados(<App />)
     irPara('#/plano')
     expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.plano.titulo(candidatura.alvo.nomeCurto) })).toBeTruthy()
-    expect(screen.getByRole('link', { current: 'page' }).textContent).toBe(textos.navegacao.rotas.plano)
+    expect(within(menu()).getByRole('link', { current: 'page' }).textContent).toBe(textos.navegacao.rotas.plano)
     irPara('#/prosa')
     expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.prosa.titulo })).toBeTruthy()
     irPara('#/sobre/privacidade')
     expect(await screen.findByRole('heading', { name: 'Privacidade' })).toBeTruthy()
+  })
+
+  it('#/comparar fica dentro de "Plano": o menu marca a seção e a aba marca a comparação', async () => {
+    comDados(<App />)
+    irPara('#/comparar')
+    expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.comparar.titulo })).toBeTruthy()
+    expect(within(menu()).getByRole('link', { current: true }).textContent).toBe(textos.navegacao.rotas.plano)
+    expect(within(menu()).queryByRole('link', { current: 'page' })).toBeNull()
+    const abas = screen.getByRole('navigation', { name: textos.paginas.abasPlano.rotulo })
+    expect(within(abas).getByRole('link', { current: 'page' }).textContent).toBe(textos.paginas.abasPlano.comparar)
+    expect(document.title).toBe(`${textos.paginas.comparar.titulo} · ${nomeSite}`)
   })
 
   it('trocar de página pelo menu muda o título da aba e leva o foco ao conteúdo (A11Y-10)', async () => {
