@@ -1,0 +1,13 @@
+[project]
+name = "converter-direita-etl"
+version = "0.1.0"
+description = "ETL dos dados públicos do TSE para o site Mais um voto"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["testes/etl"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["etl"]

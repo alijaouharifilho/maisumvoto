@@ -1,0 +1,197 @@
+{
+  "esquema": 1,
+  "modelo": "Nomes entre chaves duplas (ex.: alvo.nomeCurto) são preenchidos pelo site com valores de config/candidatura.json (lista em CHAVES_MODELO, src/conteudo/modelo.ts). Todo objeto com trecho + pagina é citação literal do plano, conferida por ferramentas/conferir_citacoes.py.",
+  "geral": {
+    "titulo": "Antes de sair para conversar",
+    "fraseGuia": "Conversa boa começa com pergunta, não com discurso.",
+    "passos": [
+      "Vá com alguém conhecido. Combinem a rua, o horário e um ponto de encontro.",
+      "Escolha lugares onde as pessoas já param: feira, ponto de ônibus, praça, saída de escola.",
+      "Comece pelo bom-dia. Diga seu nome e, sem rodeio, que você vota no {{alvo.nomeCurto}} e quer trocar uma ideia.",
+      "Pergunte antes de falar: como foi o 1º turno para a pessoa e o que mais pesa no dia a dia dela.",
+      "Escute mais do que fala. Repita com suas palavras o que entendeu, para ela saber que foi ouvida.",
+      "Só depois mostre o plano: o trecho que fala do que importa para ela, com a página.",
+      "Se ela discordar, reconheça. Ninguém precisa concordar com tudo para conversar.",
+      "Agradeça sempre, inclusive a quem não quis papo."
+    ],
+    "cuidados": [
+      "Respeite o “não”. Não insista, não siga a pessoa, não volte à mesma porta no mesmo dia.",
+      "Não fale mal de ninguém: nem do outro candidato, nem de quem vota nele.",
+      "Não prometa o que não está no plano. Na dúvida, mostre o trecho e a página.",
+      "Não peça dados pessoais (título, CPF, telefone, endereço), não fotografe as pessoas e não grave a conversa.",
+      "Não ofereça nada em troca de voto: nem favor, nem brinde, nem dinheiro. Isso é crime eleitoral.",
+      "Não adicione ninguém a grupo sem o sim da pessoa e não dispare mensagens em massa.",
+      "Não ofereça carona nem transporte para votar: levar eleitor perto da eleição é crime eleitoral (Código Eleitoral, art. 302; Lei 6.091/1974).",
+      "Mostre o plano no celular. Não imprima nem distribua panfleto por conta própria: material impresso de campanha é feito pela campanha, com CNPJ ou CPF de quem fez e tiragem (Lei 9.504, art. 38).",
+      "Nunca ponha em dúvida a urna ou a apuração.",
+      "A conversa vai até {{fimConversa}}. No dia da votação ({{data2T}}), nenhuma abordagem."
+    ]
+  },
+  "fichas": {
+    "abstencao": {
+      "status": "mvp",
+      "titulo": "Quem não foi votar",
+      "fraseGuia": "Primeiro escute. Faltar tem motivo, e o motivo é o começo da conversa.",
+      "contexto": [
+        "Abstenção é quem podia votar e não foi. No 1º turno, foi o maior grupo fora dos dois finalistas no país inteiro, segundo o resultado oficial do TSE.",
+        "É um grupo muito variado: trabalho no dia, distância, saúde, viagem, desânimo com a política. Não existe uma fala que sirva para todo mundo.",
+        "Quem faltou no 1º turno continua podendo votar no 2º."
+      ],
+      "passos": [
+        "Pergunte, sem cobrança, se a pessoa conseguiu votar no 1º turno.",
+        "Se não foi, pergunte o que atrapalhou e escute até o fim.",
+        "Se o motivo foi prático, ajude com a informação: o local de votação aparece no aplicativo e-Título e no site do TSE.",
+        "Se o motivo foi desânimo, pergunte o que mais pesa na vida dela hoje.",
+        "Mostre o trecho do plano sobre esse assunto, com a página, e diga com suas palavras por que ele importa para você.",
+        "Deixe a decisão com ela. Agradeça e siga."
+      ],
+      "pontes": [
+        {
+          "tema": "Tempo perdido em fila",
+          "texto": "Quem já perdeu dia de trabalho em fila costuma se reconhecer aqui. O plano propõe digitalizar os serviços federais e medir o INSS pelo tempo que o aposentado espera.",
+          "citacoes": [
+            { "trecho": "Vamos digitalizar 100% dos serviços públicos do Governo Federal passíveis de digitalização", "pagina": 25 },
+            { "trecho": "Sai a gestão voltada a entidades sindicais, entra a gestão profissional, medida por uma coisa só: quanto tempo o aposentado espera para receber.", "pagina": 26 }
+          ]
+        },
+        {
+          "tema": "Conta de luz e combustível",
+          "texto": "Se a conversa for sobre o preço das coisas, o plano fala em menos imposto na energia e no combustível, mantendo a tarifa social.",
+          "citacoes": [
+            { "trecho": "Vamos reduzir impostos sobre energia elétrica e combustíveis", "pagina": 31 },
+            { "trecho": "mantida a tarifa social para quem mais precisa dela", "pagina": 31 }
+          ]
+        },
+        {
+          "tema": "Segurança no bairro",
+          "texto": "Se o medo da violência aparecer, mostre o que o plano diz sobre crime organizado e dinheiro federal para a segurança.",
+          "citacoes": [
+            { "trecho": "PCC, CV, milícias e todas as outras facções serão declaradas como organizações narcoterroristas.", "pagina": 13 },
+            { "trecho": "O novo governo do Brasil vai dobrar os investimentos federais em segurança pública ao longo do mandato.", "pagina": 15 }
+          ]
+        },
+        {
+          "tema": "Creche",
+          "texto": "Para quem deixa de trabalhar ou estudar por falta de creche, o plano propõe um voucher enquanto não houver vaga pública.",
+          "citacoes": [
+            { "trecho": "Onde não houver vaga na rede pública, a família receberá um voucher-creche para acesso à rede privada credenciada até a vaga pública surgir", "pagina": 21 }
+          ]
+        }
+      ],
+      "cuidados": [
+        "Não cobre nem constranja quem não votou. A conversa é convite, não fiscalização.",
+        "Não peça título, CPF ou foto de documento, nem para “ajudar a consultar”.",
+        "Não ofereça carona nem transporte para votar: levar eleitor perto da eleição é crime eleitoral (Código Eleitoral, art. 302; Lei 6.091/1974).",
+        "Não insista depois de um “não”.",
+        "Não adicione ninguém a grupo sem o sim da pessoa.",
+        "Nunca ponha em dúvida a urna ou a apuração.",
+        "No dia da votação ({{data2T}}), nenhuma abordagem."
+      ]
+    },
+    "branco": {
+      "status": "mvp",
+      "titulo": "Quem votou em branco",
+      "fraseGuia": "Quem votou em branco quis dizer alguma coisa. Pergunte o quê.",
+      "contexto": [
+        "Voto em branco não vai para ninguém. No 2º turno vence quem tiver a maioria dos votos válidos, e branco e nulo ficam fora dessa conta (Lei 9.504/1997, art. 2º).",
+        "Parte de quem votou em branco não se sente representada por nenhum dos dois finalistas. Reconheça isso. Não tente provar que a pessoa errou."
+      ],
+      "passos": [
+        "Pergunte, sem julgar, o que levou a pessoa a votar em branco.",
+        "Escute até o fim e repita com suas palavras o que entendeu.",
+        "Pergunte qual assunto pesa mais para ela.",
+        "Mostre o trecho do plano sobre esse assunto, com a página.",
+        "Se houver discordância, reconheça. Ninguém precisa concordar com tudo.",
+        "Lembre que, no 2º turno, o voto dela ajuda a decidir entre os dois. A decisão é dela."
+      ],
+      "pontes": [
+        {
+          "tema": "Regras iguais para todos",
+          "texto": "Para quem está cansado da política como ela é, o plano traz mudanças nas instituições e o fim da reeleição para presidente.",
+          "citacoes": [
+            { "trecho": "propomos o fim da reeleição para o cargo de Presidente da República", "pagina": 66 },
+            { "trecho": "Limitação das decisões monocráticas do STF, privilegiando as decisões colegiadas", "pagina": 65 }
+          ]
+        },
+        {
+          "tema": "Governo que gasta menos consigo mesmo",
+          "texto": "Para quem acha que o governo gasta mal, o plano fala em cortar ministérios e combater supersalários.",
+          "citacoes": [
+            { "trecho": "Isso inclui o corte de no mínimo 10 ministérios, a redução de cargos comissionados e de despesas administrativas", "pagina": 69 },
+            { "trecho": "o combate aos penduricalhos e supersalários que corroem o orçamento", "pagina": 69 }
+          ]
+        },
+        {
+          "tema": "Programas sociais",
+          "texto": "Se o receio for perder um benefício, o plano diz que os programas sociais continuam.",
+          "citacoes": [
+            { "trecho": "vamos manter os programas sociais existentes, com aperfeiçoamento da gestão, correção de distorções e combate às fraudes.", "pagina": 42 }
+          ]
+        }
+      ],
+      "cuidados": [
+        "Não diga que o voto em branco “vai para quem está na frente”. Isso não é verdade.",
+        "Não desqualifique o outro candidato nem quem vota nele.",
+        "Não insista depois de um “não”.",
+        "Não adicione ninguém a grupo sem o sim da pessoa.",
+        "Nunca ponha em dúvida a urna ou a apuração.",
+        "No dia da votação ({{data2T}}), nenhuma abordagem."
+      ]
+    },
+    "nulo": {
+      "status": "mvp",
+      "titulo": "Quem anulou o voto",
+      "fraseGuia": "Anular pode ser protesto ou engano. Descubra qual foi, sem cobrar.",
+      "contexto": [
+        "Nulo é, quase sempre, o voto em número que não existe, de propósito ou por engano (uma parte pequena foi para candidato com registro negado, e a Justiça Eleitoral anulou esses votos). Como o branco, fica fora dos votos válidos (Lei 9.504/1997, art. 2º).",
+        "Parte de quem anulou rejeita os dois finalistas. Não adianta forçar: pergunte o que faria a pessoa mudar de ideia.",
+        "Na urna, quando o número digitado não existe, aparece o aviso de voto nulo antes de confirmar. Dá para apertar CORRIGE e digitar de novo."
+      ],
+      "passos": [
+        "Pergunte se a pessoa anulou por escolha ou se algo deu errado na urna.",
+        "Se foi engano, explique com calma como conferir o nome e a foto antes de apertar CONFIRMA.",
+        "Se foi protesto, pergunte contra o quê. Escute até o fim.",
+        "Mostre o trecho do plano que fala desse incômodo, com a página.",
+        "Se houver discordância, reconheça. Ninguém precisa concordar com tudo.",
+        "Deixe a decisão com ela. Agradeça e siga."
+      ],
+      "pontes": [
+        {
+          "tema": "Estatal longe da política",
+          "texto": "Para quem anulou por desconfiança da política, o plano propõe tirar a indicação política dos fundos de pensão das estatais e rever, caso a caso, onde o Estado deve estar.",
+          "citacoes": [
+            { "trecho": "Vamos blindar os fundos de pensão das estatais da indicação política", "pagina": 70 },
+            { "trecho": "vamos retomar o Programa Nacional de Desestatização com critério, avaliando caso a caso onde a presença do Estado deixou de fazer sentido", "pagina": 70 }
+          ]
+        },
+        {
+          "tema": "Aposentado protegido de fraude",
+          "texto": "Muita família tem alguém que depende do INSS. O plano fala em pacote antifraude e em desconto no benefício só com autorização.",
+          "citacoes": [
+            { "trecho": "Reeditaremos um pacote antifraude na Previdência, nos moldes do que fizemos em 2019", "pagina": 72 },
+            { "trecho": "incluindo dupla checagem que impede que tirem do benefício o que não foi autorizado", "pagina": 73 }
+          ]
+        },
+        {
+          "tema": "Direito de reclamar",
+          "texto": "Para quem quer poder criticar qualquer governo, o plano defende a liberdade de expressão garantida na Constituição.",
+          "citacoes": [
+            { "trecho": "Nós defendemos o direito de sermos criticados, com foco na liberdade de expressão prevista na Constituição Federal.", "pagina": 67 }
+          ]
+        }
+      ],
+      "cuidados": [
+        "Não trate quem anulou como quem “jogou o voto fora”. Respeite o motivo.",
+        "Não diga que muitos votos nulos cancelam a eleição. Isso não é verdade.",
+        "Não insista depois de um “não”.",
+        "Não adicione ninguém a grupo sem o sim da pessoa.",
+        "Nunca ponha em dúvida a urna ou a apuração.",
+        "No dia da votação ({{data2T}}), nenhuma abordagem."
+      ]
+    },
+    "cury": { "status": "fase2" },
+    "renan": { "status": "fase2" },
+    "caiado": { "status": "fase2" },
+    "zema": { "status": "fase2" }
+  }
+}

@@ -1,0 +1,41 @@
+/* Paleta "Prosa de vizinho" (estudo de identidade, contrastes WCAG AA conferidos).
+   Regras: âmbar nunca é cor de texto sobre o papel; borda de campo usa tinta-suave (linha é só decorativa);
+   ponto âmbar no mapa sempre com contorno tinta. Os hex equivalentes ficam em src/estilo/paleta.ts (mapa e imagem OG). */
+@theme {
+  --color-*: initial;
+  --color-papel: oklch(98.4% 0.010 95);        /* #fcfaf2 fundo */
+  --color-papel-2: oklch(95.5% 0.016 95);      /* #f3f0e4 cartões */
+  --color-linha: oklch(88% 0.010 240);         /* #d2d8dd divisórias, só decorativa */
+  --color-tinta: oklch(22% 0.012 240);         /* #161b20 texto */
+  --color-tinta-suave: oklch(47% 0.020 240);   /* #515d65 texto secundário e bordas de campo */
+  --color-mata: oklch(46% 0.100 160);          /* #0c6944 primária */
+  --color-mata-escura: oklch(38% 0.085 160);   /* #025032 hover e pressionado */
+  --color-mata-clara: oklch(93% 0.035 160);    /* #d5f0e0 blocos de destaque */
+  --color-ambar: oklch(79% 0.140 72);          /* #f1aa47 só como fundo */
+  --color-ambar-texto: oklch(52% 0.105 70);    /* #8f5d14 ênfase âmbar sobre o papel */
+  --color-petroleo: oklch(42% 0.070 220);      /* #115667 informação, legendas */
+  --color-petroleo-claro: oklch(93% 0.025 220);/* #d7ecf4 caixas "de onde vem o dado" */
+  --color-alerta: oklch(52% 0.190 28);         /* #be241f só erros */
+  --color-branco: #ffffff;
+
+  --font-*: initial;
+  --font-titulo: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-texto: "Atkinson Hyperlegible Next Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Um único ponto de quebra de layout (o mesmo do JS: matchMedia 960px) e um de ajuste fino. */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-lg: 960px;
+
+  --animate-entrada: entrada 480ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-pulso: pulso 1.8s ease-out infinite;
+
+  @keyframes entrada {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes pulso {
+    0% { box-shadow: 0 0 0 0 oklch(79% 0.140 72 / 0.7); }
+    100% { box-shadow: 0 0 0 14px oklch(79% 0.140 72 / 0); }
+  }
+}

@@ -1,0 +1,39 @@
+# Node / build
+node_modules
+dist
+dist-ssr
+*.local
+*.log
+coverage
+playwright-report
+test-results
+node_modules/.tmp
+
+# Python
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.coverage
+htmlcov
+
+# Dados brutos e intermediários (reconstruídos por `npm run dados`).
+# public/dados/ É versionado: a Vercel monta o site a partir do repositório.
+dados/bruto/
+dados/intermediario/
+
+# Segredos
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# PDFs de fonte (rebaixáveis; o sha256 fica versionado)
+dados/fontes/*.pdf
+
+.vercel

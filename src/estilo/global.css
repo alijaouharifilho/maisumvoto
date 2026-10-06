@@ -1,0 +1,189 @@
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque/wght.css";
+@import "@fontsource-variable/atkinson-hyperlegible-next/wght.css";
+@import "./tokens.css";
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --altura-cabecalho: 3.5rem;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  html {
+    background-color: var(--color-papel);
+    color: var(--color-tinta);
+    font-family: var(--font-texto);
+    line-height: 1.5;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-titulo);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  p, li {
+    text-wrap: pretty;
+  }
+
+  /* Sublinhado sempre: no meio do texto, a cor sozinha (2,57:1 contra o texto) não separa o link (WCAG 1.4.1).
+     Botões, marca e menu tiram com no-underline. */
+  a {
+    color: var(--color-mata);
+    text-decoration-line: underline;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.15em;
+  }
+
+  a:hover {
+    color: var(--color-mata-escura);
+  }
+
+  /* Foco sempre visível, 3 px, fora do elemento. */
+  :focus-visible {
+    outline: 3px solid var(--color-mata-escura);
+    outline-offset: 2px;
+  }
+
+  /* Destino de âncora (tabindex=-1) recebe foco só para o leitor de tela acompanhar; sem moldura. */
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  button[aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  .numeros {
+    font-family: var(--font-titulo);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+    transition: background-color 120ms, color 120ms;
+  }
+  .botao-primario {
+    background-color: var(--color-mata);
+    color: var(--color-branco);
+  }
+  .botao-primario:hover:not(:disabled) {
+    background-color: var(--color-mata-escura);
+    color: var(--color-branco);
+  }
+  .botao-secundario {
+    background-color: var(--color-papel);
+    color: var(--color-mata);
+    border-color: var(--color-mata);
+  }
+  .botao-secundario:hover:not(:disabled) {
+    background-color: var(--color-mata-clara);
+    color: var(--color-mata-escura);
+  }
+  .botao:disabled,
+  .botao[aria-disabled="true"] {
+    opacity: 0.6;
+  }
+  .campo {
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--color-tinta-suave);
+    background-color: var(--color-branco);
+    color: var(--color-tinta);
+  }
+  /* Placeholder padrão do Tailwind (tinta a 50%) fica em ~3,3:1; tinta-suave dá 6,77:1 sobre o branco. */
+  .campo::placeholder {
+    color: var(--color-tinta-suave);
+    opacity: 1;
+  }
+  .cartao {
+    background-color: var(--color-papel-2);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  .esqueleto {
+    background: linear-gradient(90deg, var(--color-papel-2), var(--color-linha), var(--color-papel-2));
+    background-size: 200% 100%;
+    animation: brilho 1.4s linear infinite;
+    border-radius: 0.5rem;
+  }
+}
+
+/* Ponto escolhido no mapa: âmbar com contorno tinta (regra de contraste). */
+.ponto-escolhido {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background-color: var(--color-ambar);
+  border: 3px solid var(--color-tinta);
+  animation: var(--animate-pulso);
+}
+
+/* O CSS do MapLibre põe position: relative em .maplibregl-map; largura e altura explícitas valem nos dois casos. */
+.mapa-no,
+.mapa-no.maplibregl-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.maplibregl-ctrl-attrib {
+  font-family: var(--font-texto);
+}
+
+/* O canvas preenche um contêiner com overflow: hidden: o contorno de foco por fora some. Por dentro, aparece. */
+.mapa-no .maplibregl-canvas:focus-visible {
+  outline-offset: -3px;
+}
+
+/* Alvos de toque no celular (dedo, não mouse): + e − com 44 px e créditos com altura mínima de 24 px.
+   Prefixo .mapa-no: o CSS do MapLibre chega depois (chunk sob demanda) e empataria na especificidade. */
+@media (pointer: coarse) {
+  .mapa-no .maplibregl-ctrl-group button {
+    width: 44px;
+    height: 44px;
+  }
+  .mapa-no .maplibregl-ctrl-attrib a {
+    display: inline-block;
+    min-height: 24px;
+    line-height: 24px;
+  }
+}
+
+@keyframes brilho {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

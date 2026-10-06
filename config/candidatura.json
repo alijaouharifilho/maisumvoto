@@ -1,0 +1,93 @@
+{
+  "$schema": "./candidatura.schema.json",
+  "esquema": 1,
+  "eleicao": {
+    "ano": 2026,
+    "codigo": "6257",
+    "pleito": "3220",
+    "turno": 1,
+    "cargo": "1",
+    "data2T": "2026-10-25"
+  },
+  "alvo": {
+    "numero": "22",
+    "nomeCurto": "Flávio",
+    "nomeUrna": "Flávio Bolsonaro",
+    "partido": "PL"
+  },
+  "adversario": {
+    "numero": "13",
+    "nomeCurto": "Lula",
+    "nomeUrna": "Lula",
+    "partido": "PT"
+  },
+  "reclassificarComoNulo": [
+    "28"
+  ],
+  "metricas": {
+    "raioKm": 1,
+    "celulaGraus": 0.25,
+    "gradeLinkGraus": 0.005,
+    "limiarFolga": 0.65,
+    "regraViravel": "abertosMaisOutros"
+  },
+  "gruposConversa": {
+    "abstencao": "abstencao",
+    "brancos": "branco",
+    "nulos": "nulo",
+    "70": "cury",
+    "14": "renan",
+    "55": "caiado",
+    "30": "zema"
+  },
+  "calendario": {
+    "fuso": "-03:00",
+    "fases": [
+      {
+        "id": "campanha",
+        "ate": "2026-10-22T00:00:00-03:00"
+      },
+      {
+        "id": "retaFinal",
+        "ate": "2026-10-24T22:00:00-03:00"
+      },
+      {
+        "id": "pausa",
+        "ate": "2026-10-25T00:00:00-03:00"
+      },
+      {
+        "id": "votacao",
+        "ate": "2026-10-26T02:00:00-03:00"
+      },
+      {
+        "id": "encerrada",
+        "ate": null
+      }
+    ],
+    "fasesAbertas": [
+      "campanha",
+      "retaFinal"
+    ]
+  },
+  "site": {
+    "nome": "Mais um voto",
+    "dominio": "maisumvoto.com.br",
+    "natureza": "independente",
+    "responsavel": {
+      "nome": "Ali Jaouhari Filho",
+      "contato": "ali.j.filho@gmail.com"
+    },
+    "hospedagem": "Vercel Inc.",
+    "redeSocial": null
+  },
+  "mapa": {
+    "estiloUrl": "/mapa/estilo.json",
+    "fonteTiles": "https://tiles.openfreemap.org/planet",
+    "centroInicial": [
+      -52,
+      -14.5
+    ],
+    "zoomInicial": 3.4
+  },
+  "prefixoArmazenamento": "muv"
+}

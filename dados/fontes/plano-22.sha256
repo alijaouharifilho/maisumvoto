@@ -1,0 +1,14 @@
+7d1d95075e11e3c4113e8dcd502438049a34f5147a84cb0f746bf59046e477a4  plano-22.pdf
+# Plano de governo do candidato nº 22 a Presidente (Eleições 2026), registrado no TSE.
+# Tamanho: 1.940.855 bytes; 76 páginas. O PDF fica fora do git (.gitignore); este hash é versionado.
+# Conferência: sha256sum -c plano-22.sha256 (dentro de dados/fontes/).
+#
+# Origem oficial 1 (link usado no site, aceita #page=N):
+#   https://www.tse.jus.br/eleicoes/eleicoes-2026-content/arquivos/proposta-pl/@@display-file/file/proposta-pl.pdf
+#   (o atalho .../arquivos/proposta-pl redireciona para ele; listado em
+#    https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026)
+#   Last-Modified: Fri, 14 Aug 2026 19:55:42 GMT. Hash conferido em 05/10/2026 (mesmo SHA-256 acima).
+#
+# Origem oficial 2 (dados abertos do TSE, mesmo arquivo):
+#   https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip
+#   entrada BR/2026BR280002551544_01.pdf (o DivulgaCandContas responde 403 a scripts).

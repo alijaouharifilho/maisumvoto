@@ -1,0 +1,4 @@
+# Mais um voto: site estático. Os arquivos de dados são para o próprio site, não para indexação.
+User-agent: *
+Allow: /
+Disallow: /dados/

@@ -1,0 +1,415 @@
+{
+  "descricao": "Casos de referência compartilhados por nucleo/metricas.ts (vitest) e etl/metricas.py (pytest). Ambos têm de produzir exatamente estes valores. Alvo 22, adversário 13.",
+  "alvo": "22",
+  "adversario": "13",
+  "limiarFolga": 0.65,
+  "metricas": [
+    {
+      "caso": "alvo na frente, reservatório maior que a vantagem → a defender",
+      "regra": "abertosMaisOutros",
+      "votos": {
+        "brancos": 10,
+        "nulos": 20,
+        "abstencao": 100,
+        "nominais": {
+          "22": 300,
+          "13": 200,
+          "70": 50
+        }
+      },
+      "esperado": {
+        "validos": 550,
+        "alvo": 300,
+        "adversario": 200,
+        "outros": 50,
+        "abertos": 130,
+        "ate": 180,
+        "pctAlvo": 0.5454545454545454,
+        "classificacao": "aDefender",
+        "viravel": false
+      }
+    },
+    {
+      "caso": "adversário na frente, só vira contando os outros candidatos (regra ampla)",
+      "regra": "abertosMaisOutros",
+      "votos": {
+        "brancos": 5,
+        "nulos": 5,
+        "abstencao": 50,
+        "nominais": {
+          "22": 100,
+          "13": 160,
+          "55": 30
+        }
+      },
+      "esperado": {
+        "validos": 290,
+        "alvo": 100,
+        "adversario": 160,
+        "outros": 30,
+        "abertos": 60,
+        "ate": 90,
+        "pctAlvo": 0.3448275862068966,
+        "classificacao": "aVirar",
+        "viravel": true
+      }
+    },
+    {
+      "caso": "mesmo caso com a regra estrita: abertos = diferença não basta (desigualdade estrita)",
+      "regra": "abertos",
+      "votos": {
+        "brancos": 5,
+        "nulos": 5,
+        "abstencao": 50,
+        "nominais": {
+          "22": 100,
+          "13": 160,
+          "55": 30
+        }
+      },
+      "esperado": {
+        "validos": 290,
+        "alvo": 100,
+        "adversario": 160,
+        "outros": 30,
+        "abertos": 60,
+        "ate": 90,
+        "pctAlvo": 0.3448275862068966,
+        "classificacao": "dificil",
+        "viravel": false
+      }
+    },
+    {
+      "caso": "folga: alvo com 87,5% dos válidos",
+      "regra": "abertosMaisOutros",
+      "votos": {
+        "brancos": 0,
+        "nulos": 0,
+        "abstencao": 10,
+        "nominais": {
+          "22": 700,
+          "13": 100
+        }
+      },
+      "esperado": {
+        "validos": 800,
+        "alvo": 700,
+        "adversario": 100,
+        "outros": 0,
+        "abertos": 10,
+        "ate": 10,
+        "pctAlvo": 0.875,
+        "classificacao": "folga",
+        "viravel": false
+      }
+    },
+    {
+      "caso": "empate exato",
+      "regra": "abertosMaisOutros",
+      "votos": {
+        "brancos": 1,
+        "nulos": 2,
+        "abstencao": 3,
+        "nominais": {
+          "22": 50,
+          "13": 50
+        }
+      },
+      "esperado": {
+        "validos": 100,
+        "alvo": 50,
+        "adversario": 50,
+        "outros": 0,
+        "abertos": 6,
+        "ate": 6,
+        "pctAlvo": 0.5,
+        "classificacao": "empate",
+        "viravel": false
+      }
+    },
+    {
+      "caso": "difícil: adversário muito à frente",
+      "regra": "abertosMaisOutros",
+      "votos": {
+        "brancos": 1,
+        "nulos": 1,
+        "abstencao": 8,
+        "nominais": {
+          "22": 10,
+          "13": 100,
+          "30": 5
+        }
+      },
+      "esperado": {
+        "validos": 115,
+        "alvo": 10,
+        "adversario": 100,
+        "outros": 5,
+        "abertos": 10,
+        "ate": 15,
+        "pctAlvo": 0.08695652173913043,
+        "classificacao": "dificil",
+        "viravel": false
+      }
+    },
+    {
+      "caso": "sem votos válidos (só abstenção)",
+      "regra": "abertosMaisOutros",
+      "votos": {
+        "brancos": 0,
+        "nulos": 0,
+        "abstencao": 40,
+        "nominais": {}
+      },
+      "esperado": {
+        "validos": 0,
+        "alvo": 0,
+        "adversario": 0,
+        "outros": 0,
+        "abertos": 40,
+        "ate": 40,
+        "pctAlvo": null,
+        "classificacao": "semVotos",
+        "viravel": false
+      }
+    },
+    {
+      "caso": "alvo na frente, reservatório menor que a vantagem",
+      "regra": "abertosMaisOutros",
+      "votos": {
+        "brancos": 0,
+        "nulos": 0,
+        "abstencao": 5,
+        "nominais": {
+          "22": 120,
+          "13": 100,
+          "14": 10
+        }
+      },
+      "esperado": {
+        "validos": 230,
+        "alvo": 120,
+        "adversario": 100,
+        "outros": 10,
+        "abertos": 5,
+        "ate": 15,
+        "pctAlvo": 0.5217391304347826,
+        "classificacao": "alvoNaFrente",
+        "viravel": false
+      }
+    }
+  ],
+  "geo": {
+    "celulaGraus": 0.25,
+    "gradeLinkGraus": 0.005,
+    "chaves": [
+      {
+        "lat": -25.4284,
+        "lon": -49.2733,
+        "celula": "-102_-198",
+        "quadrado": "-26_-50",
+        "link": "@-25.430,-49.275"
+      },
+      {
+        "lat": -23.5505,
+        "lon": -46.6333,
+        "celula": "-95_-187",
+        "quadrado": "-24_-47",
+        "link": "@-23.550,-46.635"
+      },
+      {
+        "lat": 2.8235,
+        "lon": -60.6758,
+        "celula": "11_-243",
+        "quadrado": "2_-61",
+        "link": "@2.825,-60.675"
+      }
+    ],
+    "haversineKm": [
+      {
+        "de": [
+          -25.4284,
+          -49.2733
+        ],
+        "para": [
+          -25.4374,
+          -49.2733
+        ],
+        "km": 1.0007543398008956
+      },
+      {
+        "de": [
+          -25.4284,
+          -49.2733
+        ],
+        "para": [
+          -25.4284,
+          -49.2633
+        ],
+        "km": 1.0042264791187299
+      },
+      {
+        "de": [
+          -23.5505,
+          -46.6333
+        ],
+        "para": [
+          -23.5555,
+          -46.64
+        ],
+        "km": 0.8806333380388447
+      }
+    ]
+  },
+  "busca": {
+    "normalizar": [
+      {
+        "entrada": "São José dos Pinhais",
+        "saida": "sao jose dos pinhais"
+      },
+      {
+        "entrada": "  Jardim   Botânico, Curitiba-PR ",
+        "saida": "jardim botanico curitiba pr"
+      },
+      {
+        "entrada": "Escola Estadual Prof.ª Maria D'Ávila",
+        "saida": "escola estadual prof a maria d avila"
+      }
+    ],
+    "prefixosConsulta": [
+      {
+        "entrada": "São José dos Pinhais",
+        "prefixos": [
+          "jos",
+          "pin",
+          "sao"
+        ]
+      },
+      {
+        "entrada": "Jardim Botânico, Curitiba",
+        "prefixos": [
+          "bot",
+          "jar"
+        ]
+      },
+      {
+        "entrada": "Vila Nova",
+        "prefixos": [
+          "vil",
+          "nov"
+        ]
+      },
+      {
+        "entrada": "Escola Estadual Monteiro Lobato",
+        "prefixos": [
+          "mon",
+          "lob",
+          "esc",
+          "est"
+        ]
+      },
+      {
+        "entrada": "Tijuca Rio de Janeiro",
+        "prefixos": [
+          "tij",
+          "jan"
+        ]
+      },
+      {
+        "entrada": "Asa Sul Brasília",
+        "prefixos": [
+          "asa",
+          "sul",
+          "bra"
+        ]
+      },
+      {
+        "entrada": "Centro Lauro de Freitas",
+        "prefixos": [
+          "lau",
+          "fre",
+          "cen"
+        ]
+      },
+      {
+        "entrada": "Escola Estadual Professor João Batista de Oliveira Curitiba",
+        "prefixos": [
+          "joa",
+          "bat",
+          "oli",
+          "cur"
+        ]
+      },
+      {
+        "entrada": ", Curitiba",
+        "prefixos": []
+      }
+    ],
+    "cep": [
+      {
+        "entrada": "80010-000",
+        "arquivo": "800",
+        "chave": "80010000"
+      },
+      {
+        "entrada": "80010000",
+        "arquivo": "800",
+        "chave": "80010000"
+      },
+      {
+        "entrada": "80.010-000",
+        "arquivo": "800",
+        "chave": "80010000"
+      },
+      {
+        "entrada": "80010 000",
+        "arquivo": "800",
+        "chave": "80010000"
+      },
+      {
+        "entrada": "8001-000",
+        "arquivo": null,
+        "chave": null
+      },
+      {
+        "entrada": "80.010.000",
+        "arquivo": null,
+        "chave": null
+      }
+    ],
+    "arquivos": [
+      {
+        "prefixo": "aux",
+        "arquivo": "aux_"
+      },
+      {
+        "prefixo": "con",
+        "arquivo": "con_"
+      },
+      {
+        "prefixo": "nul",
+        "arquivo": "nul_"
+      },
+      {
+        "prefixo": "prn",
+        "arquivo": "prn_"
+      },
+      {
+        "prefixo": "cur",
+        "arquivo": "cur"
+      },
+      {
+        "prefixo": "com",
+        "arquivo": "com"
+      },
+      {
+        "prefixo": "lpt",
+        "arquivo": "lpt"
+      },
+      {
+        "prefixo": "cont",
+        "arquivo": "cont"
+      }
+    ]
+  }
+}

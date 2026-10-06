@@ -1,0 +1,989 @@
+{
+  "esquema": 1,
+  "documento": {
+    "descricao": "Plano de governo registrado no TSE (Eleições 2026, Presidente da República)",
+    "url": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/arquivos/proposta-pl/@@display-file/file/proposta-pl.pdf",
+    "paginaTse": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026",
+    "dadosAbertos": {
+      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/proposta_governo/proposta_governo_2026_BR.zip",
+      "entrada": "BR/2026BR280002551544_01.pdf"
+    },
+    "sha256": "7d1d95075e11e3c4113e8dcd502438049a34f5147a84cb0f746bf59046e477a4",
+    "paginas": 76,
+    "conferidoEm": "2026-10-05"
+  },
+  "dadosConferidosEm": "2026-10-06",
+  "capitulos": [
+    {
+      "chave": "seguranca",
+      "titulo": "Segurança na porta de casa",
+      "nomeNoPlano": "Brasil sem Medo",
+      "paginas": [
+        13,
+        16
+      ],
+      "chamada": "Como o plano quer enfrentar as facções, vigiar a fronteira, endurecer as prisões, proteger mulheres ameaçadas e pôr mais dinheiro na segurança.",
+      "propostas": [
+        {
+          "titulo": "Facções tratadas como terroristas",
+          "trecho": "PCC, CV, milícias e todas as outras facções serão declaradas como organizações narcoterroristas.",
+          "pagina": 13,
+          "emUmaFrase": "Declarar PCC, CV, milícias e outras facções como grupos terroristas e cortar o dinheiro que as sustenta.",
+          "dado": {
+            "numero": "4 em cada 10",
+            "frase": "brasileiros de 16 anos ou mais dizem que o crime organizado atua no seu bairro",
+            "fonte": "Fórum Brasileiro de Segurança Pública (pesquisa feita pelo Datafolha), \"Medo do crime e eleições 2026\", resumo executivo, p. 5",
+            "url": "https://forumseguranca.org.br/wp-content/uploads/2026/05/os-gatilhos-da-inseguranca-resumo-executivo-2026.pdf",
+            "ano": 2026,
+            "confere": "41,2% dos brasileiros com 16 anos ou mais reconhecem a presença, em seu bairro, de grupos criminosos organizados ligados ao tráfico ou a milícias"
+          },
+          "porQue": "Para muita gente, o crime organizado está no próprio bairro, impondo regras e medo. Quem apoia quer enfrentar as facções com a mesma dureza usada contra o terrorismo.",
+          "paraPuxar": "Na sua opinião, facção que domina bairro deveria ser tratada como grupo terrorista?",
+          "cuidado": "A lei antiterrorismo de hoje não inclui facções: é isso que a proposta quer mudar. Não insista com quem tem medo de falar do bairro."
+        },
+        {
+          "titulo": "Maioridade penal aos 16 anos",
+          "trecho": "O novo governo do Brasil vai apoiar e sancionar a redução da maioridade penal de 18 para 16 anos.",
+          "pagina": 13,
+          "emUmaFrase": "Apoiar que jovens de 16 e 17 anos que cometem crimes sejam julgados e presos como adultos.",
+          "dado": {
+            "numero": "3 anos",
+            "frase": "é o tempo máximo de internação de um adolescente infrator, pelo ECA",
+            "fonte": "Estatuto da Criança e do Adolescente (Lei 8.069/1990), art. 121, § 3º",
+            "url": "https://www.planalto.gov.br/ccivil_03/leis/l8069.htm",
+            "ano": 1990,
+            "confere": "Em nenhuma hipótese o período máximo de internação excederá a três anos."
+          },
+          "porQue": "Hoje, pela lei, quem mata aos 17 anos fica no máximo 3 anos internado. Quem apoia acha que crime grave pede punição à altura.",
+          "paraPuxar": "O que você pensa de um jovem de 17 anos que mata ficar no máximo 3 anos internado?",
+          "cuidado": "Mudar a idade penal exige emenda à Constituição, votada pelo Congresso. Não diga que o presidente resolve isso sozinho."
+        },
+        {
+          "titulo": "Sistema Nacional de Fronteira",
+          "trecho": "Vamos criar o Sistema Nacional de Fronteira",
+          "pagina": 13,
+          "emUmaFrase": "Criar uma tropa de elite do Exército, Marinha e Aeronáutica para vigiar a fronteira e barrar armas e drogas.",
+          "dado": {
+            "numero": "quase 17 mil km",
+            "frase": "de fronteira por terra, com 10 países vizinhos",
+            "fonte": "Fundação Alexandre de Gusmão (FUNAG/Itamaraty), \"Brasil – Fronteiras Terrestres\", com dados das Comissões Demarcadoras de Limites",
+            "url": "https://www.gov.br/funag/pt-br/ipri/arquivos-ipri/arquivos-estatisticas/fronteiras-terrestres-brasil-13052015.pdf",
+            "ano": 2015,
+            "confere": "O Brasil possui fronteiras com 10 dos 12 outros países da América do Sul, com extensão total de 16.885,7 km."
+          },
+          "porQue": "É muita fronteira, e mais da metade dela passa por rios. Por ela podem entrar armas e drogas. O plano junta as três Forças para vigiar melhor.",
+          "paraPuxar": "Você já pensou por onde entram as armas e as drogas que circulam no país?"
+        },
+        {
+          "titulo": "Novos presídios de segurança máxima",
+          "trecho": "O Brasil terá 5 novos presídios de segurança máxima no modelo adotado por El Salvador.",
+          "pagina": 14,
+          "emUmaFrase": "Construir 5 novos presídios de segurança máxima para isolar chefes de facção, sem celular e com visitas vigiadas.",
+          "dado": {
+            "numero": "1.040 vagas",
+            "frase": "é a capacidade somada dos 5 presídios federais de segurança máxima do país",
+            "fonte": "Secretaria Nacional de Políticas Penais (Senappen/Ministério da Justiça), Relatório de Informações Penais – 2º semestre de 2025, p. 15",
+            "url": "https://www.gov.br/senappen/pt-br/servicos/sisdepen/relatorios/relatorios-de-informacoes-penitenciarias/relatorio-do-2o-semestre-de-2025.pdf",
+            "ano": 2025,
+            "confere": "Adicionalmente, no Sistema Penitenciário Federal, são estes os quantitativos: DF: 208, MS: 208, RO: 208, RN: 208, PR: 208. Total = 1.040"
+          },
+          "porQue": "Desde março de 2026, a lei manda chefe de facção preso para presídio federal de segurança máxima. Hoje só existem 5. Mais presídios dão espaço para isolá-los.",
+          "paraPuxar": "Você acha que chefe de facção deveria ficar isolado, sem celular e sem dar ordens da cadeia?",
+          "cuidado": "O sistema federal ainda tinha vagas sobrando no fim de 2025: não diga que está lotado."
+        },
+        {
+          "titulo": "Tornozeleira em agressor com medida protetiva",
+          "trecho": "Os agressores das mais de meio milhão de mulheres com medida protetiva no Brasil serão monitorados pelas autoridades com o uso de tornozeleiras eletrônicas.",
+          "pagina": 14,
+          "emUmaFrase": "Pôr tornozeleira eletrônica nos agressores de mulheres com medida protetiva, para saber se eles chegam perto.",
+          "dado": {
+            "numero": "362 por dia",
+            "frase": "registros policiais de medida protetiva descumprida no Brasil em 2025 (132 mil no ano)",
+            "fonte": "Fórum Brasileiro de Segurança Pública, 20º Anuário Brasileiro de Segurança Pública 2026, p. 172 (dados das secretarias estaduais de segurança e polícias civis)",
+            "url": "https://forumseguranca.org.br/wp-content/uploads/2026/07/anuario-2026.pdf",
+            "ano": 2025,
+            "confere": "Foram 132.025 registros de descumprimento de MPU no ano, taxa 16,7% superior à de 2024. Em termos concretos, são 362 descumprimentos por dia"
+          },
+          "porQue": "A medida protetiva é uma ordem da Justiça, mas a polícia registra centenas de descumprimentos por dia. A tornozeleira avisa a vítima e a polícia se o agressor chegar perto.",
+          "paraPuxar": "Você acha que medida protetiva só no papel basta para proteger uma mulher ameaçada?",
+          "cuidado": "São registros de descumprimento, não o número de mulheres. A lei já prevê tornozeleira em casos de risco; a proposta quer ampliar."
+        },
+        {
+          "titulo": "O dobro de dinheiro federal para a segurança",
+          "trecho": "O novo governo do Brasil vai dobrar os investimentos federais em segurança pública ao longo do mandato.",
+          "pagina": 15,
+          "emUmaFrase": "Dobrar, até o fim do mandato, o dinheiro que o governo federal investe em segurança pública.",
+          "dado": {
+            "numero": "8 em cada 10 reais",
+            "frase": "gastos com segurança pública em 2025 saíram dos cofres dos estados e do DF",
+            "fonte": "Fórum Brasileiro de Segurança Pública, 20º Anuário Brasileiro de Segurança Pública 2026, p. 328 (dados do Tesouro Nacional/SICONFI)",
+            "url": "https://forumseguranca.org.br/wp-content/uploads/2026/07/anuario-2026.pdf",
+            "ano": 2025,
+            "confere": "as Unidades da Federação ampliaram suas despesas em 6,2% no período, alcançando R$ 131,25 bilhões — e respondendo por aproximadamente 80,5% de todo o gasto brasileiro em segurança pública"
+          },
+          "porQue": "Os estados pagam a maior parte da conta da segurança. Mais dinheiro federal ajuda a pagar fronteira, inteligência e presídios contra facções que agem em vários estados.",
+          "paraPuxar": "Você acha que o governo federal deveria ajudar mais os estados na segurança?"
+        }
+      ]
+    },
+    {
+      "chave": "mulheres",
+      "titulo": "Mulheres no centro",
+      "nomeNoPlano": "Brasil por Elas",
+      "paginas": [
+        17,
+        22
+      ],
+      "chamada": "Proteger a mulher da violência e facilitar a vida dela: atendimento num lugar só, ajuda pelo celular, casa no nome dela, creche e saúde.",
+      "propostas": [
+        {
+          "titulo": "Um lugar só para resolver a vida",
+          "trecho": "A Central da Mulher será um espaço físico onde a mulher resolve a vida sem perder tempo nem percorrer a cidade inteira.",
+          "pagina": 17,
+          "emUmaFrase": "Um lugar só onde a mulher encontra proteção, saúde, emprego, crédito e orientação, sem rodar a cidade.",
+          "dado": {
+            "numero": "3 em cada 10",
+            "frase": "prefeituras ofereciam atendimento especializado à mulher vítima de violência em 2023",
+            "fonte": "IBGE – Perfil dos Municípios Brasileiros 2023 (pesquisa MUNIC), p. 63",
+            "url": "https://biblioteca.ibge.gov.br/visualizacao/livros/liv102130.pdf",
+            "ano": 2023,
+            "confere": "somente 30,5% dos Municípios ofereciam serviços especializados de atendimento à violência contra a mulher"
+          },
+          "porQue": "Na maioria das cidades, a prefeitura não tinha atendimento especial para a mulher que sofre violência. Juntar proteção, saúde, emprego e crédito num lugar só poupa tempo e viagem.",
+          "paraPuxar": "Você já perdeu um dia inteiro indo de um lugar a outro para resolver um problema?",
+          "cuidado": "O número conta só serviços das prefeituras; delegacias e serviços do estado ficam de fora."
+        },
+        {
+          "titulo": "Pedir ajuda pelo celular",
+          "trecho": "Pelo chat da ClarIA será possível registrar ocorrência, pedir medida protetiva e receber orientação e acolhimento.",
+          "pagina": 19,
+          "emUmaFrase": "Pelo celular, a mulher poderá fazer boletim de ocorrência, pedir proteção da Justiça e receber orientação.",
+          "dado": {
+            "numero": "47%",
+            "frase": "das mulheres agredidas em 12 meses não fizeram nada depois da agressão mais grave",
+            "fonte": "Pesquisa Visível e Invisível, 5ª edição – Fórum Brasileiro de Segurança Pública e Datafolha (2025), p. 33",
+            "url": "https://forumseguranca.org.br/wp-content/uploads/2025/03/relatorio-visivel-e-invisivel-5ed-2025.pdf",
+            "ano": 2025,
+            "confere": "47,4% das vítimas não fizeram nada após o episódio mais grave de violência"
+          },
+          "porQue": "Quase metade das mulheres agredidas não pediu ajuda a ninguém. Poder pedir ajuda pelo celular, a qualquer hora, pode facilitar o primeiro passo.",
+          "paraPuxar": "Você conhece alguma mulher que precisou de ajuda e não sabia a quem pedir?"
+        },
+        {
+          "titulo": "Casa no nome dela",
+          "trecho": "vamos assessorar a mulher a obter a escritura da casa própria no seu nome",
+          "pagina": 20,
+          "emUmaFrase": "Ajuda do governo para a mulher conseguir a escritura da casa no nome dela.",
+          "dado": {
+            "numero": "Mais da metade",
+            "frase": "dos lares do Brasil tinham uma mulher como responsável em 2025",
+            "fonte": "IBGE – PNAD Contínua 2025, tabela 6788 do Sidra (domicílios por sexo do responsável)",
+            "url": "https://apisidra.ibge.gov.br/values/t/6788/n1/all/v/162/p/2025/c293/all/c460/45902",
+            "ano": 2025,
+            "confere": "Domicílios (Mil unidades), Brasil, 2025 – Total: 79305; Mulheres: 41522"
+          },
+          "porQue": "Em muitos lares, quem responde pela casa é a mulher. Ter a escritura no próprio nome dá segurança a ela e aos filhos.",
+          "paraPuxar": "Você conhece alguma mulher que cuida da casa, mas a casa não está no nome dela?"
+        },
+        {
+          "titulo": "Sem vaga na creche, voucher",
+          "trecho": "Onde não houver vaga na rede pública, a família receberá um voucher-creche para acesso à rede privada credenciada até a vaga pública surgir",
+          "pagina": 21,
+          "emUmaFrase": "Sem vaga na creche pública, a família recebe um vale para creche particular cadastrada, até surgir a vaga.",
+          "dado": {
+            "numero": "1 em cada 3",
+            "frase": "crianças de 2 e 3 anos fora da creche não tem vaga ou creche perto",
+            "fonte": "IBGE – PNAD Contínua Educação 2025 (informativo), p. 6",
+            "url": "https://biblioteca.ibge.gov.br/visualizacao/livros/liv102286_informativo.pdf",
+            "ano": 2025,
+            "confere": "O segundo motivo mais citado foi não ter escola/creche na localidade, falta de vaga ou a não aceitação da matrícula por causa da idade da criança. [...] entre as de 2 a 3 anos, o percentual foi de 33,4%."
+          },
+          "porQue": "Muitas famílias querem creche e não acham vaga perto. O vale dá um lugar para a criança enquanto a vaga pública não sai, e a mãe pode trabalhar ou estudar.",
+          "paraPuxar": "Aqui no bairro é fácil conseguir vaga na creche?",
+          "cuidado": "O “1 em cada 3” vale para as crianças que estão fora da creche, não para todas."
+        },
+        {
+          "titulo": "Saúde da mulher perto de casa",
+          "trecho": "Vamos cuidar da saúde da mulher de forma preventiva, sem fila longa, com atendimento perto de casa e também pelo celular",
+          "pagina": 21,
+          "emUmaFrase": "Atendimento de saúde para a mulher com foco em prevenção, sem fila longa, perto de casa e pelo celular.",
+          "dado": {
+            "numero": "79 mil",
+            "frase": "novos casos de câncer de mama esperados por ano no Brasil, de 2026 a 2028",
+            "fonte": "INCA (Ministério da Saúde) – Estimativa 2026: Incidência de Câncer no Brasil, p. 41",
+            "url": "https://ninho.inca.gov.br/jspui/bitstream/123456789/17914/1/Estima2026_completo%20(1).pdf",
+            "ano": 2026,
+            "confere": "O número estimado de casos novos de câncer de mama no Brasil, para cada ano do triênio de 2026 a 2028, é de 78.610 casos"
+          },
+          "porQue": "Sem contar o câncer de pele, o de mama é o que mais atinge as mulheres. Descobrir cedo aumenta a chance de cura, e exame perto de casa ajuda nisso.",
+          "paraPuxar": "Você ou alguém da família já esperou muito para fazer mamografia ou preventivo?",
+          "cuidado": "79 mil é uma estimativa do INCA para cada ano, não uma contagem."
+        }
+      ]
+    },
+    {
+      "chave": "filas",
+      "titulo": "Menos fila, mais tempo",
+      "nomeNoPlano": "Brasil sem Fila",
+      "paginas": [
+        23,
+        28
+      ],
+      "chamada": "Menos tempo perdido em fila: serviços do governo pela internet, saúde conectada, INSS cobrado pelo tempo de espera e título da terra.",
+      "propostas": [
+        {
+          "titulo": "Serviços federais digitais",
+          "trecho": "Vamos digitalizar 100% dos serviços públicos do Governo Federal passíveis de digitalização",
+          "pagina": 25,
+          "emUmaFrase": "Todo serviço federal que puder ser digital poderá ser resolvido pela internet ou pelo celular, sem ir ao balcão.",
+          "dado": {
+            "numero": "175 milhões",
+            "frase": "contas ativas no gov.br, usado para acessar serviços do governo, até maio de 2026",
+            "fonte": "Ministério da Gestão e da Inovação em Serviços Públicos — Secretaria de Governo Digital (página Governo Digital, gov.br)",
+            "url": "https://www.gov.br/governodigital/pt-br",
+            "ano": 2026,
+            "confere": "175 milhões de contas ativas GOV.BR (até mai/26)"
+          },
+          "porQue": "Muita gente já usa o gov.br. Faz sentido que todo serviço possível seja resolvido ali, sem perder um dia de trabalho na fila.",
+          "paraPuxar": "Você já teve que faltar ao trabalho para resolver alguma coisa no governo?",
+          "cuidado": "São contas por CPF, de todas as idades: não diga que quase todo adulto usa."
+        },
+        {
+          "titulo": "Sem levar o mesmo papel duas vezes",
+          "trecho": "Se o governo já tem a informação, não vai pedir de novo.",
+          "pagina": 25,
+          "emUmaFrase": "Se o governo já tem a informação, ele mesmo busca, sem pedir que você leve o papel de novo.",
+          "dado": {
+            "numero": "2018",
+            "frase": "ano da lei que proíbe o governo de pedir documento que ele mesmo emitiu",
+            "fonte": "Lei nº 13.726/2018 (Lei da Desburocratização), art. 3º, § 3º",
+            "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13726.htm",
+            "ano": 2018,
+            "confere": "não poderão exigir do cidadão a apresentação de certidão ou documento expedido por outro órgão ou entidade do mesmo Poder"
+          },
+          "porQue": "A lei já proíbe isso desde 2018. A proposta é fazer a regra valer na prática, com os sistemas do governo trocando os dados entre si.",
+          "paraPuxar": "Já te pediram cópia de um documento que o próprio governo tinha emitido?",
+          "cuidado": "A lei tem exceções: não diga que o governo nunca pode pedir um documento de novo."
+        },
+        {
+          "titulo": "Prontuário único de saúde",
+          "trecho": "Vamos implantar o prontuário eletrônico único, vinculado ao CPF e integrado ao Gov.br, interoperável entre as redes pública e privada",
+          "pagina": 26,
+          "emUmaFrase": "Consultas, exames, vacinas e receitas num só registro digital ligado ao CPF, no SUS e no particular, com sua autorização.",
+          "dado": {
+            "numero": "menos de 4 em cada 10",
+            "frase": "locais de saúde conseguem enviar ou receber resultado de exame de laboratório pelo sistema",
+            "fonte": "Pesquisa TIC Saúde 2025 — Cetic.br / Comitê Gestor da Internet no Brasil (CGI.br)",
+            "url": "https://cetic.br/pt/noticia/uso-de-inteligencia-artificial-avanca-na-saude-brasileira-mas-ainda-se-concentra-em-tarefas-operacionais/",
+            "ano": 2025,
+            "confere": "37% podem enviar ou receber resultados de exames laboratoriais (47% dos públicos e 29% dos privados)"
+          },
+          "porQue": "Quando o resultado não passa de um lugar para outro, o paciente pode ter que repetir exame e contar a história de novo. O registro único quer evitar isso.",
+          "paraPuxar": "Você já teve que repetir um exame porque o resultado não chegou ao outro médico?"
+        },
+        {
+          "titulo": "Consulta e exame marcados mais rápido",
+          "trecho": "usar inteligência artificial para agilizar o agendamento de consultas e exames",
+          "pagina": 26,
+          "emUmaFrase": "Usar inteligência artificial para ajudar o SUS a achar a primeira vaga livre de consulta ou exame.",
+          "dado": {
+            "numero": "1 em cada 3",
+            "frase": "locais de saúde oferece marcação de consulta pela internet, em 2025",
+            "fonte": "Pesquisa TIC Saúde 2025 — Cetic.br / Comitê Gestor da Internet no Brasil (CGI.br)",
+            "url": "https://cetic.br/pt/noticia/uso-de-inteligencia-artificial-avanca-na-saude-brasileira-mas-ainda-se-concentra-em-tarefas-operacionais/",
+            "ano": 2025,
+            "confere": "o agendamento de consultas por 34% e o de exames por 32%"
+          },
+          "porQue": "Na maioria dos locais de saúde ainda não dá para marcar consulta pela internet. A ideia é um sistema que ache a primeira vaga livre, sem o paciente correr atrás.",
+          "paraPuxar": "Aqui na região, quanto tempo demora para marcar uma consulta pelo SUS?"
+        },
+        {
+          "titulo": "INSS medido pela espera",
+          "trecho": "Sai a gestão voltada a entidades sindicais, entra a gestão profissional, medida por uma coisa só: quanto tempo o aposentado espera para receber.",
+          "pagina": 26,
+          "emUmaFrase": "Gestão profissional no INSS, cobrada por um só resultado: quanto tempo o aposentado espera para receber.",
+          "dado": {
+            "numero": "1,5 milhão",
+            "frase": "pedidos na fila do INSS em julho de 2026, esperando análise ou documento do cidadão",
+            "fonte": "INSS — Transparência Previdenciária, julho de 2026",
+            "url": "https://www.gov.br/inss/pt-br/portal-de-transparencia/transparencia-previdenciaria-julho-26.pdf",
+            "ano": 2026,
+            "confere": "Estoque Total 1.546 Mil"
+          },
+          "porQue": "Por trás de cada pedido há alguém esperando um benefício de que precisa. Medir o INSS pelo tempo de espera põe essa pessoa no centro.",
+          "paraPuxar": "Você conhece alguém que esperou meses por aposentadoria ou auxílio do INSS?",
+          "cuidado": "São pedidos, não pessoas. A fila diminuiu em 2026: não diga que está crescendo."
+        },
+        {
+          "titulo": "Documento da terra para o pequeno produtor",
+          "trecho": "Vamos simplificar as outorgas de irrigação e acelerar a regularização fundiária e a titulação do pequeno proprietário rural",
+          "pagina": 27,
+          "emUmaFrase": "Menos papelada para usar água na irrigação e título da terra mais rápido para o pequeno produtor.",
+          "dado": {
+            "numero": "219 mil",
+            "frase": "sítios da agricultura familiar que esperavam o título definitivo da terra, em 2017",
+            "fonte": "IBGE — Censo Agropecuário 2017, tabela 6778 (Sidra)",
+            "url": "https://sidra.ibge.gov.br/tabela/6778",
+            "ano": 2017,
+            "confere": "Número de estabelecimentos agropecuários | Agricultura familiar - sim | Concessionário(a) ou assentado(a) aguardando titulação definitiva | 219478"
+          },
+          "porQue": "O título definitivo passa a terra, de vez, para o nome da família. Sem ele, quem trabalha o lote ainda não é dono. Acelerar isso dá mais segurança.",
+          "paraPuxar": "Você conhece alguém do campo que trabalha a terra há anos e ainda não tem o título?",
+          "cuidado": "O dado é de 2017, do último Censo Agropecuário: não diga que é o número de hoje."
+        }
+      ]
+    },
+    {
+      "chave": "custo",
+      "titulo": "Conta que cabe no mês",
+      "nomeNoPlano": "Brasil Mais Barato",
+      "paginas": [
+        29,
+        33
+      ],
+      "chamada": "Fazer o dinheiro render mais: menos imposto nas compras, na luz e no combustível, frete mais barato e benefício social longe das apostas.",
+      "propostas": [
+        {
+          "titulo": "Imposto menor no que se compra",
+          "trecho": "reduzir o IVA, hoje projetado num dos patamares mais altos do mundo",
+          "pagina": 30,
+          "emUmaFrase": "Revisar a reforma tributária para baixar o imposto que vem embutido no preço do que a gente compra.",
+          "dado": {
+            "numero": "28%",
+            "frase": "previsão da taxa padrão do novo imposto sobre o que a gente compra",
+            "fonte": "Comitê Gestor do IBS, Resolução CGIBS nº 14/2026 (com base em estimativas do Ministério da Fazenda)",
+            "url": "https://www.cgibs.gov.br/upload/arquivos/202607/31144942-resoluc-ao-cgibs-n-14-de-29-de-julho-de-2026-proposta-percentual-ibs-cgibs-2027.pdf",
+            "ano": 2026,
+            "confere": "a alíquota-padrão conjunta do IBS e da CBS situar-se-ia em torno de 28%"
+          },
+          "porQue": "Esse imposto vem no preço de quase tudo o que a gente compra. Nos países da OCDE que cobram esse tipo de imposto, a taxa média é 19%.",
+          "paraPuxar": "Você já reparou na nota do mercado quanto do valor é só imposto?",
+          "cuidado": "28% é a taxa padrão prevista, e a cesta básica tem alíquota zero. Não diga que o arroz vai pagar 28%."
+        },
+        {
+          "titulo": "Conta de luz que dá para entender",
+          "trecho": "Vamos simplificar a conta de luz, racionalizando encargos e subsídios cruzados",
+          "pagina": 31,
+          "emUmaFrase": "Deixar a conta de luz fácil de entender e rever as taxas que pagam descontos de outros.",
+          "dado": {
+            "numero": "R$ 49 bilhões",
+            "frase": "orçamento de 2025 da CDE, fundo de subsídios bancado principalmente pela conta de luz",
+            "fonte": "ANEEL, Resolução Homologatória nº 3.484/2025 (texto publicado pela CCEE, gestora da CDE)",
+            "url": "https://www.ccee.org.br/documents/80415/30313868/reh20253484ti.pdf/24ea283b-93b3-c901-624e-c0dfdc7054f1",
+            "ano": 2025,
+            "confere": "CDE de 2025, no valor de R$ 49.227.181.970,31"
+          },
+          "porQue": "Parte do que se paga na luz não é a energia usada: são subsídios de vários programas. Uma conta simples mostra quanto é energia e quanto é taxa.",
+          "paraPuxar": "Você consegue entender tudo o que vem cobrado na sua conta de luz?"
+        },
+        {
+          "titulo": "Tarifa social mantida",
+          "trecho": "promover a redução gradual da CDE e das fontes incentivadas, mantida a tarifa social para quem mais precisa dela",
+          "pagina": 31,
+          "emUmaFrase": "Diminuir aos poucos os subsídios da conta de luz, mas manter o desconto das famílias de baixa renda.",
+          "dado": {
+            "numero": "80 kWh",
+            "frase": "de luz por mês com desconto total para família de baixa renda na Tarifa Social",
+            "fonte": "Lei nº 12.212/2010, art. 1º, com redação dada pela Lei nº 15.235/2025",
+            "url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12212.htm",
+            "ano": 2025,
+            "confere": "para a parcela do consumo de energia elétrica inferior ou igual a 80 kWh/mês (oitenta quilowatts-hora por mês), o desconto será de 100% (cem por cento)"
+          },
+          "porQue": "Os subsídios pesam na conta de luz de todo mundo. A ideia é reduzir aos poucos os outros subsídios, sem tirar o desconto de quem mais precisa.",
+          "paraPuxar": "Na sua família ou na vizinhança, alguém depende da tarifa social de luz?"
+        },
+        {
+          "titulo": "Menos imposto na luz e no combustível",
+          "trecho": "Vamos reduzir impostos sobre energia elétrica e combustíveis",
+          "pagina": 31,
+          "emUmaFrase": "Cobrar menos imposto na conta de luz e no combustível.",
+          "dado": {
+            "numero": "R$ 1,57",
+            "frase": "de imposto estadual (ICMS) em cada litro de gasolina, igual em todo o país",
+            "fonte": "Confaz, Convênio ICMS nº 112/2025 (valor em vigor desde 1º/01/2026)",
+            "url": "https://www.confaz.fazenda.gov.br/legislacao/convenios/2025/CV112_25",
+            "ano": 2026,
+            "confere": "em R$ 1,57 por litro, para a gasolina e etanol anidro combustível"
+          },
+          "porQue": "Luz e combustível entram no preço de quase tudo: ônibus, frete, comida. Por isso, o imposto cobrado neles pesa no orçamento da família todo mês.",
+          "paraPuxar": "Quanto a conta de luz e o combustível pesam no seu mês hoje?",
+          "cuidado": "O ICMS é imposto dos estados: o presidente não corta esse valor sozinho."
+        },
+        {
+          "titulo": "Frete mais barato até a prateleira",
+          "trecho": "Vamos criar os Corredores Logísticos Inteligentes, com foco direto na redução do custo de transporte, e ampliar o Seguro Rural",
+          "pagina": 31,
+          "emUmaFrase": "Criar corredores de transporte para baratear o frete da lavoura ao mercado e ampliar o seguro de quem planta.",
+          "dado": {
+            "numero": "Quase 70%",
+            "frase": "da carga transportada no país vai de caminhão, medida em peso e distância",
+            "fonte": "Infra S.A./ONTL, Panorama do Transporte Rodoviário de Cargas no Brasil (2026)",
+            "url": "https://ontl.infrasa.gov.br/wp-content/uploads/2026/09/Panorama-do-Transporte-Rodoviario-de-Cargas-do-Brasil.pdf",
+            "ano": 2021,
+            "confere": "o setor rodoviário é responsável por 68,5% da movimentação em Tonelada-Quilômetro Útil (TKU)"
+          },
+          "porQue": "A maior parte da carga do país vai de caminhão, e o frete entra no preço do arroz, do feijão e da carne. A proposta mira baratear esse caminho.",
+          "paraPuxar": "Você já pensou quanto do preço da comida é só o caminho até o mercado?"
+        },
+        {
+          "titulo": "Benefício social não vai para aposta",
+          "trecho": "Vamos proibir o uso dos recursos dos programas sociais para apostas",
+          "pagina": 33,
+          "emUmaFrase": "Proibir que dinheiro de programa social, como o Bolsa Família, seja gasto em apostas.",
+          "dado": {
+            "numero": "R$ 3 bilhões",
+            "frase": "enviados às bets via Pix por pessoas de famílias do Bolsa Família, num só mês",
+            "fonte": "Banco Central do Brasil, Estudo Especial nº 119/2024 (estimativa para agosto de 2024)",
+            "url": "https://www.bcb.gov.br/conteudo/relatorioinflacao/EstudosEspeciais/EE119_Analise_tecnica_sobre_o_mercado_de_apostas_online_no_Brasil_e_o_perfil_dos_apostadores.pdf",
+            "ano": 2024,
+            "confere": "estima-se que, em agosto de 2024, 5 milhões de pessoas pertencentes a famílias beneficiárias do Bolsa Família (PBF) enviaram R$ 3 bilhões às empresas de aposta utilizando a plataforma Pix"
+          },
+          "porQue": "Num só mês, 5 milhões de pessoas de famílias do Bolsa Família mandaram dinheiro para apostas. A proposta quer o benefício longe da aposta.",
+          "paraPuxar": "Você conhece alguém que se complicou com aposta no celular?",
+          "cuidado": "É estimativa do Banco Central e não separa o dinheiro do benefício de outras rendas. Não diga que o Bolsa Família foi para a aposta."
+        }
+      ]
+    },
+    {
+      "chave": "escola-saude",
+      "titulo": "Escola, saúde e cuidado",
+      "nomeNoPlano": "Brasil que Prepara",
+      "paginas": [
+        34,
+        41
+      ],
+      "chamada": "Escola melhor, da alfabetização ao curso técnico, e mais cuidado no SUS, inclusive para pessoas com autismo.",
+      "propostas": [
+        {
+          "titulo": "Alfabetizar pelo método fônico",
+          "trecho": "Vamos priorizar o método fônico, que é o de melhor resultado comprovado pela ciência",
+          "pagina": 35,
+          "emUmaFrase": "Dar prioridade ao método fônico: ensinar a criança a ler ligando cada som à sua letra.",
+          "dado": {
+            "numero": "1 em cada 3",
+            "frase": "crianças da escola pública terminou o 2º ano sem estar alfabetizada",
+            "fonte": "Inep, Indicador Criança Alfabetizada 2025",
+            "url": "https://download.inep.gov.br/avaliacao_da_alfabetizacao/resultados/brasil_2025.pdf",
+            "ano": 2025,
+            "confere": "Resultado 2025 Nacional 66% [...] Rede Pública"
+          },
+          "porQue": "Muita criança da escola pública termina o 2º ano sem estar alfabetizada. O método fônico ensina de um jeito claro: cada som ligado à sua letra.",
+          "paraPuxar": "Tem criança aprendendo a ler na sua família? Como está sendo?",
+          "cuidado": "O índice vem melhorando nos últimos anos: não diga que a alfabetização piorou."
+        },
+        {
+          "titulo": "Mais escolas cívico-militares",
+          "trecho": "Vamos ampliar as Escolas Cívico-Militares",
+          "pagina": 35,
+          "emUmaFrase": "Ter mais escolas públicas cívico-militares, onde militares ajudam na disciplina e na organização, e professores dão as aulas.",
+          "dado": {
+            "numero": "21%",
+            "frase": "da aula vai para manter a ordem, contam professores do 6º ao 9º ano",
+            "fonte": "OCDE, pesquisa TALIS 2024 (professores do 6º ao 9º ano)",
+            "url": "https://www.oecd.org/en/publications/results-from-talis-2024-country-notes_e127f9e2-en/brazil_1e93d3b5-en.html",
+            "ano": 2024,
+            "confere": "spending 21% of class time on keeping order in the classroom (higher than the OECD average 15%)"
+          },
+          "porQue": "No Brasil, pôr ordem na sala toma mais tempo de aula do que na média dos países da OCDE (15%). A cívico-militar aposta na disciplina para sobrar tempo para ensinar.",
+          "paraPuxar": "Como você vê a disciplina nas escolas aqui do bairro?",
+          "cuidado": "Não há dado oficial de que essas escolas melhoram as notas. Fale de disciplina e de tempo de aula."
+        },
+        {
+          "titulo": "Escola o dia inteiro",
+          "trecho": "Apoiamos a escola em tempo integral, para que a criança tenha mais tempo de aprendizado, reforço e atividades formativas",
+          "pagina": 35,
+          "emUmaFrase": "Apoiar a escola de dia inteiro, com mais tempo para aprender, ter reforço e fazer atividades.",
+          "dado": {
+            "numero": "1 em cada 4",
+            "frase": "matrículas da escola pública é de tempo integral (aula o dia todo)",
+            "fonte": "Inep, Censo Escolar 2025",
+            "url": "https://download.inep.gov.br/censo_escolar/resultados/2025/apresentacao_coletiva.pdf",
+            "ano": 2025,
+            "confere": "Percentual de matrículas presenciais em tempo integral na rede pública [...] Educação básica - ensino regular [...] 25,8%"
+          },
+          "porQue": "Dia inteiro na escola dá mais tempo para aprender e para o reforço, e a criança não fica sozinha enquanto os pais trabalham.",
+          "paraPuxar": "Aqui no bairro, com quem as crianças ficam no horário em que não têm aula?"
+        },
+        {
+          "titulo": "Profissão já no ensino médio",
+          "trecho": "Vamos ampliar a oferta de educação técnica para os alunos do ensino médio",
+          "pagina": 36,
+          "emUmaFrase": "Mais cursos técnicos junto com o ensino médio, para o jovem sair da escola com uma profissão.",
+          "dado": {
+            "numero": "1 em cada 5",
+            "frase": "matrículas do ensino médio público vem com curso técnico (ou magistério) junto",
+            "fonte": "Inep, Censo Escolar 2025",
+            "url": "https://download.inep.gov.br/censo_escolar/resultados/2025/apresentacao_coletiva.pdf",
+            "ano": 2025,
+            "confere": "Razão entre matrículas de cursos técnicos* articulados (integrados ou concomitantes) ao ensino médio regular e o total de matrículas do ensino médio regular, por unidade da federação na rede pública - Brasil – 2025 [...] Brasil 20,1%"
+          },
+          "porQue": "Curso técnico junto com o ensino médio ainda é minoria na escola pública. Ampliar dá a mais jovens a chance de sair da escola com uma profissão.",
+          "paraPuxar": "Tem algum jovem na família terminando o ensino médio? Ele já sabe o que vai fazer depois?"
+        },
+        {
+          "titulo": "Condições para corrigir a tabela do SUS",
+          "trecho": "Vamos garantir as condições para que seja possível a correção efetiva da tabela SUS.",
+          "pagina": 37,
+          "emUmaFrase": "Criar condições para corrigir a tabela do SUS, a lista de valores de referência para cada atendimento.",
+          "dado": {
+            "numero": "R$ 10",
+            "frase": "é o valor da tabela do SUS por consulta com especialista, o mesmo de 2008",
+            "fonte": "Ministério da Saúde, Tabela SUS (SIGTAP), setembro de 2026",
+            "url": "http://sigtap.datasus.gov.br/tabela-unificada/app/sec/procedimento/exibir/0301010072/09/2026",
+            "ano": 2026,
+            "confere": "0301010072CONSULTA MEDICA EM ATENÇÃO ESPECIALIZADA [...] 000000001000"
+          },
+          "porQue": "É o mesmo valor de 2008, mas de lá para cá tudo ficou mais caro. Corrigir a tabela é buscar um valor que cubra o custo de quem atende.",
+          "paraPuxar": "Você ou alguém da família já precisou de consulta com especialista pelo SUS? Como foi?",
+          "cuidado": "R$ 10 é o valor de referência federal; prefeituras e estados completam. Não diga que o médico ganha R$ 10."
+        },
+        {
+          "titulo": "Centros de referência em autismo",
+          "trecho": "a implantação de Centros de Referência em Transtorno do Espectro Autista",
+          "pagina": 39,
+          "emUmaFrase": "Criar centros especializados no atendimento a pessoas com autismo.",
+          "dado": {
+            "numero": "2,4 milhões",
+            "frase": "de pessoas no Brasil já foram diagnosticadas com autismo, 1,2% da população",
+            "fonte": "IBGE, Censo Demográfico 2022",
+            "url": "https://educa.ibge.gov.br/jovens/materias-especiais/22700-censo-2022-contou-2-4-milhoes-de-pessoas-diagnosticadas-com-autismo-no-brasil.html",
+            "ano": 2022,
+            "confere": "os resultados mostraram que 2,4 milhões de pessoas foram diagnosticadas, o que corresponde a 1,2% da população residente no Brasil"
+          },
+          "porQue": "Com tanta gente diagnosticada, muitas famílias precisam de atendimento e orientação. Um centro de referência reúne esse cuidado especializado num lugar só.",
+          "paraPuxar": "Você conhece alguma família com criança autista? Ela consegue atendimento aqui na região?"
+        }
+      ]
+    },
+    {
+      "chave": "trabalho-renda",
+      "titulo": "Trabalho, renda e casa própria",
+      "nomeNoPlano": "Brasil que Prospera",
+      "paginas": [
+        42,
+        48
+      ],
+      "chamada": "Manter a ajuda a quem precisa e abrir caminho para o emprego com carteira, o negócio próprio e a casa própria.",
+      "propostas": [
+        {
+          "titulo": "Programas sociais continuam",
+          "trecho": "vamos manter os programas sociais existentes, com aperfeiçoamento da gestão, correção de distorções e combate às fraudes.",
+          "pagina": 42,
+          "emUmaFrase": "Os programas sociais de hoje, como o Bolsa Família, continuam, com gestão melhor e combate a fraudes.",
+          "dado": {
+            "numero": "mais de 19 milhões",
+            "frase": "de famílias recebem o Bolsa Família (setembro de 2026)",
+            "fonte": "Ministério do Desenvolvimento e Assistência Social (MDS)",
+            "url": "https://www.gov.br/mds/pt-br/noticias/bolsa-familia-pagamentos-de-setembro-comecam-nesta-quinta-feira-17-09",
+            "ano": 2026,
+            "confere": "o valor médio de R$ 678,18 para 19,29 milhões de famílias no Brasil"
+          },
+          "porQue": "Muitas famílias contam com o Bolsa Família todo mês. Manter o programa dá tranquilidade a elas, e combater fraude protege o dinheiro de quem tem direito.",
+          "paraPuxar": "Você já ouviu alguém com medo de perder o Bolsa Família?"
+        },
+        {
+          "titulo": "Tentar um emprego sem perder o benefício",
+          "trecho": "garantiremos o retorno imediato e sem fila ao benefício após o seguro-desemprego, mantidas as condições de elegibilidade",
+          "pagina": 43,
+          "emUmaFrase": "Quem saiu do benefício para trabalhar e perdeu o emprego volta sem fila após o seguro-desemprego, se tiver direito.",
+          "dado": {
+            "numero": "até 5 meses",
+            "frase": "é quanto dura o seguro-desemprego pela regra geral (de 3 a 5 parcelas)",
+            "fonte": "Lei 7.998/1990, art. 4º (texto dado pela Lei 13.134/2015)",
+            "url": "https://www.planalto.gov.br/ccivil_03/leis/l7998.htm",
+            "ano": 2015,
+            "confere": "por período máximo variável de 3 (três) a 5 (cinco) meses"
+          },
+          "porQue": "O seguro-desemprego acaba em poucos meses. Garantir a volta ao benefício, sem fila, ajuda a tirar o medo de aceitar um emprego e depois ficar desamparado.",
+          "paraPuxar": "Você já viu alguém recusar um emprego com medo de perder o benefício?",
+          "cuidado": "A lei já dá prioridade para voltar ao benefício: não diga que hoje não existe volta."
+        },
+        {
+          "titulo": "Mais carteira assinada",
+          "trecho": "Vamos reduzir gradualmente o custo do trabalho, sem retirar direitos, para que mais brasileiros tenham carteira assinada",
+          "pagina": 43,
+          "emUmaFrase": "Diminuir aos poucos o custo para a empresa contratar com carteira, sem tirar direitos do trabalhador.",
+          "dado": {
+            "numero": "quase 14 milhões",
+            "frase": "de empregados do setor privado trabalham sem carteira assinada (junho a agosto de 2026)",
+            "fonte": "IBGE, PNAD Contínua (trimestre de junho a agosto de 2026)",
+            "url": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/48148-pnad-continua-taxa-de-desocupacao-e-de-5-3-e-taxa-de-subutilizacao-e-de-13-1-no-trimestre-encerrado-em-agosto",
+            "ano": 2026,
+            "confere": "O número de empregados sem carteira no setor privado (13,7 milhões) ficou estável no trimestre e no ano."
+          },
+          "porQue": "Quem trabalha sem carteira fica sem FGTS e sem seguro-desemprego. A ideia é baratear o registro para a empresa, sem cortar direitos, para valer a pena assinar a carteira.",
+          "paraPuxar": "Você ou alguém de casa já trabalhou sem carteira assinada?"
+        },
+        {
+          "titulo": "Vaga para quem tem 50 anos ou mais",
+          "trecho": "criar um contrato mais atrativo para a contratação de pessoas com 50 anos ou mais desempregadas há pelo menos 12 meses",
+          "pagina": 44,
+          "emUmaFrase": "Contrato mais vantajoso para contratar quem tem 50 anos ou mais e está desempregado há pelo menos 1 ano.",
+          "dado": {
+            "numero": "1,7 milhão",
+            "frase": "de desempregados (todas as idades) procuram trabalho há 1 ano ou mais (abr.–jun. 2026)",
+            "fonte": "IBGE, PNAD Contínua trimestral, tabela Sidra 1616",
+            "url": "https://sidra.ibge.gov.br/tabela/1616",
+            "ano": 2026,
+            "confere": "2º trimestre 2026 | De 1 ano a menos de 2 anos | Mil pessoas | 635; 2 anos ou mais | Mil pessoas | 1058"
+          },
+          "porQue": "Muita gente procura emprego há 1 ano ou mais. Para quem tem 50 anos ou mais, um contrato mais vantajoso dá à empresa um motivo a mais para chamar.",
+          "paraPuxar": "Você conhece alguém com 50 anos ou mais que procura emprego faz tempo?",
+          "cuidado": "O número é de todas as idades: não diga que a maioria tem mais de 50 anos."
+        },
+        {
+          "titulo": "Ajuda para abrir o primeiro negócio",
+          "trecho": "vamos criar o Minha Primeira Empresa: menos burocracia para abrir e formalizar o negócio",
+          "pagina": 45,
+          "emUmaFrase": "Programa Minha Primeira Empresa: menos papelada para abrir e regularizar o negócio, com curso, orientação e crédito.",
+          "dado": {
+            "numero": "27%",
+            "frase": "dos trabalhadores por conta própria tinham CNPJ em 2025; a maioria trabalha sem empresa aberta",
+            "fonte": "IBGE, PNAD Contínua – Características adicionais do mercado de trabalho 2025",
+            "url": "https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/48112-em-2025-taxa-de-sindicalizacao-fica-em-8-8-da-populacao-ocupada",
+            "ano": 2025,
+            "confere": "Proporção da população ocupada por conta própria com CNPJ saltou de 15,0%, em 2012, para o seu ápice histórico de 27,1%, em 2025."
+          },
+          "porQue": "Sem CNPJ, fica mais difícil emitir nota e conseguir crédito. A proposta quer facilitar esse passo, com menos papelada e mais orientação.",
+          "paraPuxar": "Você conhece alguém que trabalha por conta e pensa em abrir a própria empresa?"
+        },
+        {
+          "titulo": "Casa própria com juro menor",
+          "trecho": "Vamos retomar o Casa Verde e Amarela, com meta de 2,5 milhões de residências e a menor taxa de juros possível no financiamento.",
+          "pagina": 47,
+          "emUmaFrase": "Volta do programa Casa Verde e Amarela, com meta de 2,5 milhões de casas e o menor juro possível.",
+          "dado": {
+            "numero": "quase 1 em cada 4",
+            "frase": "lares no Brasil era alugado em 2025 (18,9 milhões de moradias)",
+            "fonte": "IBGE, PNAD Contínua – Características dos domicílios e dos moradores 2025",
+            "url": "https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/46449-domicilios-alugados-cresceram-mais-de-50-desde-2016",
+            "ano": 2025,
+            "confere": "Quase um quarto dos domicílios brasileiros são alugados"
+          },
+          "porQue": "Quem paga aluguel todo mês não vê esse dinheiro virar um bem da família. Com juro menor, a parcela da casa própria fica mais leve.",
+          "paraPuxar": "Você paga aluguel hoje ou já pagou? Quanto isso pesa no fim do mês?",
+          "cuidado": "O Casa Verde e Amarela foi trocado pelo Minha Casa, Minha Vida em 2023; o vizinho pode lembrar disso."
+        }
+      ]
+    },
+    {
+      "chave": "crescimento",
+      "titulo": "Obras, transporte e emprego",
+      "nomeNoPlano": "Brasil que Cresce",
+      "paginas": [
+        49,
+        64
+      ],
+      "chamada": "Fazer o país crescer mais: estradas e trilhos, transporte na cidade, floresta protegida e portas abertas ao mundo.",
+      "propostas": [
+        {
+          "titulo": "Dobrar o ritmo de crescimento das últimas décadas",
+          "trecho": "Nossa meta é dobrar esse ritmo e alcançar um crescimento sustentado de 4% ao ano ao longo da próxima década",
+          "pagina": 49,
+          "emUmaFrase": "Meta de fazer a economia crescer 4% ao ano por dez anos, o dobro da média dos últimos 20 anos.",
+          "dado": {
+            "numero": "2,3%",
+            "frase": "crescimento da economia brasileira em 2025",
+            "fonte": "IBGE, Contas Nacionais Trimestrais (divulgado em 03/03/2026)",
+            "url": "https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45969-pib-cresce-2-3-em-2025",
+            "ano": 2025,
+            "confere": "O Produto Interno Bruto (PIB) do país encerrou 2025 com crescimento de 2,3%."
+          },
+          "porQue": "O plano quer chegar a 4% ao ano, com mais investimento das empresas. Economia crescendo mais costuma trazer mais emprego e renda para as famílias.",
+          "paraPuxar": "Nos últimos anos, você sente que ficou mais fácil ou mais difícil achar um bom emprego?"
+        },
+        {
+          "titulo": "Estradas, ferrovias, portos e aeroportos",
+          "trecho": "Vamos investir R$ 900 bilhões em quatro anos em rodovias, hidrovias, portos, aeroportos e ferrovias.",
+          "pagina": 51,
+          "emUmaFrase": "Investir R$ 900 bilhões em quatro anos, com empresas privadas, em estradas, ferrovias, rios navegáveis, portos e aeroportos.",
+          "dado": {
+            "numero": "quase 70%",
+            "frase": "da carga transportada no Brasil vai de caminhão, contando peso e distância",
+            "fonte": "Infra S.A./ONTL (Ministério dos Transportes), Panorama do Transporte Rodoviário de Cargas no Brasil",
+            "url": "https://ontl.infrasa.gov.br/wp-content/uploads/2026/09/Panorama-do-Transporte-Rodoviario-de-Cargas-do-Brasil.pdf",
+            "ano": 2021,
+            "confere": "Os dados de 2021 mostram que o setor rodoviário é responsável por 68,5% da movimentação em Tonelada-Quilômetro Útil (TKU)"
+          },
+          "porQue": "Em viagens longas, o caminhão sai caro. Trem e barco levam muita carga gastando menos. A proposta investe para o país ter mais opções além da estrada.",
+          "paraPuxar": "Você acha que o Brasil deveria usar mais trem e barco para levar carga?"
+        },
+        {
+          "titulo": "Metrô e ônibus na frente da fila do financiamento",
+          "trecho": "Os bancos públicos priorizarão o financiamento de linhas de metrô, transporte sobre trilhos e ônibus movidos a eletricidade e biocombustíveis.",
+          "pagina": 51,
+          "emUmaFrase": "Bancos do governo vão dar preferência a empréstimos para metrô, trem e ônibus elétrico ou a biocombustível.",
+          "dado": {
+            "numero": "1,3 milhão",
+            "frase": "de trabalhadores levam mais de 2 horas só para chegar ao trabalho",
+            "fonte": "IBGE, Censo Demográfico 2022: deslocamentos para o trabalho (divulgado em 09/10/2025)",
+            "url": "https://educa.ibge.gov.br/jovens/materias-especiais/23064-censo-2022-como-a-populacao-se-desloca-para-estudar-e-trabalhar.html",
+            "ano": 2022,
+            "confere": "perto de 1,3 milhão de pessoas levam mais de duas horas para chegar ao local de trabalho"
+          },
+          "porQue": "Tempo no trânsito é tempo longe da família e do descanso. Metrô e trem levam muita gente de uma vez e não ficam presos no congestionamento.",
+          "paraPuxar": "Quanto tempo você leva para chegar ao trabalho? Como é esse caminho?"
+        },
+        {
+          "titulo": "Desmatamento ilegal zero",
+          "trecho": "Teremos a meta de zerar o desmatamento ilegal até 2029",
+          "pagina": 58,
+          "emUmaFrase": "Meta de zerar, até 2029, o desmatamento fora da lei, sem atrapalhar quem produz dentro da lei.",
+          "dado": {
+            "numero": "5,7 mil km²",
+            "frase": "de floresta derrubada na Amazônia em um ano (ago/2024 a jul/2025)",
+            "fonte": "INPE, Prodes (taxa consolidada, publicada em 18/08/2026)",
+            "url": "https://www.gov.br/inpe/pt-br/assuntos/ultimas-noticias/sistema-do-inpe-aponta-5-731-km2-de-desmatamento-na-amazonia-em-2025",
+            "ano": 2025,
+            "confere": "A taxa consolidada de desmatamento na Amazônia Legal em 2025 é de 5.731 km²"
+          },
+          "porQue": "Mesmo em queda, a Amazônia perdeu em um ano quase 4 vezes a área da cidade de São Paulo. O foco é quem desmata fora da lei.",
+          "paraPuxar": "Você acha que dá para proteger a floresta e, ao mesmo tempo, apoiar quem produz?",
+          "cuidado": "O número soma desmatamento legal e ilegal, e caiu em relação ao ano anterior."
+        },
+        {
+          "titulo": "Trem ligando capitais do Nordeste",
+          "trecho": "Vamos viabilizar o Trem do Nordeste, 1.400 km de trilhos interligando Salvador, Aracaju, Maceió, Recife, João Pessoa, Natal e Fortaleza",
+          "pagina": 60,
+          "emUmaFrase": "Tornar possível um trem de passageiros de 1.400 km ligando sete capitais do Nordeste, de Salvador a Fortaleza.",
+          "dado": {
+            "numero": "2",
+            "frase": "linhas regulares de trem de passageiros nas grandes ferrovias do país",
+            "fonte": "ANTT (Agência Nacional de Transportes Terrestres), página Trens regulares",
+            "url": "https://www.gov.br/antt/pt-br/assuntos/passageiros/passageiros-ferroviarios/passageiros-ferroviarios",
+            "ano": 2026,
+            "confere": "Atualmente, existem duas linhas de trens de passageiros regulares na malha ferroviária concedida brasileira."
+          },
+          "porQue": "Nenhuma das duas liga uma capital do Nordeste a outra. Hoje, quem viaja entre essas capitais vai de ônibus, carro ou avião. O trem seria mais uma opção.",
+          "paraPuxar": "Você já viajou entre capitais do Nordeste? Pegaria um trem, se tivesse um?"
+        },
+        {
+          "titulo": "Entrar na OCDE",
+          "trecho": "retomar o cronograma interrompido de adesão à OCDE",
+          "pagina": 63,
+          "emUmaFrase": "Retomar o processo de entrada do Brasil na OCDE, grupo de países com padrões comuns de economia e governo.",
+          "dado": {
+            "numero": "38",
+            "frase": "países são membros da OCDE; o Brasil é um dos 8 candidatos a entrar",
+            "fonte": "OCDE, página oficial Members and partners",
+            "url": "https://www.oecd.org/en/about/members-partners.html",
+            "ano": 2026,
+            "confere": "The OECD's 38 Member countries span the world"
+          },
+          "porQue": "Chile e México já são membros; o Brasil ainda é candidato. Para entrar, o país ajusta suas regras às boas práticas do grupo. O plano aposta nisso para atrair investimento.",
+          "paraPuxar": "Chile e México já estão na OCDE. Você acha que o Brasil também deveria entrar?",
+          "cuidado": "Não culpe ninguém pela pausa na entrada do Brasil."
+        }
+      ]
+    },
+    {
+      "chave": "instituicoes",
+      "titulo": "Regras iguais para todos",
+      "nomeNoPlano": "Brasil que Cumpre a Constituição",
+      "paginas": [
+        65,
+        67
+      ],
+      "chamada": "Mudanças no STF, fim da reeleição para presidente e o direito de todo mundo criticar o governo.",
+      "propostas": [
+        {
+          "titulo": "Parlamentar julgado fora do STF",
+          "trecho": "Fim das competências criminais originárias do STF, permitindo que parlamentares sejam julgados por instâncias inferiores, como o STJ ou os TRFs",
+          "pagina": 65,
+          "emUmaFrase": "Deputados e senadores acusados de crime passam a ser julgados por outros tribunais, e não mais pelo STF.",
+          "dado": {
+            "numero": "11",
+            "frase": "ministros no STF: cuidam da Constituição e também julgam crimes de deputados e senadores",
+            "fonte": "Constituição Federal, arts. 101 e 102 (Planalto)",
+            "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+            "ano": 1988,
+            "confere": "O Supremo Tribunal Federal compõe-se de onze Ministros"
+          },
+          "porQue": "São só 11 ministros para cuidar da Constituição e ainda julgar crimes de políticos. A proposta manda esses processos para outros tribunais, para o STF se dedicar à Constituição.",
+          "paraPuxar": "Para você, o STF deveria cuidar só da Constituição ou também julgar políticos?",
+          "cuidado": "Desde 2018, o STF só julga crimes cometidos no mandato e ligados à função."
+        },
+        {
+          "titulo": "Menos decisões de um ministro só",
+          "trecho": "Limitação das decisões monocráticas do STF, privilegiando as decisões colegiadas",
+          "pagina": 65,
+          "emUmaFrase": "Menos decisões de um ministro sozinho no STF e mais decisões tomadas em grupo, pelos ministros juntos.",
+          "dado": {
+            "numero": "8 em cada 10",
+            "frase": "decisões do STF em 2025 foram tomadas por um ministro sozinho",
+            "fonte": "Supremo Tribunal Federal, Relatório de Atividades 2025 (série STF Dados)",
+            "url": "https://noticias.stf.jus.br/postsnoticias/maioria-das-decisoes-individuais-do-stf-trata-do-andamento-dos-processos/",
+            "ano": 2025,
+            "confere": "O STF proferiu 94.934 decisões monocráticas no ano, o equivalente a cerca de 80% de todas as decisões registradas no período."
+          },
+          "porQue": "A maioria é rotina do processo. Mas um ministro sozinho pode suspender uma lei votada pelo Congresso. A proposta quer que casos assim sejam decididos pelo grupo.",
+          "paraPuxar": "Você acha que decisões grandes do STF deveriam ser tomadas pelo grupo de ministros?",
+          "cuidado": "Cerca de 3 em cada 4 decisões individuais são de rotina. Não cite nomes de ministros."
+        },
+        {
+          "titulo": "Quarentena antes de ir para o STF",
+          "trecho": "Quarentena de 1 ano para que Ministros de Estado possam ser indicados ao STF.",
+          "pagina": 65,
+          "emUmaFrase": "Quem foi ministro do governo precisa esperar 1 ano antes de poder ser indicado ao STF.",
+          "dado": {
+            "numero": "6 meses",
+            "frase": "espera que a lei já exige de ex-ministro antes de trabalhar em empresa da área",
+            "fonte": "Lei 12.813/2013 (Lei de Conflito de Interesses), arts. 2º e 6º (Planalto)",
+            "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/l12813.htm",
+            "ano": 2013,
+            "confere": "II - no período de 6 (seis) meses, contado da data da dispensa, exoneração, destituição, demissão ou aposentadoria"
+          },
+          "porQue": "Ex-ministro já espera 6 meses para trabalhar em empresa da área. Para ir ao STF, a lei não pede espera. A proposta cria 1 ano, para separar governo e tribunal.",
+          "paraPuxar": "Você acha que quem sai do governo deveria esperar um tempo antes de ir para o STF?",
+          "cuidado": "Não cite nomes de ministros nem de governos."
+        },
+        {
+          "titulo": "Fim da reeleição para presidente",
+          "trecho": "propomos o fim da reeleição para o cargo de Presidente da República",
+          "pagina": 66,
+          "emUmaFrase": "O presidente não poderá mais disputar a reeleição.",
+          "dado": {
+            "numero": "1997",
+            "frase": "ano em que a Constituição passou a permitir a reeleição de presidente",
+            "fonte": "Emenda Constitucional 16/1997 (Planalto)",
+            "url": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc16.htm",
+            "ano": 1997,
+            "confere": "EMENDA CONSTITUCIONAL Nº 16, DE 04 DE JUNHO DE 1997 [...] poderão ser reeleitos para um único período subseqüente."
+          },
+          "porQue": "Até 1997, a Constituição proibia o presidente de disputar o mandato seguinte. A proposta volta a proibir, para quem governa focar no mandato, e não na próxima campanha.",
+          "paraPuxar": "Para você, presidente deveria poder disputar a reeleição?",
+          "cuidado": "Acabar com a reeleição exige emenda à Constituição, votada pelo Congresso."
+        },
+        {
+          "titulo": "Direito de criticar o governo",
+          "trecho": "Nós defendemos o direito de sermos criticados, com foco na liberdade de expressão prevista na Constituição Federal.",
+          "pagina": 67,
+          "emUmaFrase": "Defender que qualquer pessoa possa criticar o governo, como garante a Constituição.",
+          "dado": {
+            "numero": "1988",
+            "frase": "ano da Constituição que proíbe \"toda e qualquer censura de natureza política\"",
+            "fonte": "Constituição Federal, art. 220, § 2º (Planalto)",
+            "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+            "ano": 1988,
+            "confere": "CONSTITUIÇÃO DA REPÚBLICA FEDERATIVA DO BRASIL DE 1988 [...] § 2º É vedada toda e qualquer censura de natureza política, ideológica e artística."
+          },
+          "porQue": "A Constituição garante que todos podem criticar quem governa. A proposta reforça isso: crítica não é crime, e crime de verdade se resolve na Justiça, com direito de defesa.",
+          "paraPuxar": "Para você, criticar o governo, seja ele qual for, é direito de todo mundo?",
+          "cuidado": "Fale do princípio, sem acusar pessoas ou governos."
+        }
+      ]
+    },
+    {
+      "chave": "contas",
+      "titulo": "Contas em ordem",
+      "nomeNoPlano": "Brasil que Não Volta Atrás",
+      "paginas": [
+        68,
+        73
+      ],
+      "chamada": "Governo gastando menos consigo mesmo, contas no azul e aposentado protegido contra fraude.",
+      "propostas": [
+        {
+          "titulo": "Pelo menos 10 ministérios a menos",
+          "trecho": "Isso inclui o corte de no mínimo 10 ministérios, a redução de cargos comissionados e de despesas administrativas",
+          "pagina": 69,
+          "emUmaFrase": "Diminuir o governo: pelo menos 10 ministérios a menos, menos cargos de confiança e menos gastos com a máquina.",
+          "dado": {
+            "numero": "38",
+            "frase": "ministérios e órgãos com status de ministério no governo federal em 2026",
+            "fonte": "Lei nº 14.600/2023, arts. 17 e 18 (texto compilado no site do Planalto)",
+            "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14600.htm",
+            "ano": 2026,
+            "confere": "Art. 17. Os Ministérios são os seguintes: I - Ministério da Agricultura e Pecuária; [...] XII-A Ministério do Empreendedorismo, da Microempresa e da Empresa de Pequeno Porte; [...] XXXI - Controladoria-Geral da União. Art. 18. São Ministros de Estado: I - os titulares dos Ministérios; [...] VII - o Advogado-Geral da União."
+          },
+          "porQue": "Cada ministério tem chefias e estrutura próprias. Cortar pelo menos 10 é para ter menos cargos e menos gasto com a máquina do governo.",
+          "paraPuxar": "Você sabia que o governo federal tem 38 ministérios? O que acha disso?"
+        },
+        {
+          "titulo": "Combate aos supersalários e penduricalhos",
+          "trecho": "o combate aos penduricalhos e supersalários que corroem o orçamento",
+          "pagina": 69,
+          "emUmaFrase": "Combater os extras que fazem alguns salários do serviço público passarem do limite da Constituição.",
+          "dado": {
+            "numero": "R$ 46 mil",
+            "frase": "por mês: teto do salário no serviço público, igual ao de ministro do STF",
+            "fonte": "Supremo Tribunal Federal, Informativo STF nº 1210 (8/4/2026), teses do julgamento de 25/03/2026 (valor fixado pela Lei nº 14.520/2023)",
+            "url": "https://www.stf.jus.br/arquivo/informativo/documento/informativo1210.htm",
+            "ano": 2026,
+            "confere": "reafirma o atual valor do teto constitucional, mantido em R$ 46.366,19, subsídio dos Ministros do Supremo Tribunal Federal"
+          },
+          "porQue": "A Constituição põe um teto no salário público. Mesmo assim, auxílios extras fazem alguns salários passarem dele. Combater esses extras é fazer o limite valer.",
+          "paraPuxar": "Você acha justo alguém no serviço público ganhar acima do teto por causa de auxílios extras?",
+          "cuidado": "Em 2026 o STF derrubou vários auxílios, mas ainda há extras: não diga que os penduricalhos acabaram."
+        },
+        {
+          "titulo": "Venda de estatais, caso a caso",
+          "trecho": "vamos retomar o Programa Nacional de Desestatização com critério, avaliando caso a caso onde a presença do Estado deixou de fazer sentido",
+          "pagina": 70,
+          "emUmaFrase": "Revisar as empresas do governo uma por uma e vender as que não precisam mais ser públicas.",
+          "dado": {
+            "numero": "44",
+            "frase": "empresas estatais que o governo federal controla diretamente (sem contar as subsidiárias)",
+            "fonte": "Ministério da Gestão e da Inovação (Sest), página do Boletim Trimestral das Estatais",
+            "url": "https://www.gov.br/gestao/pt-br/assuntos/estatais/transparencia/boletim-trimestral-sest",
+            "ano": 2026,
+            "confere": "O boletim traz resultados operacionais de todas as 44 estatais"
+          },
+          "porQue": "O governo controla 44 empresas, de bancos a hospitais. Olhar uma por uma permite manter as que cumprem papel público e vender as que deixaram de fazer sentido.",
+          "paraPuxar": "Você acha que o governo precisa ser dono de tantas empresas?"
+        },
+        {
+          "titulo": "Gastar dentro do orçamento",
+          "trecho": "Vamos construir o equilíbrio fiscal duradouro, entregando superávits primários e limitando o crédito subsidiado com recursos do Tesouro",
+          "pagina": 71,
+          "emUmaFrase": "Fechar as contas do governo no azul, sem contar os juros, e limitar empréstimos baratos bancados pelo Tesouro.",
+          "dado": {
+            "numero": "quase R$ 1,2 trilhão",
+            "frase": "em juros da dívida do setor público em 12 meses, até agosto de 2026",
+            "fonte": "Banco Central do Brasil, Estatísticas Fiscais (nota para a imprensa de 30/09/2026)",
+            "url": "https://www.bcb.gov.br/content/estatisticas/hist_estatisticasfiscais/202609_Texto_de_estatisticas_fiscais.pdf",
+            "ano": 2026,
+            "confere": "No acumulado em doze meses até agosto, os juros nominais alcançaram R$1.182,2 bilhões (8,86% do PIB)"
+          },
+          "porQue": "Quem gasta mais do que ganha vive pagando juros, e com o governo é igual. Fechar as contas no azul é o primeiro passo para a dívida parar de crescer.",
+          "paraPuxar": "Você já sentiu o peso dos juros quando a conta do mês não fechou?",
+          "cuidado": "É o custo dos juros no período, não o dinheiro já pago. Fale do problema, sem culpar ninguém."
+        },
+        {
+          "titulo": "Pacote contra fraude no INSS",
+          "trecho": "Reeditaremos um pacote antifraude na Previdência, nos moldes do que fizemos em 2019",
+          "pagina": 72,
+          "emUmaFrase": "Voltar a apertar o controle contra fraudes no INSS, como na medida antifraude de 2019.",
+          "dado": {
+            "numero": "R$ 1,3 bilhão",
+            "frase": "descontado por associações dos benefícios do INSS em 2023, mais que o dobro de 2021",
+            "fonte": "Controladoria-Geral da União (CGU), Relatório de Auditoria nº 1675291 (publicado em 23/04/2025)",
+            "url": "https://eaud.cgu.gov.br/relatorio/1675762",
+            "ano": 2023,
+            "confere": "de R$ 536,3 milhões em 2021 a R$ 1,3 bilhão em 2023, podendo alcançar R$ 2,6 bilhões em 2024"
+          },
+          "porQue": "Os descontos de associações nos benefícios do INSS mais que dobraram em dois anos. A ideia é voltar a apertar o controle, como em 2019, para proteger aposentados e pensionistas.",
+          "paraPuxar": "Você conhece algum aposentado que teve um desconto estranho no benefício?",
+          "cuidado": "É o total descontado por associações, não fraude comprovada."
+        },
+        {
+          "titulo": "Desconto no benefício só com autorização",
+          "trecho": "incluindo dupla checagem que impede que tirem do benefício o que não foi autorizado",
+          "pagina": 73,
+          "emUmaFrase": "No empréstimo descontado do benefício do INSS (consignado), checar duas vezes se a pessoa autorizou antes de descontar.",
+          "dado": {
+            "numero": "quase 98 em cada 100",
+            "frase": "aposentados e pensionistas ouvidos pela CGU disseram não ter autorizado o desconto de associação",
+            "fonte": "Controladoria-Geral da União (CGU), Relatório de Auditoria nº 1675291 (entrevistas de 17/04 a 04/07/2024)",
+            "url": "https://eaud.cgu.gov.br/relatorio/1675762",
+            "ano": 2024,
+            "confere": "1.242 beneficiários entrevistados (97,6%) informaram não ter autorizado o desconto"
+          },
+          "porQue": "Na auditoria da CGU, quase todos os ouvidos disseram não ter autorizado o desconto de associação. A proposta quer evitar o mesmo no consignado, com checagem dupla.",
+          "paraPuxar": "Você acha que todo desconto na aposentadoria deveria ter a confirmação do próprio aposentado?",
+          "cuidado": "É uma amostra de entrevistas: não diga que 98% de todos os descontos eram falsos."
+        }
+      ]
+    }
+  ]
+}
