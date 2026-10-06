@@ -20,7 +20,7 @@ const cfg = JSON.parse(readFileSync(join(RAIZ, 'config', 'candidatura.json'), 'u
 }
 const RE_LINK = /#\/mapa\/@(-?\d{1,2}\.\d{3}),(-?\d{1,2}\.\d{3})$/
 
-/** Mesma CSP do nginx no documento: script/estilo inline ou host não liberado aparecem como erro de console. */
+/** Mesma CSP da produção no documento: script/estilo inline ou host não liberado aparecem como erro de console. */
 async function aplicarCsp(page: Page): Promise<void> {
   await page.route(/^http:\/\/127\.0\.0\.1:5151\//, async (rota) => {
     if (rota.request().resourceType() !== 'document') return rota.fallback()

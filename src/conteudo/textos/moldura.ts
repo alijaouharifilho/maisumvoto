@@ -195,10 +195,7 @@ export const legendaMapa: Record<GrupoLegenda, (nomes: Nomes) => string> = {
 
 export const acessibilidade = {
   lista: 'Locais de votação, do maior “até” para o menor',
-  marcador: (local: string, situacao: string) => `${local}: ${situacao}`,
-  marcadorSemResultado: (local: string) => `${local}: sem resultado ainda`,
   pontoEscolhido: 'Ponto escolhido',
-  abrirFicha: (local: string) => `Abrir a ficha de ${local}`,
   novaAba: '(abre em outra aba)',
   carregando: 'Carregando',
   /** Região viva da tela do mapa (sempre montada): o que mudou depois de escolher um ponto, para o leitor de tela. */
@@ -211,5 +208,4 @@ export const sistema = {
   versaoNova: 'Saiu uma versão nova do site.',
   recarregar: 'Recarregar a página',
   erroTela: 'Algo deu errado nesta tela.',
-  modoExemplo: 'Dados de exemplo: números fictícios, só para teste. Não use para conversar.',
 } as const

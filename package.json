@@ -22,10 +22,7 @@
     "checar:publicacao": "node ferramentas/checar-publicacao.mjs",
     "verificar": "npm run lint && npm run typecheck && npm run test && npm run test:deploy && npm run test:py && npm run conferir:citacoes",
     "test:deploy": "node --test \"deploy/testes/*.test.mjs\"",
-    "conferir:citacoes": "node ferramentas/py.mjs ferramentas/conferir_citacoes.py",
-    "og": "node ferramentas/gerar-og.mjs",
-    "publicar": "bash deploy/publicar.sh",
-    "validar:nginx": "bash deploy/validar-nginx.sh --funcional"
+    "conferir:citacoes": "node ferramentas/py.mjs ferramentas/conferir_citacoes.py"
   },
   "dependencies": {
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",

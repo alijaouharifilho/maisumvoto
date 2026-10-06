@@ -29,10 +29,6 @@ export function faseAberta(fase: IdFase, cal: Calendario): boolean {
   return cal.fasesAbertas.includes(fase)
 }
 
-export function proximaMudanca(instante: number, cal: Calendario): number | null {
-  return faseAtual(instante, cal).fim
-}
-
 /**
  * Fase com dois relógios: o do aparelho e o do servidor (cabeçalho Date), se houver. Falha fechada: se qualquer
  * um disser "votacao", vale "votacao" (aparelho atrasado não reabre mapa nem roteiros em 25/10); senão, vale o mais

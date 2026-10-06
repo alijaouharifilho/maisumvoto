@@ -1,7 +1,7 @@
 // Domínio público do site para as tags de prévia (og:url, og:image) do index.html.
 // Na Vercel, vale o domínio de produção do projeto (VERCEL_PROJECT_PRODUCTION_URL: o domínio próprio mais curto,
 // ou o *.vercel.app se não houver), para a prévia do link nunca apontar para um domínio que ainda não existe.
-// Fora da Vercel (preview local, nginx), vale o domínio de config/candidatura.json.
+// Fora da Vercel (dev e preview locais), vale o domínio de config/candidatura.json.
 
 export const MARCADOR_DOMINIO = '__DOMINIO_SITE__'
 

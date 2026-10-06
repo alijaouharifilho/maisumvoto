@@ -1,22 +1,11 @@
 // Regras do congelamento de deploy no período eleitoral (deploy/CONGELAMENTO.md).
 import assert from 'node:assert/strict'
-import { spawnSync } from 'node:child_process'
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
-import { tmpdir } from 'node:os'
-import { join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { readFileSync } from 'node:fs'
 import { test } from 'node:test'
 
-import {
-  avaliarCongelamento,
-  formatarBrasilia,
-  janelaCongelamento,
-  lerCalendario,
-  MARGEM_ULTIMO_DEPLOY_MS,
-} from '../congelamento.mjs'
+import { avaliarCongelamento, formatarBrasilia, janelaCongelamento, MARGEM_ULTIMO_DEPLOY_MS } from '../congelamento.mjs'
 
-const CLI = fileURLToPath(new URL('../congelamento.mjs', import.meta.url))
-const CONFIG_REAL = fileURLToPath(new URL('../../config/candidatura.json', import.meta.url))
+const CONFIG_REAL = JSON.parse(readFileSync(new URL('../../config/candidatura.json', import.meta.url), 'utf8'))
 
 const CALENDARIO = Object.freeze({
   fuso: '-03:00',
@@ -88,29 +77,7 @@ test('calendário inválido falha fechado', () => {
 })
 
 test('lê o calendário real de config/candidatura.json', () => {
-  const janela = janelaCongelamento(lerCalendario(CONFIG_REAL))
+  const janela = janelaCongelamento(CONFIG_REAL.calendario)
   assert.equal(formatarBrasilia(janela.inicio), '24/10/2026 22:00')
   assert.equal(formatarBrasilia(janela.fim), '26/10/2026 02:00')
-})
-
-function rodarCli(args) {
-  return spawnSync(process.execPath, [CLI, ...args], { encoding: 'utf8' })
-}
-
-test('CLI: código 0 livre, 10 margem, 11 congelado', () => {
-  assert.equal(rodarCli(['--agora', '2026-10-20T10:00:00-03:00']).status, 0)
-  assert.equal(rodarCli(['--agora', '2026-10-24T20:30:00-03:00']).status, 10)
-  assert.equal(rodarCli(['--agora', '2026-10-25T10:00:00-03:00']).status, 11)
-})
-
-test('CLI: config ilegível ou --agora inválido dá código 1', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'muv-cong-'))
-  try {
-    const ruim = join(dir, 'ruim.json')
-    writeFileSync(ruim, '{ isto não é json')
-    assert.equal(rodarCli(['--config', ruim]).status, 1)
-    assert.equal(rodarCli(['--agora', 'ontem']).status, 1)
-  } finally {
-    rmSync(dir, { recursive: true, force: true })
-  }
 })

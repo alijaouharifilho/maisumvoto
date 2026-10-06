@@ -42,7 +42,7 @@ test('produção durante o congelamento (24/10 22h a 26/10 2h): bloqueia, salvo 
   assert.deepEqual(pronto('production', CONGELADO, { ignorarCongelamento: true }), [])
 })
 
-test('produção nas 2 h antes do congelamento (24/10, 20h a 22h): bloqueia, como o publicar.sh', () => {
+test('produção nas 2 h antes do congelamento (24/10, 20h a 22h): bloqueia', () => {
   const motivos = pronto('production', new Date('2026-10-24T21:00:00-03:00'))
   assert.equal(motivos.length, 1)
   assert.match(motivos[0], /último deploy era até/)

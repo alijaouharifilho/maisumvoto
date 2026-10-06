@@ -1,26 +1,14 @@
-// Congelamento de deploy no período eleitoral. Os limites vêm de config/candidatura.json
-// (calendario): começa quando termina a última fase aberta e acaba quando termina a última
-// fase com data. Uso pelo deploy/publicar.sh:
-//   node deploy/congelamento.mjs [--config caminho] [--agora ISO-8601]
-// Códigos de saída: 0 livre · 10 margem do último deploy · 11 congelado · 1 erro (falha fechada).
-import { readFileSync } from 'node:fs'
-import { fileURLToPath, pathToFileURL } from 'node:url'
+// Congelamento de deploy no período eleitoral (deploy/CONGELAMENTO.md). Os limites vêm de config/candidatura.json
+// (calendario): começa quando termina a última fase aberta e acaba quando termina a última fase com data.
+// Usado pela trava do build de produção na Vercel (ferramentas/build-vercel.mjs).
 
 export const MARGEM_ULTIMO_DEPLOY_MS = 2 * 60 * 60 * 1000
 const FUSO_EXIBICAO = 'America/Sao_Paulo'
-const CODIGO = Object.freeze({ livre: 0, margem: 10, congelado: 11, erro: 1 })
-const CONFIG_PADRAO = fileURLToPath(new URL('../config/candidatura.json', import.meta.url))
 
 function data(iso, rotulo) {
   const d = new Date(iso)
   if (typeof iso !== 'string' || Number.isNaN(d.getTime())) throw new Error(`${rotulo}: data inválida (${iso})`)
   return d
-}
-
-export function lerCalendario(caminho = CONFIG_PADRAO) {
-  const config = JSON.parse(readFileSync(caminho, 'utf8'))
-  if (!config?.calendario) throw new Error(`${caminho}: sem "calendario"`)
-  return config.calendario
 }
 
 export function janelaCongelamento(calendario) {
@@ -67,28 +55,3 @@ export function avaliarCongelamento(agora, janela, margemMs = MARGEM_ULTIMO_DEPL
   }
   return { estado: 'livre', mensagem: `Fora do congelamento (${inicio} → ${fim}, horário de Brasília).` }
 }
-
-function lerArgumentos(argv) {
-  const opcoes = { config: CONFIG_PADRAO, agora: new Date() }
-  for (let i = 0; i < argv.length; i += 1) {
-    if (argv[i] === '--config') opcoes.config = argv[(i += 1)]
-    else if (argv[i] === '--agora') opcoes.agora = data(argv[(i += 1)], '--agora')
-    else throw new Error(`argumento desconhecido: ${argv[i]}`)
-  }
-  return opcoes
-}
-
-function principal() {
-  try {
-    const { config, agora } = lerArgumentos(process.argv.slice(2))
-    const r = avaliarCongelamento(agora, janelaCongelamento(lerCalendario(config)))
-    const saida = r.estado === 'livre' ? process.stdout : process.stderr
-    saida.write(`congelamento: ${r.estado}. ${r.mensagem}\n`)
-    process.exitCode = CODIGO[r.estado]
-  } catch (erro) {
-    process.stderr.write(`congelamento: erro ao ler o calendário (deploy bloqueado): ${erro.message}\n`)
-    process.exitCode = CODIGO.erro
-  }
-}
-
-if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) principal()

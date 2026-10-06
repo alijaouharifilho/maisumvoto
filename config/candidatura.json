@@ -1,5 +1,4 @@
 {
-  "$schema": "./candidatura.schema.json",
   "esquema": 1,
   "eleicao": {
     "ano": 2026,

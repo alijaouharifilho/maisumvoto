@@ -13,8 +13,6 @@ const DENOMINADOR_MAX_SIMPLES = 5
 const DENOMINADOR_MAX = 10
 const SOBRA_PARA_PREFIXO = 0.015
 
-const EXATO_ATE = 20
-const ARREDONDA_10_ATE = 1000
 const PASSO_DISTANCIA_M = 50
 
 type Fracao = { a: number; b: number }
@@ -71,13 +69,6 @@ function exigirNaoNegativo(n: number, nome: string): void {
 
 export function formatarNumero(n: number): string {
   return NUMERO.format(n + 0)
-}
-
-export function cercaDe(n: number): string {
-  exigirNaoNegativo(n, 'quantidade')
-  if (n < EXATO_ATE) return formatarNumero(Math.round(n))
-  const passo = n < ARREDONDA_10_ATE ? 10 : 100
-  return `cerca de ${formatarNumero(Math.round(n / passo) * passo)}`
 }
 
 export function formatarDistancia(km: number): string {

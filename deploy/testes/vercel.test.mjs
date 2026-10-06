@@ -1,5 +1,5 @@
-// vercel.json tem de servir o mesmo que o nginx: cabeçalhos de segurança idênticos a deploy/cabecalhos-seguranca.json
-// e a mesma política de cache (assets e dados imutáveis; índice e estilo do mapa com cache curto; HTML sem cache).
+// vercel.json: cabeçalhos de segurança idênticos a deploy/cabecalhos-seguranca.json (os mesmos do dev e do preview
+// locais) e a política de cache (assets e dados imutáveis; índice e estilo do mapa com cache curto; HTML sem cache).
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { test } from 'node:test'
@@ -24,7 +24,7 @@ test('build pela trava de produção, saída em dist, preset Vite', () => {
   assert.equal(vercel.framework, 'vite')
 })
 
-test('todo caminho recebe exatamente os cabeçalhos de segurança do nginx', () => {
+test('todo caminho recebe exatamente os cabeçalhos de segurança de deploy/cabecalhos-seguranca.json', () => {
   for (const caminho of ['/', '/index.html', '/assets/index-abc.js', '/dados/indice.json', '/dados/celulas/-102_-198.json', '/mapa/estilo.json']) {
     const h = cabecalhosDe(caminho)
     for (const [chave, valor] of Object.entries(seguranca)) assert.equal(h[chave], valor, `${caminho} ${chave}`)

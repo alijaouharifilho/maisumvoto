@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { faseAberta, faseComRelogios, faseEm, proximaMudanca } from '../../nucleo/calendario.ts'
+import { faseAberta, faseComRelogios, faseEm } from '../../nucleo/calendario.ts'
 import { candidatura } from '../../nucleo/candidatura.ts'
 import type { Candidatura } from '../../nucleo/tipos.ts'
 
@@ -44,22 +44,6 @@ describe('faseAberta', () => {
     expect(faseAberta('pausa', cal)).toBe(false)
     expect(faseAberta('votacao', cal)).toBe(false)
     expect(faseAberta('encerrada', cal)).toBe(false)
-  })
-})
-
-describe('proximaMudanca', () => {
-  it('é o fim da fase atual', () => {
-    expect(proximaMudanca(em('2026-10-05T20:00:00-03:00'), cal)).toBe(em('2026-10-22T00:00:00-03:00'))
-    expect(proximaMudanca(em('2026-10-24T22:00:00-03:00'), cal)).toBe(em('2026-10-25T00:00:00-03:00'))
-  })
-
-  it('na última fase não há próxima mudança', () => {
-    expect(proximaMudanca(em('2026-10-26T02:00:00-03:00'), cal)).toBeNull()
-  })
-
-  it('depois do fim de um calendário fechado também não', () => {
-    const fechado: Candidatura['calendario'] = { ...cal, fases: [{ id: 'campanha', ate: '2026-10-01T00:00:00-03:00' }] }
-    expect(proximaMudanca(em('2026-12-01T00:00:00Z'), fechado)).toBeNull()
   })
 })
 

@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
 import {
-  cercaDe,
   contagem,
   formatarDistancia,
   formatarNumero,
@@ -54,28 +53,6 @@ describe('fracaoHumana (com porcentagem nos extremos)', () => {
   it('valor não finito é erro explícito', () => {
     expect(() => fracaoHumana(Number.NaN)).toThrow(RangeError)
     expect(() => fracaoHumana(Number.POSITIVE_INFINITY)).toThrow(RangeError)
-  })
-})
-
-describe('cercaDe', () => {
-  it.each([
-    [0, '0'],
-    [7, '7'],
-    [19, '19'],
-    [20, 'cerca de 20'],
-    [24, 'cerca de 20'],
-    [25, 'cerca de 30'],
-    [999, 'cerca de 1.000'],
-    [1049, 'cerca de 1.000'],
-    [1050, 'cerca de 1.100'],
-    [47913428, 'cerca de 47.913.400'],
-  ])('%i → "%s"', (n, texto) => {
-    expect(cercaDe(n)).toBe(texto)
-  })
-
-  it('negativo ou não finito é erro explícito', () => {
-    expect(() => cercaDe(-1)).toThrow(RangeError)
-    expect(() => cercaDe(Number.NaN)).toThrow(RangeError)
   })
 })
 

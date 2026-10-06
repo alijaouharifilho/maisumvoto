@@ -17,5 +17,3 @@ export const PALETA = {
   adversario: '#cc272e',
   branco: '#ffffff',
 } as const
-
-export type CorPaleta = keyof typeof PALETA

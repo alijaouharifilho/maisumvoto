@@ -35,7 +35,6 @@ export const abertura = {
 export const mapa = {
   dica: 'Toque ou clique no mapa para escolher um ponto.',
   rotulo: 'Mapa dos locais de votação. A lista traz as mesmas informações em texto.',
-  atribuicao: '© colaboradores do OpenStreetMap · OpenFreeMap',
   falhou: 'O mapa não abriu neste aparelho. A busca e a lista funcionam normalmente.',
   tentarDeNovo: 'Tentar abrir o mapa de novo',
   /** Botões e dicas do próprio MapLibre (opção locale do mapa; chaves em src/mapa/rotulos.ts). */

@@ -1,7 +1,8 @@
-// Portão "antes de publicar" (deploy/publicar.sh, `npm run checar:publicacao`). Falha alto se algo bloqueante faltar:
+// Portão "antes de publicar" (build de produção na Vercel e `npm run checar:publicacao`). Falha alto se algo
+// bloqueante faltar:
 // responsável e hospedagem na config, dados conferidos com o resultado oficial e a aprovação humana dos textos
 // (src/conteudo/APROVACAO.md inteiro marcado e assinado; Res. TSE 23.610, art. 28, §6º-B).
-// As citações do plano são conferidas contra o PDF por outro passo do publicar.sh (`npm run conferir:citacoes`).
+// As citações dos planos são conferidas contra os PDFs à parte (`npm run conferir:citacoes`), antes de cada envio.
 import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'

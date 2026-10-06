@@ -24,7 +24,6 @@ Como ler:
 - [x] `config/candidatura.json` › `site.responsavel.nome` e `.contato` preenchidos (hoje `null`: rodapé, Sobre e Privacidade mostram “a definir” e `npm run checar:publicacao` bloqueia).
 - [x] Hospedagem definida e informada na página de privacidade (`site.hospedagem` = Vercel, escolha do responsável em 06/10/2026); validação jurídica da hospedagem adiada junto com o item do advogado.
 - [x] Na Vercel, a privacidade continua verdadeira: sem Web Analytics, sem Speed Insights e sem Log Drains; no plano Pro, Observability Plus desligado; nenhum script da Vercel no site de produção. (MUDOU em 06/10/2026.)
-- **Não se aplica enquanto a hospedagem for a Vercel** (plano B, servidor próprio). Se voltar para o servidor próprio, reabrir este item: o deploy faz o que a privacidade promete: registro de acessos **sem IP**; registro de erros que pode, raramente, ter IP, apagado em até 7 dias (`logrotate` com `rotate 7`, deploy/README.md); tudo apagado até 31/10/2026; sem cookies; sem analytics de terceiros; fontes do texto servidas pelo próprio site (letras e ícones do mapa vêm do OpenFreeMap).
 - [x] As fases funcionam como os textos dizem (no dia da votação: sem mapa, sem busca, sem compartilhar).
 - **Adiado pelo responsável em 06/10/2026:** validação por advogado eleitoralista (recomendada no checklist legal do plano). Não foi feita antes da publicação; continua pendente.
 
@@ -64,7 +63,6 @@ Arquivo: `src/conteudo/textos/mapa.ts`
 - [x] `textos.mapa.dica` — MUDOU (06/10/2026): “Toque ou clique no mapa…” (vale para celular e computador)
 - [x] `textos.mapa.falhou` e `textos.mapa.tentarDeNovo` — NOVOS (06/10/2026): quando o mapa não abre no aparelho
 - [x] `textos.mapa.rotulo`
-- [x] `textos.mapa.atribuicao`
 - [x] `textos.mapa.controles` (botões de zoom do mapa e dicas: aproximar, afastar, norte, créditos, correção; NOVOS em 06/10/2026: `quadro`, nome curto do quadro do mapa para o leitor de tela, e `doisDedos`, `zoomWindows`, `zoomMac`, avisos de gesto do mapa)
 - [x] `textos.busca.rotulo`
 - [x] `textos.busca.placeholder`
@@ -238,17 +236,13 @@ Arquivo: `src/conteudo/textos/moldura.ts`
 - [x] `textos.classificacaoAria.aVirar()`
 - [x] `textos.classificacaoAria.dificil()`
 - [x] `textos.acessibilidade.lista`
-- [x] `textos.acessibilidade.marcador()`
-- [x] `textos.acessibilidade.marcadorSemResultado()`
 - [x] `textos.acessibilidade.pontoEscolhido`
-- [x] `textos.acessibilidade.abrirFicha()`
 - [x] `textos.acessibilidade.novaAba`
 - [x] `textos.acessibilidade.carregando`
 - [x] `textos.acessibilidade.anuncioPonto()` e `anuncioSemLocal()` — NOVOS (06/10/2026): o que o leitor de tela ouve depois de escolher um ponto (origem, manchete e quantos locais)
 - [x] `textos.sistema.versaoNova`
 - [x] `textos.sistema.recarregar`
 - [x] `textos.sistema.erroTela`
-- [x] `textos.sistema.modoExemplo` — só aparece em preview com ?exemplo
 
 ## 12. Plano de governo — `src/conteudo/plano.json` (cartões de conversa — MUDOU na revisão de tom (06/10/2026))
 
@@ -406,7 +400,6 @@ diagnóstico) e citações novas onde a anterior soava como ataque. Os cuidados 
 ## 17. Textos gerados fora de src/conteudo — `nucleo/frases.ts` (aprovar também)
 
 - [x] `fracaoHumana`: “1 em cada 3”, “mais de …”, “quase …”, “menos de 1%”, “mais de 99%” (usada em `textos.resultado.alcance`).
-- [x] `cercaDe`: “cerca de N”.
 - [x] `formatarDistancia`: “350 m”, “1,2 km”.
 - [x] `nomeLocal`: título do item da lista e da ficha, “<local> e mais N”.
 - [x] `nomeRegiao`: “bairro, município”.
@@ -437,5 +430,7 @@ trechos literais com a página (conferidos por programa contra os dois PDFs, fon
 Aprovado por: Ali Jaouhari Filho  Data: 06/10/2026
 
 Registro: revisão de tom e comparação entre os planos (branch `textos-v2`, commit `1a53542`) aprovadas pelo responsável na conversa de 06/10/2026 ("aprovo."), em resposta ao pedido de revisão da prévia na Vercel. A validação jurídica continua adiada (item no topo).
+
+Limpeza (06/10/2026, pedida pelo responsável): saíram do checklist o plano B de servidor próprio e os textos que não apareciam em nenhuma tela (`textos.mapa.atribuicao`, `textos.acessibilidade.marcador()`, `.marcadorSemResultado()`, `.abrirFicha()`, `textos.sistema.modoExemplo`, `cercaDe`). Nenhum texto novo.
 
 Registro anterior: aprovação dada pelo responsável na conversa de 06/10/2026 ("aprovo tudo. adv fica pra depois"), depois de ver o site pela prévia e ler os textos que não aparecem navegando. A validação jurídica ficou adiada (item no topo).

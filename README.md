@@ -35,8 +35,8 @@ campanha, candidato ou partido. Dados públicos do Tribunal Superior Eleitoral.
 | `src/` | Aplicação (páginas, componentes, mapa, carregamento de dados) e o conteúdo editorial |
 | `public/dados/` | Dados gerados pelo ETL (versionados; a Vercel publica a partir do repositório) |
 | `testes/` | Testes do núcleo, do site, do ETL e de ponta a ponta (Playwright) |
-| `deploy/` | Cabeçalhos de segurança, congelamento eleitoral e a alternativa com servidor próprio |
-| `ferramentas/` | Scripts de apoio: trava de publicação, conferência de citações, compressão |
+| `deploy/` | Cabeçalhos de segurança e congelamento eleitoral (com os testes da publicação) |
+| `ferramentas/` | Scripts de apoio: trava de publicação e conferência das citações |
 | `docs/CONTRATO.md` | Formato de todos os arquivos de dados |
 
 Números e nomes de candidatos só aparecem em `config/` e `src/conteudo/`; um teste falha se aparecerem em
@@ -75,6 +75,9 @@ npm run verificar   # lint, tipos, testes do site, do deploy e do ETL, e confer�
 npm run e2e         # build + testes de ponta a ponta em http://127.0.0.1:5151
 ```
 
+Não há teste automático no GitHub: rode `npm run verificar` (e, se mexeu na tela, `npm run e2e`) antes de cada
+push no `main`. A Vercel ainda confere os tipos e monta o site a cada envio.
+
 Para mostrar o build por um túnel (ex.: ngrok), coloque o endereço do túnel em `PREVIEW_HOSTS_EXTRAS`, no arquivo
 `.env.local` (fora do git), e rode `npm run preview`. Nunca exponha o servidor de desenvolvimento.
 
@@ -97,7 +100,7 @@ npm run checar:publicacao
 ```
 
 O domínio usado nas prévias de link (WhatsApp, redes sociais) vem da própria Vercel: o domínio próprio, se houver,
-ou o endereço `vercel.app` do projeto. Alternativa sem Vercel, com servidor próprio no Brasil: `deploy/README.md`.
+ou o endereço `vercel.app` do projeto.
 
 ## Calendário
 

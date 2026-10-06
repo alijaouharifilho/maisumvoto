@@ -105,9 +105,3 @@ export function linkPagina(pagina: number): string {
 export function fichaPronta(ficha: FichaVoto | FichaPendente | undefined): ficha is FichaVoto {
   return ficha !== undefined && ficha.status === 'mvp' && 'passos' in ficha
 }
-
-/** Ficha do grupo (chave de config.gruposConversa), ou null se ainda não existe texto publicado. */
-export function fichaDoGrupo(grupo: string): FichaVoto | null {
-  const ficha = roteiros.fichas[grupo]
-  return fichaPronta(ficha) ? ficha : null
-}

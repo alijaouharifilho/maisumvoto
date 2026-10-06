@@ -47,7 +47,7 @@ export function itemBusca(parcial: Partial<ItemBusca> & Pick<ItemBusca, 'n'>): I
   return { t: 'm', uf: 'PR', lat: -25.43, lon: -49.27, e: 1000, ...parcial }
 }
 
-/** Resposta JSON como o nginx/vite devolveriam. */
+/** Resposta JSON como a Vercel ou o vite devolveriam. */
 export function respostaJson(corpo: unknown, status = 200): Response {
   return new Response(JSON.stringify(corpo), { status, headers: { 'content-type': 'application/json' } })
 }
