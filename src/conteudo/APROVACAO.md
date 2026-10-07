@@ -19,7 +19,7 @@ Como ler:
 > fim da página Sobre e a página nova que compara os dois planos (seção 18). Os trechos citados continuam
 > conferidos por programa (0 falhas).
 
-> **Nova identidade visual (06/10/2026): precisa de nova aprovação.** Cores da campanha (azul, amarelo e verde),
+> **Nova identidade visual (06/10/2026): aprovada pelo responsável em 07/10/2026 (registro no fim).** Cores da campanha (azul, amarelo e verde),
 > letra Montserrat nos títulos, símbolo novo “+1”, mapa à esquerda e painel à direita, e só duas abas: **Início** (o
 > mapa) e **Guia** (roteiros, plano e comparação numa página). Sobre e Privacidade passam para o rodapé. Os itens
 > desmarcados abaixo são os textos novos ou mudados e a conferência visual (seção 19); o resto do texto não mudou.
@@ -40,8 +40,8 @@ Arquivo: `src/conteudo/textos/moldura.ts`
 - [x] `textos.meta.descricao()` — declara apoio e que não é oficial (Lei 9.504, art. 57-B, §2º; 57-H) — MUDOU na revisão de tom (06/10/2026): “qual foi o resultado ali”
 - [x] `textos.meta.ogTitulo()`
 - [x] `textos.meta.ogDescricao` — também no `index.html` estático (prévia de link sem JS): diz “de apoio a um candidato; não é oficial”, sem nome (06/10/2026)
-- [ ] `textos.meta.ogImagemAlt` — MUDOU na identidade visual (06/10/2026): “Balão de conversa amarelo com “+1” em azul, ao lado do nome do site, sobre fundo azul.” (também no `index.html`)
-- [ ] `public/og.png` — NOVA (06/10/2026): imagem de prévia do link em azul e amarelo, com o símbolo “+1”; os textos dela são os já aprovados (selo, nome do site, chamada do `ogTitulo`, `ogDescricao` e `textos.rodape.natureza`)
+- [x] `textos.meta.ogImagemAlt` — MUDOU na identidade visual (06/10/2026): “Balão de conversa amarelo com “+1” em azul, ao lado do nome do site, sobre fundo azul.” (também no `index.html`)
+- [x] `public/og.png` — NOVA (06/10/2026): imagem de prévia do link em azul e amarelo, com o símbolo “+1”; os textos dela são os já aprovados (selo, nome do site, chamada do `ogTitulo`, `ogDescricao` e `textos.rodape.natureza`)
 
 ## 2. Cabeçalho e navegação
 
@@ -49,9 +49,9 @@ Arquivo: `src/conteudo/textos/moldura.ts`
 
 - [x] `textos.navegacao.rotulo`
 - [x] `textos.navegacao.marcaAria()`
-- [ ] `textos.navegacao.rotas.mapa` — MUDOU na identidade visual (06/10/2026): “Início” (a aba do mapa)
-- [ ] `textos.navegacao.rotas.guia` — NOVO (06/10/2026): “Guia” (a aba com roteiros, plano e comparação). As abas antigas Conversa, Plano e Sobre saíram do menu; Sobre e Privacidade continuam no rodapé
-- [ ] `textos.navegacao.selo` — NOVO (06/10/2026): “Site independente”, sempre à vista no cabeçalho, ao lado da marca (57-B; 57-H)
+- [x] `textos.navegacao.rotas.mapa` — MUDOU na identidade visual (06/10/2026): “Início” (a aba do mapa)
+- [x] `textos.navegacao.rotas.guia` — NOVO (06/10/2026): “Guia” (a aba com roteiros, plano e comparação). As abas antigas Conversa, Plano e Sobre saíram do menu; Sobre e Privacidade continuam no rodapé
+- [x] `textos.navegacao.selo` — NOVO (06/10/2026): “Site independente”, sempre à vista no cabeçalho, ao lado da marca (57-B; 57-H)
 - [x] `textos.navegacao.pular`
 
 ## 3. Tela do mapa: abertura, mapa e busca
@@ -226,7 +226,7 @@ Arquivo: `src/conteudo/textos/moldura.ts`
 - [x] `textos.paginas.sobre.titulo`
 - [x] `textos.paginas.sobre.privacidade`
 - [x] `textos.paginas.sobre.responsavel()` — NOVO (06/10/2026): “Responsável pelo site: <nome> · <contato>”, em letra pequena no fim da página Sobre
-- [ ] `textos.paginas.guia.titulo`, `.indice`, `.partes.conversa`, `.partes.plano()`, `.partes.comparar` — NOVOS (06/10/2026): a página Guia, “Guia da conversa”, com o índice fixo “Partes do guia”: “Como conversar”, “O plano de <alvo>” e “Os dois planos”. Os títulos dos blocos são os já aprovados (`prosa.titulo`, `plano.titulo()`, `comparar.titulo`). Saíram as abas internas do plano (`abasPlano`)
+- [x] `textos.paginas.guia.titulo`, `.indice`, `.partes.conversa`, `.partes.plano()`, `.partes.comparar` — NOVOS (06/10/2026): a página Guia, “Guia da conversa”, com o índice fixo “Partes do guia”: “Como conversar”, “O plano de <alvo>” e “Os dois planos”. Os títulos dos blocos são os já aprovados (`prosa.titulo`, `plano.titulo()`, `comparar.titulo`). Saíram as abas internas do plano (`abasPlano`)
 - [x] `textos.paginas.comparar.titulo`, `.chamada()`, `.indice`, `.planoDe()`, `.pdfDe()`, `.emComum`, `.diferenca`, `.paginaComplemento()`, `.conferido()` — NOVOS (06/10/2026): a página #/comparar (conteúdo na seção 18)
 
 ## 11. Acessibilidade e mensagens do sistema
@@ -368,7 +368,7 @@ diagnóstico) e citações novas onde a anterior soava como ataque. Os cuidados 
 - [x] Quem faz (apoio declarado, “não é oficial”, sem anúncios, doações ou impulsionamento) — MUDOU (06/10/2026): o responsável saiu deste parágrafo e foi para uma linha discreta no fim da página
 - [x] Para que serve — MUDOU na revisão de tom (06/10/2026): “o resultado de cada local”
 - [x] Como ler os números (“até”, “dá para virar”, “vantagem a defender”, “folga” — todos como teto)
-- [ ] De onde vêm os números (TSE CC-BY com nota de modificação, conferência, reclassificação, reserva MIT, locais sem posição, voto em trânsito e presos provisórios fora do mapa, eleitores no exterior fora do número “no Brasil” — NOVO em 06/10/2026, com `{{exterior.ate}}` vindo do índice —, IBGE, plano, mapa, fontes) — MUDOU na identidade visual (06/10/2026): fontes tipográficas agora Montserrat e Atkinson Hyperlegible Next
+- [x] De onde vêm os números (TSE CC-BY com nota de modificação, conferência, reclassificação, reserva MIT, locais sem posição, voto em trânsito e presos provisórios fora do mapa, eleitores no exterior fora do número “no Brasil” — NOVO em 06/10/2026, com `{{exterior.ate}}` vindo do índice —, IBGE, plano, mapa, fontes) — MUDOU na identidade visual (06/10/2026): fontes tipográficas agora Montserrat e Atkinson Hyperlegible Next
 - [x] Limitações
 - [x] Atualização (data do índice)
 
@@ -432,17 +432,17 @@ trechos literais com a página (conferidos por programa contra os dois PDFs, fon
 
 ## 19. Identidade visual (NOVO em 06/10/2026) — conferir na prévia, no computador e no celular
 
-- [ ] Cores da campanha apoiada (azul, amarelo, verde) sem nenhum elemento da marca oficial: sem o logo, sem o “V”, sem o slogan e sem foto de candidato
-- [ ] O selo “Site independente” aparece no cabeçalho de todas as telas, e o rodapé (“Site independente de apoio a…”, Sobre e Privacidade) aparece no fim da tela do mapa, do Guia e do Sobre
-- [ ] Mapa: verde = <alvo> à frente, vermelho = <adversário> à frente, cinza = empate, branco = sem votos; miolo amarelo onde o resultado pode mudar; a legenda diz isso
-- [ ] Celular: a busca aparece na primeira tela; o menu de baixo (Início e Guia) não cobre o conteúdo; a ficha do local abre por cima do menu
-- [ ] Links antigos já compartilhados (#/plano, #/prosa, #/comparar) abrem o Guia no bloco certo; #/sobre continua no ar
+- [x] Cores da campanha apoiada (azul, amarelo, verde) sem nenhum elemento da marca oficial: sem o logo, sem o “V”, sem o slogan e sem foto de candidato
+- [x] O selo “Site independente” aparece no cabeçalho de todas as telas, e o rodapé (“Site independente de apoio a…”, Sobre e Privacidade) aparece no fim da tela do mapa, do Guia e do Sobre
+- [x] Mapa: verde = <alvo> à frente, vermelho = <adversário> à frente, cinza = empate, branco = sem votos; miolo amarelo onde o resultado pode mudar; a legenda diz isso
+- [x] Celular: a busca aparece na primeira tela; o menu de baixo (Início e Guia) não cobre o conteúdo; a ficha do local abre por cima do menu
+- [x] Links antigos já compartilhados (#/plano, #/prosa, #/comparar) abrem o Guia no bloco certo; #/sobre continua no ar
 
 ---
 
-Aprovado por: ______________________  Data: __________
+Aprovado por: Ali Jaouhari Filho  Data: 07/10/2026
 
-Nova identidade visual (06/10/2026): aguarda a leitura da prévia e a aprovação do responsável.
+Registro: nova identidade visual (branch `visual-v2`, commits `4bd9129` e `c757549`) aprovada pelo responsável na conversa de 07/10/2026 ("gostei muito de como ficou [...] pode subir pro original por favor"), depois do plano aprovado ("pode fazer") e do resumo das mudanças e dos textos novos. A validação jurídica continua adiada (item no topo).
 
 Registro anterior: revisão de tom e comparação entre os planos (branch `textos-v2`, commit `1a53542`) aprovadas pelo responsável na conversa de 06/10/2026 ("aprovo."), em resposta ao pedido de revisão da prévia na Vercel. A validação jurídica continua adiada (item no topo).
 
