@@ -18,7 +18,7 @@ export function Compartilhar({ link, ate }: Props) {
   const id = useId()
   const mensagem = t.mensagem({ nomeSite: NOME_SITE, alvo: NOMES.alvo, link, ...(ate === undefined ? {} : { ate }) })
   return (
-    <section aria-labelledby={id} className="flex flex-col gap-3 rounded-2xl bg-mata-clara p-4">
+    <section aria-labelledby={id} className="flex flex-col gap-3 rounded-2xl bg-marca-clara p-4">
       <h2 id={id} className="font-titulo text-xl font-bold">
         {t.titulo}
       </h2>
@@ -28,7 +28,7 @@ export function Compartilhar({ link, ate }: Props) {
           <li key={passo}>{passo}</li>
         ))}
       </ol>
-      <p className="rounded-xl border-2 border-mata bg-papel p-3 text-sm font-bold">{t.regra}</p>
+      <p className="rounded-xl border-2 border-marca bg-branco p-3 text-sm font-bold">{t.regra}</p>
       <a className="botao botao-primario self-start no-underline" href={hrefWhatsApp(mensagem)} target="_blank" rel="noopener noreferrer">
         {t.botao}
         <span className="sr-only"> {textos.acessibilidade.novaAba}</span>

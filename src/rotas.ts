@@ -1,4 +1,5 @@
-// Rotas por hash (#/mapa, #/prosa, #/plano, #/comparar, #/sobre). O ponto do mapa vai no hash arredondado à grade.
+// Rotas por hash (#/mapa, #/guia, #/sobre; as antigas #/prosa, #/plano e #/comparar viram blocos do Guia).
+// O ponto do mapa vai no hash arredondado à grade.
 // replaceState não dispara hashchange, então quem troca o hash por aqui avisa os ouvintes à mão.
 import { useEffect, useMemo, useSyncExternalStore } from 'react'
 import { lerHash, montarHash, type Rota } from '../nucleo/link.ts'

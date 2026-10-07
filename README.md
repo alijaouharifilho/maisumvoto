@@ -16,7 +16,8 @@ campanha, candidato ou partido. Dados públicos do Tribunal Superior Eleitoral.
    cadastro de locais de votação e candidatos), soma tudo e confere com o resultado oficial publicado pelo TSE:
    se qualquer total do Brasil, de uma UF ou do exterior não bater, nada é publicado. Valida a posição de cada
    local contra a malha de municípios do IBGE e grava arquivos JSON estáticos em `public/dados/`.
-2. **Site** (`src/` e `nucleo/`, React + TypeScript). Estático, sem servidor de aplicação. No navegador, junta os
+2. **Site** (`src/` e `nucleo/`, React + TypeScript). Estático, sem servidor de aplicação, com duas abas: **Início**
+   (o mapa) e **Guia** (roteiros, plano e comparação numa página; Sobre e Privacidade ficam no rodapé). No navegador, junta os
    locais num raio de 1 km do ponto escolhido, calcula o "até" (quantas pessoas, no máximo, dá para chamar para a
    conversa), a disputa e a lista de locais. O mapa usa MapLibre com tiles do OpenFreeMap.
 3. **Conteúdo** (`src/conteudo/`). Roteiros de conversa e cartões do plano de governo: cada proposta em uma frase,

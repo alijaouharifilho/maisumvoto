@@ -37,13 +37,13 @@ export function Ficha({ regiao, indice, aberta, modal, onFechar }: Props) {
   const metricas = regiao.votos === null ? null : derivar(regiao.votos, CFG)
   const posicao = modal
     ? 'fixed inset-0 z-50 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]'
-    : 'absolute inset-0 z-20 border-r border-linha'
+    : 'absolute inset-0 z-20'
   return (
     // <dialog> nativo põe a Ficha na camada do topo e rouba o controle do foco; aqui o controle é manual
     // (não modal no desktop, modal no celular), então o papel vai explícito.
     // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role
-    <div ref={caixa} role="dialog" aria-modal={modal} aria-labelledby={`${id}-titulo`} className={`${posicao} animate-entrada overflow-y-auto overscroll-contain bg-papel`}>
-      <div className="sticky top-0 z-10 flex items-center border-b border-linha bg-papel px-2 py-2">
+    <div ref={caixa} role="dialog" aria-modal={modal} aria-labelledby={`${id}-titulo`} className={`${posicao} animate-entrada overflow-y-auto overscroll-contain bg-fundo`}>
+      <div className="sticky top-0 z-10 flex items-center border-b border-linha bg-branco px-2 py-2">
         <button ref={voltar} type="button" onClick={onFechar} aria-label={t.fecharAria} className="botao botao-secundario min-h-11 py-1">
           <span aria-hidden="true">←</span> {t.voltar}
         </button>

@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
-// Comparação entre os planos: um bloco por assunto com os dois lados, cada trecho levando à página do PDF do
-// próprio plano, o índice por assunto e a aba da comparação marcada.
+// Guia, bloco da comparação entre os planos: um bloco por assunto com os dois lados, cada trecho levando à página do
+// PDF do próprio plano, e o índice por assunto apontando para as âncoras do Guia.
 import { cleanup, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { candidatura } from '../../nucleo/candidatura.ts'
@@ -9,7 +9,7 @@ import { linkPagina, plano } from '../../src/conteudo/conteudo.ts'
 import { preencherTudo, valoresDoModelo } from '../../src/conteudo/modelo.ts'
 import { textos } from '../../src/conteudo/textos.ts'
 import { NOMES } from '../../src/config.ts'
-import { PaginaComparar } from '../../src/paginas/PaginaComparar.tsx'
+import { BlocoComparar } from '../../src/paginas/BlocoComparar.tsx'
 import { comDados, prepararDom } from './apoio.tsx'
 
 const t = textos.paginas.comparar
@@ -26,14 +26,15 @@ function bloco(tema: TemaComparado): HTMLElement {
   return screen.getByRole('region', { name: tema.titulo })
 }
 
-describe('PaginaComparar', () => {
+describe('BlocoComparar (Guia)', () => {
   it('um bloco por assunto, com os dois planos, o que há em comum e a diferença (nomes preenchidos)', () => {
-    comDados(<PaginaComparar ancora={null} />)
-    expect(screen.getByRole('heading', { level: 1, name: t.titulo })).toBeTruthy()
+    comDados(<BlocoComparar />)
+    expect(screen.getByRole('heading', { level: 2, name: t.titulo })).toBeTruthy()
     for (const tema of comparacao.temas) {
       const b = bloco(tema)
-      expect(within(b).getByRole('heading', { level: 3, name: t.planoDe(NOMES.alvo) })).toBeTruthy()
-      expect(within(b).getByRole('heading', { level: 3, name: t.planoDe(NOMES.adversario) })).toBeTruthy()
+      expect(within(b).getByRole('heading', { level: 3, name: tema.titulo })).toBeTruthy()
+      expect(within(b).getByRole('heading', { level: 4, name: t.planoDe(NOMES.alvo) })).toBeTruthy()
+      expect(within(b).getByRole('heading', { level: 4, name: t.planoDe(NOMES.adversario) })).toBeTruthy()
       expect(b.textContent).toContain(tema.alvo.resumo)
       expect(b.textContent).toContain(tema.adversario.resumo)
       expect(b.textContent).toContain(`${t.diferenca} ${tema.diferenca}`)
@@ -44,7 +45,7 @@ describe('PaginaComparar', () => {
   })
 
   it('cada trecho leva à página do PDF do próprio plano, em nova aba e sem referrer', () => {
-    comDados(<PaginaComparar ancora={null} />)
+    comDados(<BlocoComparar />)
     for (const tema of comparacao.temas) {
       const links = within(bloco(tema)).getAllByRole('link')
       const hrefs = links.map((l) => l.getAttribute('href'))
@@ -59,7 +60,7 @@ describe('PaginaComparar', () => {
   })
 
   it('o nome do link da página diz de qual plano ela é (leitor de tela)', () => {
-    comDados(<PaginaComparar ancora={null} />)
+    comDados(<BlocoComparar />)
     const [tema] = comparacao.temas
     if (tema === undefined) throw new Error('comparação sem assuntos')
     const [citacao] = tema.adversario.citacoes
@@ -69,12 +70,11 @@ describe('PaginaComparar', () => {
     expect(within(bloco(tema)).getAllByRole('link', { name: nome }).length).toBeGreaterThan(0)
   })
 
-  it('o índice leva a cada assunto e a aba da comparação está marcada', () => {
-    comDados(<PaginaComparar ancora={null} />)
+  it('o índice leva a cada assunto, nas âncoras do Guia', () => {
+    comDados(<BlocoComparar />)
     const indice = screen.getByRole('navigation', { name: t.indice })
     const hrefs = within(indice).getAllByRole('link').map((l) => l.getAttribute('href'))
-    expect(hrefs).toEqual(comparacao.temas.map((tema) => `#/comparar/${tema.chave}`))
-    const abas = screen.getByRole('navigation', { name: textos.paginas.abasPlano.rotulo })
-    expect(within(abas).getByRole('link', { current: 'page' }).getAttribute('href')).toBe('#/comparar')
+    expect(hrefs).toEqual(comparacao.temas.map((tema) => `#/guia/comparar-${tema.chave}`))
+    for (const tema of comparacao.temas) expect(document.getElementById(`guia-comparar-${tema.chave}`)).not.toBeNull()
   })
 })

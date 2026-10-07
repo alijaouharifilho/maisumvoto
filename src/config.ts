@@ -32,16 +32,11 @@ export const DIA_2T = dia(candidatura.eleicao.data2T)
 /** Ponto de quebra único do layout (o mesmo de --breakpoint-lg em tokens.css). */
 export const LARGURA_DESKTOP_PX = 960
 
-/** Rotas que aparecem no menu: a comparação entre os planos fica dentro de "Plano". */
-export type RotaDoMenu = Exclude<Rota, 'comparar'>
+/** Abas do menu: Início (o mapa) e Guia (roteiros, plano e comparação). Sobre e Privacidade ficam no rodapé. */
+export type RotaDoMenu = Exclude<Rota, 'sobre'>
 
-/** Rotas na ordem da navegação. */
-export const ORDEM_ROTAS: readonly RotaDoMenu[] = ['mapa', 'prosa', 'plano', 'sobre']
-
-/** Item do menu a que a página pertence. */
-export function secaoDaRota(rota: Rota): RotaDoMenu {
-  return rota === 'comparar' ? 'plano' : rota
-}
+/** Abas na ordem do menu. */
+export const ORDEM_ROTAS: readonly RotaDoMenu[] = ['mapa', 'guia']
 
 export const CHAVE_ARMAZENAMENTO = (nome: string): string => `${candidatura.prefixoArmazenamento}-${nome}`
 

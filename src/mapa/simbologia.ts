@@ -1,8 +1,8 @@
 // Como cada classificação aparece no mapa e na lista. A cor diz quem ficou à frente no local no 1º turno:
-// verde = candidato apoiado, vermelho = adversário, âmbar = empate. Como vermelho e verde se confundem para
+// verde = candidato apoiado, vermelho = adversário, cinza = empate. Como vermelho e verde se confundem para
 // quem tem daltonismo, a cor nunca está sozinha: o verde tem contorno branco e o vermelho, contorno escuro
-// (diferença de luminosidade visível em preto e branco), e o ponto âmbar no centro marca onde a conversa pode
-// mudar o lado (WCAG 1.4.1; testes/front/mapa.test.ts).
+// (diferença de luminosidade visível em preto e branco), e o miolo amarelo marca onde o resultado pode mudar
+// (WCAG 1.4.1; testes/front/mapa.test.ts). O local escolhido ganha um anel azul.
 import type { Classificacao } from '../../nucleo/tipos.ts'
 import { PALETA } from '../estilo/paleta.ts'
 
@@ -16,7 +16,7 @@ export type Simbolo = {
   readonly centro: boolean
 }
 
-const ALVO_A_FRENTE: Simbolo = { preenchimento: PALETA.mata, contorno: PALETA.branco, largura: 2, centro: false }
+const ALVO_A_FRENTE: Simbolo = { preenchimento: PALETA.alvo, contorno: PALETA.branco, largura: 2, centro: false }
 const ADVERSARIO_A_FRENTE: Simbolo = { preenchimento: PALETA.adversario, contorno: PALETA.tinta, largura: 2.5, centro: false }
 const SEM_VOTOS: Simbolo = { preenchimento: PALETA.branco, contorno: PALETA.tintaSuave, largura: 2, centro: false }
 
@@ -24,7 +24,7 @@ export const SIMBOLOGIA: Readonly<Record<Classe, Simbolo>> = {
   folga: ALVO_A_FRENTE,
   alvoNaFrente: ALVO_A_FRENTE,
   aDefender: { ...ALVO_A_FRENTE, centro: true },
-  empate: { preenchimento: PALETA.ambar, contorno: PALETA.tinta, largura: 2.5, centro: false },
+  empate: { preenchimento: PALETA.neutro, contorno: PALETA.tinta, largura: 2.5, centro: false },
   aVirar: { ...ADVERSARIO_A_FRENTE, centro: true },
   dificil: ADVERSARIO_A_FRENTE,
   semVotos: SEM_VOTOS,
@@ -57,9 +57,9 @@ export const CLASSE_DO_GRUPO: Readonly<Record<GrupoLegenda, Classe>> = {
 /** Ordem da legenda: primeiro onde a conversa mais pode mudar o resultado. */
 export const ORDEM_LEGENDA: readonly GrupoLegenda[] = ['adversarioVirar', 'alvoDefender', 'empate', 'alvoFrente', 'adversarioFrente', 'semVotos']
 
-export const CENTRO = { preenchimento: PALETA.ambar, contorno: PALETA.tinta, raio: 3.5, largura: 1.5 } as const
+export const CENTRO = { preenchimento: PALETA.destaque, contorno: PALETA.tinta, raio: 3.5, largura: 1.5 } as const
 
-export const SELECIONADA = { contorno: PALETA.tinta, largura: 3.5 } as const
+export const SELECIONADA = { contorno: PALETA.marca, largura: 3.5 } as const
 
 export const RAIO_SEM_RESULTADO = 5.5
 const RAIO_MIN = 9

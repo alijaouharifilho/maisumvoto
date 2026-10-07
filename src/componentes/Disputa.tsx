@@ -12,7 +12,7 @@ export function Disputa({ metricas }: Props) {
   const frase = fraseDisputa(metricas)
   if (frase === null) return null
   return (
-    <div className="flex items-start gap-3 rounded-2xl border-2 border-petroleo bg-petroleo-claro p-4">
+    <div className="flex items-start gap-3 rounded-2xl border-2 border-marca bg-marca-clara p-4">
       <Selo classe={metricas.classificacao} tamanho={24} />
       <p>
         <span className="sr-only">{primeiraMaiuscula(textos.classificacaoAria[metricas.classificacao](NOMES))}. </span>

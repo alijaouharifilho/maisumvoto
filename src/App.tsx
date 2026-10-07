@@ -1,10 +1,11 @@
-// Moldura do site e roteamento por hash. Conversa, Plano, Comparar, Sobre e a Ficha são carregados sob demanda.
+// Moldura do site e roteamento por hash: Início (o mapa) e Guia são as abas; Sobre fica no rodapé. Guia, Sobre e a
+// Ficha são carregados sob demanda.
 import { lazy, Suspense, useEffect, useRef } from 'react'
 import { textos } from './conteudo/textos.ts'
 import { Carregando } from './componentes/Estados.tsx'
 import { LimiteDeErro } from './componentes/LimiteDeErro.tsx'
-import { AvisoVersaoNova, Cabecalho, DiaDaVotacao, FaixaDeFase, Rodape } from './componentes/Moldura.tsx'
-import { ID_CONTEUDO, NOME_SITE, NOMES } from './config.ts'
+import { AvisoVersaoNova, Cabecalho, DiaDaVotacao, FaixaDeFase, MenuInferior, Rodape } from './componentes/Moldura.tsx'
+import { ID_CONTEUDO, NOME_SITE } from './config.ts'
 import { useDados } from './dados/contexto.ts'
 import { ContextoFase } from './fase.ts'
 import { useEstadoMapa, type EstadoMapa } from './paginas/estadoMapa.ts'
@@ -12,19 +13,18 @@ import { PaginaMapa } from './paginas/PaginaMapa.tsx'
 import { useVersaoNova } from './recuperacao.ts'
 import { useFase } from './relogio.ts'
 import { useRota, type EstadoRota } from './rotas.ts'
+import { useDesktop } from './util/midia.ts'
 import type { Rota } from '../nucleo/link.ts'
 import type { IdFase } from '../nucleo/tipos.ts'
 
-const PaginaProsa = lazy(() => import('./paginas/PaginaProsa.tsx').then((m) => ({ default: m.PaginaProsa })))
-const PaginaPlano = lazy(() => import('./paginas/PaginaPlano.tsx').then((m) => ({ default: m.PaginaPlano })))
-const PaginaComparar = lazy(() => import('./paginas/PaginaComparar.tsx').then((m) => ({ default: m.PaginaComparar })))
+const PaginaGuia = lazy(() => import('./paginas/PaginaGuia.tsx').then((m) => ({ default: m.PaginaGuia })))
 const PaginaSobre = lazy(() => import('./paginas/PaginaSobre.tsx').then((m) => ({ default: m.PaginaSobre })))
 
 /** Título da aba por página: quem usa leitor de tela ouve a página nova ao trocar pelo menu. */
 function tituloDaRota(rota: Rota): string {
   const p = textos.paginas
   if (rota === 'mapa') return textos.meta.titulo(NOME_SITE)
-  const pagina = { prosa: p.prosa.titulo, plano: p.plano.titulo(NOMES.alvo), comparar: p.comparar.titulo, sobre: p.sobre.titulo }[rota]
+  const pagina = rota === 'guia' ? p.guia.titulo : p.sobre.titulo
   return `${pagina} · ${NOME_SITE}`
 }
 
@@ -59,13 +59,12 @@ function VotacaoHoje() {
   )
 }
 
-/** No dia da votação, mapa e roteiros dão lugar ao aviso estático: nada de orientação de abordagem. */
+/** No dia da votação, o mapa dá lugar ao aviso estático e o Guia esconde os roteiros: nada de orientação de
+ *  abordagem (o plano e a comparação, publicados antes, continuam). */
 function Conteudo({ rota, fase, estadoMapa }: PropsConteudo) {
   const votacao = fase === 'votacao'
   if (rota.rota === 'mapa') return votacao ? <VotacaoHoje /> : <PaginaMapa estado={estadoMapa} />
-  if (rota.rota === 'prosa') return votacao ? <VotacaoHoje /> : <PaginaProsa ancora={rota.ancora} />
-  if (rota.rota === 'plano') return <PaginaPlano ancora={rota.ancora} />
-  if (rota.rota === 'comparar') return <PaginaComparar ancora={rota.ancora} />
+  if (rota.rota === 'guia') return <PaginaGuia ancora={rota.ancora} votacao={votacao} />
   return <PaginaSobre ancora={rota.ancora} />
 }
 
@@ -76,21 +75,24 @@ export function App() {
   const { carregador, estado } = useDados()
   const estadoMapa = useEstadoMapa(carregador, estado.tipo === 'ok' ? estado.indice : null, rota)
   const versaoNova = useVersaoNova()
+  const desktop = useDesktop()
   // No desktop, a tela do mapa ocupa exatamente a janela (painel e mapa rolam por dentro); as outras páginas rolam normal.
   const telaCheia = rota.rota === 'mapa' && fase.fase !== 'votacao'
   return (
     <ContextoFase.Provider value={fase}>
       <div className={`flex min-h-dvh flex-col ${telaCheia ? 'lg:h-dvh lg:min-h-0' : ''}`}>
-        <Cabecalho rota={rota.rota} />
+        <Cabecalho rota={rota.rota} desktop={desktop} />
         {versaoNova ? <AvisoVersaoNova /> : null}
         <FaixaDeFase fase={fase.fase} />
-        <main id={ID_CONTEUDO} tabIndex={-1} className="flex-1 outline-none lg:min-h-0">
+        {/* No celular, o menu fica fixo embaixo: a <main> reserva a altura dele para o fim da página não ficar coberto. */}
+        <main id={ID_CONTEUDO} tabIndex={-1} className="flex-1 pb-[calc(var(--altura-menu-inferior)+env(safe-area-inset-bottom))] outline-none lg:min-h-0 lg:pb-0">
           <LimiteDeErro key={rota.rota}>
             <Suspense fallback={<Esperando />}>
               <Conteudo rota={rota} fase={fase.fase} estadoMapa={estadoMapa} />
             </Suspense>
           </LimiteDeErro>
         </main>
+        {desktop ? null : <MenuInferior rota={rota.rota} />}
       </div>
     </ContextoFase.Provider>
   )

@@ -45,7 +45,7 @@ export function ConversaDaFicha({ votos }: { votos: Votos }) {
         {t.secaoConversa}
       </h3>
       {grupos.map((g) => (
-        <details key={g.grupo} className="rounded-xl border border-linha bg-papel">
+        <details key={g.grupo} className="rounded-xl border border-linha bg-branco">
           <summary className="flex min-h-11 items-center px-3 py-2 font-bold">{t.grupo(g.ficha.titulo, g.valor)}</summary>
           <div className="px-3 pb-3">
             <CorpoDoRoteiro ficha={g.ficha} nivel={4} />
@@ -73,7 +73,7 @@ export function ComoChegar({ regiao }: { regiao: RegiaoComDist }) {
         </a>
       </div>
       <p className="text-sm text-tinta-suave">{t.avisoExterno}</p>
-      {regiao.posicao === 'reserva' ? <p className="rounded-xl bg-petroleo-claro p-3 text-sm">{t.posicaoReserva}</p> : null}
+      {regiao.posicao === 'reserva' ? <p className="rounded-xl bg-marca-clara p-3 text-sm">{t.posicaoReserva}</p> : null}
     </section>
   )
 }

@@ -139,13 +139,13 @@ export function Busca({ carregador, onEscolher, versaoPonto, semMapa = false }: 
   }
 
   return (
-    <section aria-labelledby={`${id}-rotulo`} className="flex flex-col gap-3">
+    <section aria-labelledby={`${id}-rotulo`} className="flex flex-col overflow-hidden rounded-2xl border border-linha bg-branco">
       <search>
-      <form onSubmit={enviar} className="flex flex-col gap-2">
-        <label id={`${id}-rotulo`} htmlFor={`${id}-campo`} className="font-titulo text-xl font-bold">
+      <form onSubmit={enviar} className="flex flex-col">
+        <label id={`${id}-rotulo`} htmlFor={`${id}-campo`} className="sobre-azul block bg-marca px-4 py-3 font-titulo text-lg font-extrabold">
           {t.rotulo}
         </label>
-        <div className="flex gap-2">
+        <div className="flex gap-2 px-4 pt-4">
           <input
             id={`${id}-campo`}
             type="search"
@@ -157,19 +157,21 @@ export function Busca({ carregador, onEscolher, versaoPonto, semMapa = false }: 
             enterKeyHint="search"
             aria-describedby={estado.tipo === 'erro' ? `${id}-erro` : undefined}
           />
-          <button type="submit" className="botao botao-secundario" aria-disabled={ocupado}>
+          <button type="submit" className="botao botao-destaque" aria-disabled={ocupado}>
             {estado.tipo === 'buscando' ? t.buscando : t.buscar}
           </button>
         </div>
       </form>
       </search>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-        <button type="button" className="botao botao-primario" onClick={localizar} aria-disabled={ocupado}>
-          {estado.tipo === 'localizando' ? t.localizando : t.minhaLocalizacao}
-        </button>
-        {semMapa ? null : <span className="text-tinta-suave">{t.dica}</span>}
+      <div className="flex flex-col gap-3 px-4 pt-3 pb-4">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <button type="button" className="botao botao-secundario" onClick={localizar} aria-disabled={ocupado}>
+            {estado.tipo === 'localizando' ? t.localizando : t.minhaLocalizacao}
+          </button>
+          {semMapa ? null : <span className="text-tinta-suave">{t.dica}</span>}
+        </div>
+        <Retorno idErro={`${id}-erro`} estado={estado} onEscolher={escolherItem} />
       </div>
-      <Retorno idErro={`${id}-erro`} estado={estado} onEscolher={escolherItem} />
     </section>
   )
 }
@@ -198,7 +200,7 @@ function Opcoes({ itens, onEscolher }: { itens: readonly ItemBusca[]; onEscolher
           <li key={`${item.t}|${item.n}|${item.m ?? ''}|${item.uf}|${item.lat}|${item.lon}`}>
             <button
               type="button"
-              className="min-h-11 w-full rounded-lg px-3 py-2 text-left text-mata underline hover:bg-mata-clara"
+              className="min-h-11 w-full rounded-lg px-3 py-2 text-left text-marca underline hover:bg-marca-clara"
               onClick={() => onEscolher(item)}
             >
               {rotuloItemBusca(item)}

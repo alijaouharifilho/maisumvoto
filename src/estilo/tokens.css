@@ -1,26 +1,28 @@
-/* Paleta "Prosa de vizinho" (estudo de identidade, contrastes WCAG AA conferidos).
-   Regras: âmbar nunca é cor de texto sobre o papel; borda de campo usa tinta-suave (linha é só decorativa);
-   ponto âmbar no mapa sempre com contorno tinta. Os hex equivalentes ficam em src/estilo/paleta.ts (mapa e imagem OG). */
+/* Paleta "Azul e amarelo" (cores da campanha apoiada; contrastes WCAG AA conferidos em testes/front/identidade.test.ts
+   e testes/front/mapa.test.ts). Regras: amarelo (destaque) nunca é cor de texto sobre fundo claro; texto sobre amarelo é
+   tinta; para ênfase amarela em texto, destaque-texto. Verde (alvo), vermelho (adversário) e cinza (neutro) são só do
+   mapa e dos lados da comparação. Os hex equivalentes ficam em src/estilo/paleta.ts (mapa, ícone e imagem OG). */
 @theme {
   --color-*: initial;
-  --color-papel: oklch(98.4% 0.010 95);        /* #fcfaf2 fundo */
-  --color-papel-2: oklch(95.5% 0.016 95);      /* #f3f0e4 cartões */
-  --color-linha: oklch(88% 0.010 240);         /* #d2d8dd divisórias, só decorativa */
-  --color-tinta: oklch(22% 0.012 240);         /* #161b20 texto */
-  --color-tinta-suave: oklch(47% 0.020 240);   /* #515d65 texto secundário e bordas de campo */
-  --color-mata: oklch(46% 0.100 160);          /* #0c6944 primária */
-  --color-mata-escura: oklch(38% 0.085 160);   /* #025032 hover e pressionado */
-  --color-mata-clara: oklch(93% 0.035 160);    /* #d5f0e0 blocos de destaque */
-  --color-ambar: oklch(79% 0.140 72);          /* #f1aa47 só como fundo */
-  --color-ambar-texto: oklch(52% 0.105 70);    /* #8f5d14 ênfase âmbar sobre o papel */
-  --color-petroleo: oklch(42% 0.070 220);      /* #115667 informação, legendas */
-  --color-petroleo-claro: oklch(93% 0.025 220);/* #d7ecf4 caixas "de onde vem o dado" */
-  --color-alerta: oklch(52% 0.190 28);         /* #be241f só erros */
-  --color-adversario: oklch(55% 0.200 25);     /* #cc272e adversário: bolinha do mapa e o lado dele na comparação */
+  --color-fundo: oklch(97.2% 0.005 258.3);          /* #f4f6f9 fundo das páginas */
+  --color-superficie-2: oklch(95.3% 0.010 252.8);   /* #ebf0f6 hover, esqueleto, caixas internas */
+  --color-linha: oklch(89.5% 0.014 254.6);          /* #d6dde6 divisórias, só decorativa */
+  --color-tinta: oklch(23.9% 0.032 252.9);          /* #14202e texto */
+  --color-tinta-suave: oklch(45.5% 0.032 251.9);    /* #4a5868 texto secundário e bordas de campo */
+  --color-marca: oklch(46.9% 0.146 253.3);          /* #005aa9 azul: cabeçalho, botões, links */
+  --color-marca-escura: oklch(37.2% 0.120 254.3);   /* #003f7d hover, pressionado e rodapé */
+  --color-marca-clara: oklch(95.2% 0.016 253.9);    /* #e8f0fa blocos de destaque */
+  --color-destaque: oklch(86.14% 0.1754 89.36);     /* #ffca05 amarelo: só fundo (faixa, botão de busca, miolo) */
+  --color-destaque-claro: oklch(96.4% 0.065 97.1);  /* #fff4c2 caixas de destaque */
+  --color-destaque-texto: oklch(54.1% 0.111 87.7);  /* #8a6a00 ênfase amarela sobre fundo claro */
+  --color-alvo: oklch(66.2% 0.186 148.6);           /* #0db04b verde: candidato apoiado à frente (mapa, comparação) */
+  --color-adversario: oklch(54.9% 0.199 25.1);      /* #cc272e vermelho: adversário à frente (mapa, comparação) */
+  --color-neutro: oklch(67.2% 0.029 255.1);         /* #8a97a8 cinza: empate no mapa */
+  --color-alerta: oklch(52.0% 0.190 28.1);          /* #be241f só erros */
   --color-branco: #ffffff;
 
   --font-*: initial;
-  --font-titulo: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-titulo: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
   --font-texto: "Atkinson Hyperlegible Next Variable", ui-sans-serif, system-ui, sans-serif;
 
   /* Um único ponto de quebra de layout (o mesmo do JS: matchMedia 960px) e um de ajuste fino. */
@@ -36,7 +38,7 @@
     to { opacity: 1; transform: none; }
   }
   @keyframes pulso {
-    0% { box-shadow: 0 0 0 0 oklch(79% 0.140 72 / 0.7); }
-    100% { box-shadow: 0 0 0 14px oklch(79% 0.140 72 / 0); }
+    0% { box-shadow: 0 0 0 0 oklch(86.14% 0.1754 89.36 / 0.7); }
+    100% { box-shadow: 0 0 0 14px oklch(86.14% 0.1754 89.36 / 0); }
   }
 }

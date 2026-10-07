@@ -29,7 +29,7 @@ type PropsErro = { tentando: boolean; onTentar: () => void }
 export function ErroDeDados({ tentando, onTentar }: PropsErro) {
   const t = textos.erroDados
   return (
-    <section role="alert" className="flex flex-col items-start gap-2 rounded-2xl border-2 border-alerta bg-papel p-4">
+    <section role="alert" className="flex flex-col items-start gap-2 rounded-2xl border-2 border-alerta bg-branco p-4">
       <h2 className="font-titulo text-xl font-bold text-alerta">{t.titulo}</h2>
       <p>{t.texto}</p>
       <button type="button" className="botao botao-primario" onClick={onTentar} disabled={tentando}>

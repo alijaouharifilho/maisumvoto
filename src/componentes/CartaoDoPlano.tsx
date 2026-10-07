@@ -11,9 +11,9 @@ type EstadoCopia = 'parado' | 'copiado' | 'falhou'
 
 function Numero({ dado }: { dado: DadoDoCartao }) {
   return (
-    <div className="flex flex-col gap-1 rounded-xl border-l-4 border-mata bg-branco p-3">
+    <div className="flex flex-col gap-1 rounded-xl border-l-4 border-marca bg-marca-clara p-3">
       <p>
-        <strong className="numeros block text-3xl font-extrabold text-mata-escura">{dado.numero}</strong>
+        <strong className="numeros block text-3xl font-extrabold text-marca-escura">{dado.numero}</strong>
         {dado.frase}
       </p>
       <p className="text-sm text-tinta-suave">
@@ -64,7 +64,7 @@ function ParaPuxar({ pergunta }: { pergunta: string }) {
   const [estado, setEstado] = useState<EstadoCopia>('parado')
   const idPergunta = useId()
   return (
-    <div className="flex flex-col gap-2 rounded-xl bg-petroleo-claro p-3">
+    <div className="flex flex-col gap-2 rounded-xl bg-destaque-claro p-3">
       <p className="font-bold">{t.paraPuxar}</p>
       <p id={idPergunta} className="text-lg">
         “{pergunta}”
@@ -88,9 +88,9 @@ export function CartaoDoPlano({ proposta }: { proposta: Proposta }) {
   const idTitulo = useId()
   return (
     <article aria-labelledby={idTitulo} className="cartao flex flex-col gap-3">
-      <h3 id={idTitulo} className="font-titulo text-xl font-bold">
+      <h4 id={idTitulo} className="font-titulo text-xl font-bold">
         {proposta.titulo}
-      </h3>
+      </h4>
       <p className="text-lg">{proposta.emUmaFrase}</p>
       {proposta.dado === null ? null : <Numero dado={proposta.dado} />}
       <div className="flex flex-col gap-1">
@@ -99,11 +99,11 @@ export function CartaoDoPlano({ proposta }: { proposta: Proposta }) {
       </div>
       <ParaPuxar pergunta={proposta.paraPuxar} />
       {proposta.cuidado === undefined ? null : (
-        <p className="rounded-xl border-2 border-ambar-texto p-3 text-sm">
+        <p className="rounded-xl border-2 border-destaque-texto p-3 text-sm">
           <strong>{t.cuidado}</strong> {proposta.cuidado}
         </p>
       )}
-      <details className="rounded-xl border border-tinta-suave p-3">
+      <details className="rounded-xl border border-linha p-3">
         <summary className="font-bold">{t.oQueOPlanoDiz(proposta.pagina)}</summary>
         <div className="mt-2">
           <CitacaoDoPlano citacao={proposta} />

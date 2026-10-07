@@ -48,15 +48,15 @@ describe('marcadores', () => {
     expect(Math.max(...f.map((p) => p.ordem))).toBe(f[1]?.ordem)
   })
 
-  it('a cor diz quem ficou à frente: verde para o candidato apoiado, vermelho para o adversário', () => {
-    for (const c of ['alvoNaFrente', 'folga', 'aDefender'] as const) expect(SIMBOLOGIA[c].preenchimento).toBe(PALETA.mata)
+  it('a cor diz quem ficou à frente: verde para o candidato apoiado, vermelho para o adversário, cinza no empate', () => {
+    for (const c of ['alvoNaFrente', 'folga', 'aDefender'] as const) expect(SIMBOLOGIA[c].preenchimento).toBe(PALETA.alvo)
     for (const c of ['aVirar', 'dificil'] as const) expect(SIMBOLOGIA[c].preenchimento).toBe(PALETA.adversario)
-    expect(SIMBOLOGIA.empate.preenchimento).toBe(PALETA.ambar)
+    expect(SIMBOLOGIA.empate.preenchimento).toBe(PALETA.neutro)
   })
 
   it('verde e vermelho se distinguem também sem cor (daltonismo): contorno claro × escuro, contraste ≥ 3:1', () => {
     expect(contraste(SIMBOLOGIA.alvoNaFrente.contorno, SIMBOLOGIA.dificil.contorno)).toBeGreaterThanOrEqual(3)
-    for (const c of ['alvoNaFrente', 'dificil', 'empate'] as const) expect(contraste(SIMBOLOGIA[c].preenchimento, PALETA.papel)).toBeGreaterThanOrEqual(1.5)
+    for (const c of ['alvoNaFrente', 'dificil', 'empate'] as const) expect(contraste(SIMBOLOGIA[c].preenchimento, PALETA.fundo)).toBeGreaterThanOrEqual(1.5)
   })
 
   it('cada entrada da legenda tem um símbolo que se reconhece em preto e branco', () => {

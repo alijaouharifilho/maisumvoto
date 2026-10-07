@@ -29,7 +29,7 @@ type PropsCitacao = {
   borda?: string
 }
 
-export function CitacaoDoPlano({ citacao, href, complemento = t.plano.paginaComplemento, borda = 'border-mata' }: PropsCitacao) {
+export function CitacaoDoPlano({ citacao, href, complemento = t.plano.paginaComplemento, borda = 'border-marca' }: PropsCitacao) {
   return (
     <figure className={`flex flex-col gap-1 border-l-4 ${borda} pl-3`}>
       <blockquote className="italic">“{citacao.trecho}”</blockquote>
@@ -51,7 +51,7 @@ function Pontes({ pontes, nivel }: { pontes: readonly Ponte[]; nivel: Nivel }) {
     <div className="flex flex-col gap-3">
       <Titulo nivel={nivel}>{t.prosa.pontes}</Titulo>
       {pontes.map((p) => (
-        <div key={p.tema} className="flex flex-col gap-2 rounded-xl bg-petroleo-claro p-3">
+        <div key={p.tema} className="flex flex-col gap-2 rounded-xl bg-marca-clara p-3">
           <p className="font-bold">{p.tema}</p>
           <p>{p.texto}</p>
           {p.citacoes.map((c) => (
@@ -78,8 +78,8 @@ function Passos({ passos, nivel }: { passos: readonly string[]; nivel: Nivel }) 
 
 function Cuidados({ cuidados, nivel }: { cuidados: readonly string[]; nivel: Nivel }) {
   return (
-    <div className="flex flex-col gap-2 rounded-xl border-2 border-ambar-texto p-3">
-      <Titulo nivel={nivel} className="text-ambar-texto">
+    <div className="flex flex-col gap-2 rounded-xl border-2 border-destaque-texto bg-branco p-3">
+      <Titulo nivel={nivel} className="text-destaque-texto">
         {t.prosa.cuidados}
       </Titulo>
       <ul className="list-disc space-y-1 pl-6">
@@ -95,7 +95,7 @@ function Cuidados({ cuidados, nivel }: { cuidados: readonly string[]; nivel: Niv
 export function CorpoDoRoteiro({ ficha, nivel }: { ficha: FichaVoto; nivel: Nivel }) {
   return (
     <div className="flex flex-col gap-4">
-      <p className="font-titulo text-lg font-bold text-mata">{ficha.fraseGuia}</p>
+      <p className="font-titulo text-lg font-bold text-marca">{ficha.fraseGuia}</p>
       {ficha.contexto.map((c) => (
         <p key={c}>{c}</p>
       ))}
@@ -109,7 +109,7 @@ export function CorpoDoRoteiro({ ficha, nivel }: { ficha: FichaVoto; nivel: Nive
 export function RoteiroGeralDaConversa({ geral, nivel }: { geral: RoteiroGeral; nivel: Nivel }) {
   return (
     <div className="flex flex-col gap-4">
-      <p className="font-titulo text-lg font-bold text-mata">{geral.fraseGuia}</p>
+      <p className="font-titulo text-lg font-bold text-marca">{geral.fraseGuia}</p>
       <Passos passos={geral.passos} nivel={proximo(nivel)} />
       <Cuidados cuidados={geral.cuidados} nivel={proximo(nivel)} />
     </div>

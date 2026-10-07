@@ -100,11 +100,11 @@ function ItemDaLista({ item, onAbrir }: { item: ItemLista; onAbrir: (id: string)
       type="button"
       data-regiao={item.id}
       onClick={() => onAbrir(item.id)}
-      className="flex w-full items-center gap-3 rounded-lg px-2 py-3 text-left hover:bg-papel-2"
+      className="flex w-full items-center gap-3 rounded-lg px-2 py-3 text-left hover:bg-superficie-2"
     >
       <Selo classe={item.metricas.classificacao} />
       <span className="flex min-w-0 flex-1 flex-col">
-        <span className="font-bold text-mata underline">{nomeLocal(item)}</span>
+        <span className="font-bold text-marca underline">{nomeLocal(item)}</span>
         <span className="text-sm text-tinta-suave">{detalhe}</span>
         <span className="sr-only">{textos.classificacaoAria[item.metricas.classificacao](NOMES)}</span>
       </span>
@@ -120,7 +120,7 @@ function PorBairro({ bairros, semBairro, onAbrir }: { bairros: readonly GrupoBai
   return (
     <div className="flex flex-col gap-2">
       {bairros.map((g) => (
-        <details key={g.chave} className="rounded-xl border border-linha bg-papel">
+        <details key={g.chave} className="rounded-xl border border-linha bg-branco">
           <summary className="flex min-h-11 flex-col justify-center px-3 py-2">
             <span className="font-bold">{g.bairro}</span>
             <span className="text-sm text-tinta-suave">

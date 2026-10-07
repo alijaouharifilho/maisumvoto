@@ -108,12 +108,12 @@ export function camadaDensidade(id: string, fonte: string, faixa: { minzoom?: nu
 
 export function camadasRaio(): [FillLayerSpecification, LineLayerSpecification] {
   return [
-    { id: CAMADAS.raioPreenchimento, type: 'fill', source: FONTES.raio, paint: { 'fill-color': PALETA.petroleo, 'fill-opacity': 0.05 } },
+    { id: CAMADAS.raioPreenchimento, type: 'fill', source: FONTES.raio, paint: { 'fill-color': PALETA.marca, 'fill-opacity': 0.06 } },
     {
       id: CAMADAS.raioContorno,
       type: 'line',
       source: FONTES.raio,
-      paint: { 'line-color': PALETA.petroleo, 'line-width': 1.5, 'line-dasharray': [3, 4] },
+      paint: { 'line-color': PALETA.marca, 'line-width': 1.5, 'line-dasharray': [3, 4] },
     },
   ]
 }

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@fontsource-variable/bricolage-grotesque/wght.css";
+@import "@fontsource-variable/montserrat/wght.css";
 @import "@fontsource-variable/atkinson-hyperlegible-next/wght.css";
 @import "./tokens.css";
 
@@ -7,12 +7,14 @@
   :root {
     color-scheme: light;
     --altura-cabecalho: 3.5rem;
+    /* Menu fixo embaixo, só no celular (abaixo de 960 px). */
+    --altura-menu-inferior: 4rem;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
 
   html {
-    background-color: var(--color-papel);
+    background-color: var(--color-fundo);
     color: var(--color-tinta);
     font-family: var(--font-texto);
     line-height: 1.5;
@@ -36,20 +38,32 @@
   /* Sublinhado sempre: no meio do texto, a cor sozinha (2,57:1 contra o texto) não separa o link (WCAG 1.4.1).
      Botões, marca e menu tiram com no-underline. */
   a {
-    color: var(--color-mata);
+    color: var(--color-marca);
     text-decoration-line: underline;
     text-decoration-thickness: from-font;
     text-underline-offset: 0.15em;
   }
 
   a:hover {
-    color: var(--color-mata-escura);
+    color: var(--color-marca-escura);
   }
 
   /* Foco sempre visível, 3 px, fora do elemento. */
   :focus-visible {
-    outline: 3px solid var(--color-mata-escura);
+    outline: 3px solid var(--color-marca-escura);
     outline-offset: 2px;
+  }
+
+  /* Sobre fundo azul (cabeçalho, rodapé, abertura): texto e links brancos, foco amarelo (4,5:1 contra o azul). */
+  .sobre-azul {
+    color: var(--color-branco);
+  }
+  .sobre-azul a,
+  .sobre-azul a:hover {
+    color: var(--color-branco);
+  }
+  .sobre-azul :focus-visible {
+    outline-color: var(--color-destaque);
   }
 
   /* Destino de âncora (tabindex=-1) recebe foco só para o leitor de tela acompanhar; sem moldura. */
@@ -86,21 +100,31 @@
     transition: background-color 120ms, color 120ms;
   }
   .botao-primario {
-    background-color: var(--color-mata);
+    background-color: var(--color-marca);
     color: var(--color-branco);
   }
   .botao-primario:hover:not(:disabled) {
-    background-color: var(--color-mata-escura);
+    background-color: var(--color-marca-escura);
     color: var(--color-branco);
   }
   .botao-secundario {
-    background-color: var(--color-papel);
-    color: var(--color-mata);
-    border-color: var(--color-mata);
+    background-color: var(--color-branco);
+    color: var(--color-marca);
+    border-color: var(--color-marca);
   }
   .botao-secundario:hover:not(:disabled) {
-    background-color: var(--color-mata-clara);
-    color: var(--color-mata-escura);
+    background-color: var(--color-marca-clara);
+    color: var(--color-marca-escura);
+  }
+  /* Amarelo com texto tinta (10,7:1); a borda tinta separa o botão do fundo branco (o amarelo sozinho dá 1,5:1). */
+  .botao-destaque {
+    background-color: var(--color-destaque);
+    color: var(--color-tinta);
+    border-color: var(--color-tinta);
+  }
+  .botao-destaque:hover:not(:disabled) {
+    background-color: var(--color-destaque-claro);
+    color: var(--color-tinta);
   }
   .botao:disabled,
   .botao[aria-disabled="true"] {
@@ -120,24 +144,25 @@
     opacity: 1;
   }
   .cartao {
-    background-color: var(--color-papel-2);
+    background-color: var(--color-branco);
+    border: 1px solid var(--color-linha);
     border-radius: 1rem;
     padding: 1rem;
   }
   .esqueleto {
-    background: linear-gradient(90deg, var(--color-papel-2), var(--color-linha), var(--color-papel-2));
+    background: linear-gradient(90deg, var(--color-superficie-2), var(--color-linha), var(--color-superficie-2));
     background-size: 200% 100%;
     animation: brilho 1.4s linear infinite;
     border-radius: 0.5rem;
   }
 }
 
-/* Ponto escolhido no mapa: âmbar com contorno tinta (regra de contraste). */
+/* Ponto escolhido no mapa: amarelo com contorno tinta (regra de contraste). */
 .ponto-escolhido {
   width: 18px;
   height: 18px;
   border-radius: 9999px;
-  background-color: var(--color-ambar);
+  background-color: var(--color-destaque);
   border: 3px solid var(--color-tinta);
   animation: var(--animate-pulso);
 }

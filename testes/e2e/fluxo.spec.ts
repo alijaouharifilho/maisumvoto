@@ -18,11 +18,13 @@ const cfg = JSON.parse(readFileSync(join(RAIZ, 'config', 'candidatura.json'), 'u
   alvo: { nomeCurto: string }
   adversario: { nomeCurto: string }
 }
+/** A mesma porta do playwright.config.ts (5151, ou PORTA_E2E). */
+const PORTA = Number(process.env.PORTA_E2E ?? 5151)
 const RE_LINK = /#\/mapa\/@(-?\d{1,2}\.\d{3}),(-?\d{1,2}\.\d{3})$/
 
 /** Mesma CSP da produção no documento: script/estilo inline ou host não liberado aparecem como erro de console. */
 async function aplicarCsp(page: Page): Promise<void> {
-  await page.route(/^http:\/\/127\.0\.0\.1:5151\//, async (rota) => {
+  await page.route(new RegExp(`^http://127\\.0\\.0\\.1:${PORTA}/`), async (rota) => {
     if (rota.request().resourceType() !== 'document') return rota.fallback()
     const resposta = await rota.fetch()
     return rota.fulfill({ response: resposta, headers: { ...resposta.headers(), 'content-security-policy': CSP ?? '' } })
@@ -149,7 +151,7 @@ test.describe('fluxo com dados reais', () => {
     await expect(page.getByRole('button', { name: textos.mapa.controles.aproximar, exact: true })).toBeVisible()
     await expect(page.getByRole('button', { name: textos.mapa.controles.afastar, exact: true })).toBeVisible()
     await expect(page.locator('button[title="Zoom in"], button[aria-label="Zoom in"]')).toHaveCount(0)
-    await expect(page.getByRole('heading', { level: 1 })).toHaveCSS('font-size', '36px')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveCSS('font-size', '30px')
     await page.evaluate(() => {
       const el = document.querySelector('canvas.maplibregl-canvas')
       Object.assign(window, { canvasOriginal: el })
@@ -200,7 +202,7 @@ test('dia da votação: só o aviso estático, sem busca, mapa ou compartilhar',
   await expect(page.locator('canvas.maplibregl-canvas')).toHaveCount(0)
 })
 
-test('plano: um cartão por proposta, com número, fonte e pergunta; o trecho literal abre com link para a página', async ({ page }) => {
+test('guia: a aba leva ao guia; um cartão por proposta, com número, fonte e pergunta; o trecho literal abre com link para a página', async ({ page }) => {
   const erros = vigiarConsole(page)
   await aplicarCsp(page)
   const plano = JSON.parse(readFileSync(join(RAIZ, 'src', 'conteudo', 'plano.json'), 'utf8')) as {
@@ -210,8 +212,11 @@ test('plano: um cartão por proposta, com número, fonte e pergunta; o trecho li
   const primeira = propostas[0]
   if (primeira === undefined) throw new Error('plano sem propostas')
 
-  await page.goto('/#/plano')
-  await expect(page.getByRole('heading', { level: 1, name: textos.paginas.plano.titulo(cfg.alvo.nomeCurto) })).toBeVisible()
+  await page.goto('/')
+  await page.getByRole('navigation', { name: textos.navegacao.rotulo }).getByRole('link', { name: textos.navegacao.rotas.guia }).click()
+  await expect(page).toHaveURL(/#\/guia$/)
+  await expect(page.getByRole('heading', { level: 1, name: textos.paginas.guia.titulo })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 2, name: textos.paginas.plano.titulo(cfg.alvo.nomeCurto) })).toBeVisible()
   await expect(page.getByRole('button', { name: textos.paginas.plano.copiar })).toHaveCount(propostas.length)
 
   const cartao = page.getByRole('article', { name: primeira.titulo })
@@ -223,7 +228,7 @@ test('plano: um cartão por proposta, com número, fonte e pergunta; o trecho li
   expect(erros, erros.join('\n')).toEqual([])
 })
 
-test('comparar: a aba do plano leva à comparação, com os dois lados de cada assunto e o link da página de cada PDF', async ({ page }) => {
+test('comparar: o índice do guia leva à comparação (e o link antigo #/comparar também), com o link da página de cada PDF', async ({ page }) => {
   const erros = vigiarConsole(page)
   await aplicarCsp(page)
   const comparacao = JSON.parse(readFileSync(join(RAIZ, 'src', 'conteudo', 'comparacao.json'), 'utf8')) as {
@@ -234,11 +239,12 @@ test('comparar: a aba do plano leva à comparação, com os dois lados de cada a
   const [citacao] = tema?.adversario.citacoes ?? []
   if (tema === undefined || citacao === undefined) throw new Error('comparação sem assunto ou sem trecho')
 
-  await page.goto('/#/plano')
-  await page.getByRole('link', { name: textos.paginas.abasPlano.comparar }).click()
-  await expect(page).toHaveURL(/#\/comparar$/)
-  await expect(page.getByRole('heading', { level: 1, name: textos.paginas.comparar.titulo })).toBeVisible()
-  await expect(page.getByRole('region')).toHaveCount(comparacao.temas.length)
+  await page.goto('/#/guia')
+  await page.getByRole('navigation', { name: textos.paginas.guia.indice }).getByRole('link', { name: textos.paginas.guia.partes.comparar }).click()
+  await expect(page).toHaveURL(/#\/guia\/comparar$/)
+  await expect(page.getByRole('heading', { level: 2, name: textos.paginas.comparar.titulo })).toBeInViewport()
+  await page.goto('/#/comparar')
+  await expect(page.getByRole('heading', { level: 2, name: textos.paginas.comparar.titulo })).toBeInViewport()
 
   const bloco = page.getByRole('region', { name: tema.titulo })
   const nome = `${textos.paginas.plano.pagina(citacao.pagina)} ${textos.paginas.comparar.paginaComplemento(cfg.adversario.nomeCurto)}`

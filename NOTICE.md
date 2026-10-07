@@ -27,7 +27,7 @@ Este projeto foi escrito do zero. Não contém código, texto, CSS ou roteiro do
 
 ## Fontes tipográficas
 
-- **Bricolage Grotesque** — SIL Open Font License 1.1 (via Fontsource).
+- **Montserrat** — SIL Open Font License 1.1 (via Fontsource), The Montserrat Project Authors.
 - **Atkinson Hyperlegible Next** — SIL Open Font License 1.1 (via Fontsource), Braille Institute of America.
 
 ## Plano de governo

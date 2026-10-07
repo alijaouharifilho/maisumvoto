@@ -48,35 +48,39 @@ describe('rotas por hash', () => {
     expect(atual.textContent).toBe(textos.navegacao.rotas.mapa)
   })
 
-  it('#/plano, #/prosa e #/sobre trocam a página (carregadas sob demanda)', async () => {
+  it('#/guia traz os três blocos numa página (carregada sob demanda); #/sobre fica fora do menu', async () => {
     comDados(<App />)
-    irPara('#/plano')
-    expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.plano.titulo(candidatura.alvo.nomeCurto) })).toBeTruthy()
-    expect(within(menu()).getByRole('link', { current: 'page' }).textContent).toBe(textos.navegacao.rotas.plano)
-    irPara('#/prosa')
-    expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.prosa.titulo })).toBeTruthy()
+    irPara('#/guia')
+    expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.guia.titulo })).toBeTruthy()
+    expect(within(menu()).getByRole('link', { current: 'page' }).textContent).toBe(textos.navegacao.rotas.guia)
+    const p = textos.paginas
+    for (const bloco of [p.prosa.titulo, p.plano.titulo(candidatura.alvo.nomeCurto), p.comparar.titulo]) {
+      expect(screen.getByRole('heading', { level: 2, name: bloco })).toBeTruthy()
+    }
+    const indice = screen.getByRole('navigation', { name: p.guia.indice })
+    expect(within(indice).getAllByRole('link').map((l) => l.getAttribute('href'))).toEqual(['#/guia/conversa', '#/guia/plano', '#/guia/comparar'])
     irPara('#/sobre/privacidade')
     expect(await screen.findByRole('heading', { name: 'Privacidade' })).toBeTruthy()
+    expect(within(menu()).queryByRole('link', { current: 'page' })).toBeNull()
   })
 
-  it('#/comparar fica dentro de "Plano": o menu marca a seção e a aba marca a comparação', async () => {
+  it('links antigos (#/plano/<capítulo>, #/prosa/<ficha>) abrem o Guia já no bloco certo', async () => {
     comDados(<App />)
-    irPara('#/comparar')
-    expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.comparar.titulo })).toBeTruthy()
-    expect(within(menu()).getByRole('link', { current: true }).textContent).toBe(textos.navegacao.rotas.plano)
-    expect(within(menu()).queryByRole('link', { current: 'page' })).toBeNull()
-    const abas = screen.getByRole('navigation', { name: textos.paginas.abasPlano.rotulo })
-    expect(within(abas).getByRole('link', { current: 'page' }).textContent).toBe(textos.paginas.abasPlano.comparar)
-    expect(document.title).toBe(`${textos.paginas.comparar.titulo} · ${nomeSite}`)
+    irPara('#/plano/seguranca')
+    expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.guia.titulo })).toBeTruthy()
+    await waitFor(() => expect(document.activeElement?.id).toBe('guia-plano-seguranca'))
+    expect(document.title).toBe(`${textos.paginas.guia.titulo} · ${nomeSite}`)
+    irPara('#/prosa/abstencao')
+    await waitFor(() => expect(document.activeElement?.id).toBe('guia-conversa-abstencao'))
   })
 
   it('trocar de página pelo menu muda o título da aba e leva o foco ao conteúdo (A11Y-10)', async () => {
     comDados(<App />)
     await screen.findByRole('heading', { level: 1, name: textos.abertura.titulo(nomeSite) })
     expect(document.title).toBe(textos.meta.titulo(nomeSite))
-    irPara('#/prosa')
-    await screen.findByRole('heading', { level: 1, name: textos.paginas.prosa.titulo })
-    expect(document.title).toBe(`${textos.paginas.prosa.titulo} · ${nomeSite}`)
+    irPara('#/guia')
+    await screen.findByRole('heading', { level: 1, name: textos.paginas.guia.titulo })
+    expect(document.title).toBe(`${textos.paginas.guia.titulo} · ${nomeSite}`)
     expect(document.activeElement?.id).toBe('conteudo')
   })
 
@@ -115,7 +119,7 @@ describe('rotas por hash', () => {
     await waitFor(() => expect(carregador.indice).toHaveBeenCalledTimes(2))
   })
 
-  it('dia da votação: o mapa e a conversa viram o aviso estático, sem busca e sem compartilhar', async () => {
+  it('dia da votação: o mapa vira o aviso estático e o Guia perde os roteiros (o plano continua)', async () => {
     vi.useFakeTimers({ toFake: ['Date'] })
     vi.setSystemTime(new Date('2026-10-25T10:00:00-03:00'))
     comDados(<App />)
@@ -123,8 +127,12 @@ describe('rotas por hash', () => {
     expect(screen.queryByRole('searchbox')).toBeNull()
     expect(screen.queryByText(textos.compartilhar.botao)).toBeNull()
     irPara('#/prosa')
-    expect(await screen.findByRole('heading', { name: textos.diaDaVotacao.titulo })).toBeTruthy()
+    expect(await screen.findByRole('heading', { level: 1, name: textos.paginas.guia.titulo })).toBeTruthy()
     expect(screen.queryByRole('heading', { name: textos.paginas.prosa.titulo })).toBeNull()
+    expect(screen.getByText(textos.diaDaVotacao.paragrafos[0])).toBeTruthy()
+    expect(screen.getByRole('heading', { level: 2, name: textos.paginas.plano.titulo(candidatura.alvo.nomeCurto) })).toBeTruthy()
+    const indice = screen.getByRole('navigation', { name: textos.paginas.guia.indice })
+    expect(within(indice).queryByRole('link', { name: textos.paginas.guia.partes.conversa })).toBeNull()
   })
 })
 

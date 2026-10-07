@@ -1,34 +1,34 @@
-// #/comparar: os mesmos assuntos nos dois planos registrados no TSE, lado a lado. Cada lado traz um resumo e o
-// trecho literal com link para a página do PDF; no fim de cada assunto, o que há em comum e a diferença.
+// Guia, bloco "Os dois planos": os mesmos assuntos nos dois planos registrados no TSE, lado a lado. Cada lado traz um
+// resumo e o trecho literal com link para a página do PDF; no fim de cada assunto, o que há em comum e a diferença.
 import { useMemo } from 'react'
 import { comparacao, linkPaginaAdversario, type Comparacao, type LadoDaComparacao, type TemaComparado } from '../conteudo/comparacao.ts'
 import { linkPagina, plano } from '../conteudo/conteudo.ts'
 import { preencherTudo } from '../conteudo/modelo.ts'
 import { dia, textos } from '../conteudo/textos.ts'
-import { AbasDoPlano } from '../componentes/AbasDoPlano.tsx'
-import { Rodape } from '../componentes/Moldura.tsx'
 import { CitacaoDoPlano } from '../componentes/Roteiro.tsx'
 import { NOMES } from '../config.ts'
-import { hrefDe, useRolarParaAncora } from '../rotas.ts'
+import { hrefDe } from '../rotas.ts'
+import { ancoraNoGuia, idNoGuia, ROLAGEM_GUIA } from './guia.ts'
 import { useValoresModelo } from './valores.ts'
 
 const t = textos.paginas.comparar
-const idDaAncora = (ancora: string): string => `comparar-${ancora}`
 
 type Lado = {
   readonly nome: string
   readonly link: (pagina: number) => string
-  /** Verde para o candidato apoiado, vermelho para o adversário: as mesmas cores do mapa. */
+  /** Verde para o candidato apoiado, vermelho para o adversário: as mesmas cores do mapa (classes escritas por
+   *  inteiro para o Tailwind achar). `borda` vai nos trechos citados; `topo`, na faixa de cima da coluna. */
   readonly borda: string
+  readonly topo: string
 }
 
-const LADO_ALVO: Lado = { nome: NOMES.alvo, link: linkPagina, borda: 'border-mata' }
-const LADO_ADVERSARIO: Lado = { nome: NOMES.adversario, link: linkPaginaAdversario, borda: 'border-adversario' }
+const LADO_ALVO: Lado = { nome: NOMES.alvo, link: linkPagina, borda: 'border-alvo', topo: 'border-t-alvo' }
+const LADO_ADVERSARIO: Lado = { nome: NOMES.adversario, link: linkPaginaAdversario, borda: 'border-adversario', topo: 'border-t-adversario' }
 
 function Coluna({ lado, conteudo }: { lado: Lado; conteudo: LadoDaComparacao }) {
   return (
-    <div className="flex flex-col gap-3 rounded-xl bg-branco p-4">
-      <h3 className="font-titulo text-lg font-bold">{t.planoDe(lado.nome)}</h3>
+    <div className={`flex flex-col gap-3 rounded-2xl border border-t-8 border-linha bg-branco p-4 ${lado.topo}`}>
+      <h4 className="font-titulo text-lg font-extrabold">{t.planoDe(lado.nome)}</h4>
       <p>{conteudo.resumo}</p>
       {conteudo.citacoes.map((c) => (
         <CitacaoDoPlano key={`${c.pagina}-${c.trecho}`} citacao={c} href={lado.link(c.pagina)} complemento={t.paginaComplemento(lado.nome)} borda={lado.borda} />
@@ -38,18 +38,18 @@ function Coluna({ lado, conteudo }: { lado: Lado; conteudo: LadoDaComparacao }) 
 }
 
 function BlocoTema({ tema }: { tema: TemaComparado }) {
-  const idTitulo = `titulo-comparar-${tema.chave}`
+  const id = idNoGuia(ancoraNoGuia('comparar', tema.chave))
   return (
-    <section id={idDaAncora(tema.chave)} tabIndex={-1} aria-labelledby={idTitulo} className="flex scroll-mt-20 flex-col gap-3 border-t border-linha pt-6">
-      <h2 id={idTitulo} className="font-titulo text-2xl font-bold">
+    <section id={id} tabIndex={-1} aria-labelledby={`${id}-titulo`} className={`flex flex-col gap-3 border-t border-linha pt-6 ${ROLAGEM_GUIA}`}>
+      <h3 id={`${id}-titulo`} className="font-titulo text-xl font-extrabold text-marca lg:text-2xl">
         {tema.titulo}
-      </h2>
+      </h3>
       <p className="text-lg">{tema.pergunta}</p>
       <div className="grid gap-3 lg:grid-cols-2">
         <Coluna lado={LADO_ALVO} conteudo={tema.alvo} />
         <Coluna lado={LADO_ADVERSARIO} conteudo={tema.adversario} />
       </div>
-      <div className="flex flex-col gap-2 rounded-xl bg-petroleo-claro p-3">
+      <div className="flex flex-col gap-2 rounded-2xl bg-marca-clara p-4">
         {tema.emComum === null ? null : (
           <p>
             <strong>{t.emComum}</strong> {tema.emComum}
@@ -78,14 +78,15 @@ function LinkPdf({ href, nome }: { href: string; nome: string }) {
   )
 }
 
-export function PaginaComparar({ ancora }: { ancora: string | null }) {
-  useRolarParaAncora(ancora, idDaAncora)
+export function BlocoComparar() {
   const { documentoAdversario, temas } = useComparacao()
+  const idBloco = idNoGuia(ancoraNoGuia('comparar'))
   return (
-    <article className="mx-auto flex max-w-4xl flex-col gap-6 px-4 py-8">
-      <header className="flex flex-col gap-3">
-        <AbasDoPlano atual="comparar" />
-        <h1 className="font-titulo text-3xl font-extrabold">{t.titulo}</h1>
+    <section id={idBloco} tabIndex={-1} aria-labelledby={`${idBloco}-titulo`} className={`flex flex-col gap-6 ${ROLAGEM_GUIA}`}>
+      <header className="flex flex-col gap-2 border-l-8 border-destaque pl-4">
+        <h2 id={`${idBloco}-titulo`} className="font-titulo text-2xl font-extrabold text-marca lg:text-3xl">
+          {t.titulo}
+        </h2>
         <p className="text-lg">{t.chamada(NOMES)}</p>
         <ul className="flex flex-col gap-1">
           <li>
@@ -97,11 +98,16 @@ export function PaginaComparar({ ancora }: { ancora: string | null }) {
         </ul>
         <p className="text-sm text-tinta-suave">{t.conferido(dia(documentoAdversario.conferidoEm))}</p>
       </header>
-      <nav aria-label={t.indice} className="cartao">
-        <ul className="flex flex-col gap-1">
+      <nav aria-label={t.indice}>
+        <ul className="flex flex-wrap gap-2">
           {temas.map((tema) => (
             <li key={tema.chave}>
-              <a href={hrefDe('comparar', tema.chave)}>{tema.titulo}</a>
+              <a
+                href={hrefDe('guia', ancoraNoGuia('comparar', tema.chave))}
+                className="inline-flex min-h-11 items-center rounded-full border border-linha bg-branco px-3 text-sm font-bold no-underline hover:bg-marca-clara"
+              >
+                {tema.titulo}
+              </a>
             </li>
           ))}
         </ul>
@@ -109,7 +115,6 @@ export function PaginaComparar({ ancora }: { ancora: string | null }) {
       {temas.map((tema) => (
         <BlocoTema key={tema.chave} tema={tema} />
       ))}
-      <Rodape />
-    </article>
+    </section>
   )
 }

@@ -1,24 +1,22 @@
-// #/plano: os capítulos do plano de governo em cartões de conversa (em uma frase, um número com fonte,
-// por que faz sentido, pergunta para puxar o assunto) e, em cada um, o trecho literal com link para a página do PDF.
-import { plano, type Capitulo } from '../conteudo/conteudo.ts'
+// Guia, bloco "O plano de <alvo>": os capítulos do plano de governo em cartões de conversa (em uma frase, um número
+// com fonte, por que faz sentido, pergunta para puxar o assunto) e, em cada um, o trecho literal com a página do PDF.
+import { linkPagina, plano, type Capitulo } from '../conteudo/conteudo.ts'
 import { dia, textos } from '../conteudo/textos.ts'
-import { AbasDoPlano } from '../componentes/AbasDoPlano.tsx'
 import { CartaoDoPlano } from '../componentes/CartaoDoPlano.tsx'
-import { Rodape } from '../componentes/Moldura.tsx'
 import { NOMES } from '../config.ts'
-import { hrefDe, useRolarParaAncora } from '../rotas.ts'
-import { linkPagina } from '../conteudo/conteudo.ts'
+import { hrefDe } from '../rotas.ts'
+import { ancoraNoGuia, idNoGuia, ROLAGEM_GUIA } from './guia.ts'
 
 const t = textos.paginas.plano
-const idDaAncora = (ancora: string): string => `plano-${ancora}`
 
 function BlocoCapitulo({ capitulo }: { capitulo: Capitulo }) {
   const [inicio, fim] = capitulo.paginas
+  const id = idNoGuia(ancoraNoGuia('plano', capitulo.chave))
   return (
-    <section id={idDaAncora(capitulo.chave)} tabIndex={-1} aria-labelledby={`titulo-${capitulo.chave}`} className="flex scroll-mt-20 flex-col gap-3 border-t border-linha pt-6">
-      <h2 id={`titulo-${capitulo.chave}`} className="font-titulo text-2xl font-bold">
+    <section id={id} tabIndex={-1} aria-labelledby={`${id}-titulo`} className={`flex flex-col gap-3 border-t border-linha pt-6 ${ROLAGEM_GUIA}`}>
+      <h3 id={`${id}-titulo`} className="font-titulo text-xl font-extrabold text-marca lg:text-2xl">
         {capitulo.titulo}
-      </h2>
+      </h3>
       <p className="text-sm text-tinta-suave">
         {t.nomeNoPlano(capitulo.nomeNoPlano)}
         {inicio === undefined || fim === undefined ? null : (
@@ -43,13 +41,14 @@ function BlocoCapitulo({ capitulo }: { capitulo: Capitulo }) {
   )
 }
 
-export function PaginaPlano({ ancora }: { ancora: string | null }) {
-  useRolarParaAncora(ancora, idDaAncora)
+export function BlocoPlano() {
+  const idBloco = idNoGuia(ancoraNoGuia('plano'))
   return (
-    <article className="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-8">
-      <header className="flex flex-col gap-2">
-        <AbasDoPlano atual="plano" />
-        <h1 className="font-titulo text-3xl font-extrabold">{t.titulo(NOMES.alvo)}</h1>
+    <section id={idBloco} tabIndex={-1} aria-labelledby={`${idBloco}-titulo`} className={`flex flex-col gap-6 ${ROLAGEM_GUIA}`}>
+      <header className="flex flex-col gap-2 border-l-8 border-destaque pl-4">
+        <h2 id={`${idBloco}-titulo`} className="font-titulo text-2xl font-extrabold text-marca lg:text-3xl">
+          {t.titulo(NOMES.alvo)}
+        </h2>
         <p className="text-lg">{t.chamada}</p>
         <p>
           <a href={plano.documento.url} target="_blank" rel="noopener noreferrer" className="font-bold">
@@ -61,11 +60,16 @@ export function PaginaPlano({ ancora }: { ancora: string | null }) {
           {t.conferido(dia(plano.documento.conferidoEm))} {t.dadosConferidos(dia(plano.dadosConferidosEm))}
         </p>
       </header>
-      <nav aria-label={textos.paginas.prosa.indice} className="cartao">
-        <ul className="flex flex-col gap-1">
+      <nav aria-label={textos.paginas.prosa.indice}>
+        <ul className="flex flex-wrap gap-2">
           {plano.capitulos.map((c) => (
             <li key={c.chave}>
-              <a href={hrefDe('plano', c.chave)}>{c.titulo}</a>
+              <a
+                href={hrefDe('guia', ancoraNoGuia('plano', c.chave))}
+                className="inline-flex min-h-11 items-center rounded-full border border-linha bg-branco px-3 text-sm font-bold no-underline hover:bg-marca-clara"
+              >
+                {c.titulo}
+              </a>
             </li>
           ))}
         </ul>
@@ -73,7 +77,6 @@ export function PaginaPlano({ ancora }: { ancora: string | null }) {
       {plano.capitulos.map((c) => (
         <BlocoCapitulo key={c.chave} capitulo={c} />
       ))}
-      <Rodape />
-    </article>
+    </section>
   )
 }

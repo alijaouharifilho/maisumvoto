@@ -22,9 +22,9 @@ export function AlvoAqui({ metricas, variante }: Props) {
       <svg role="img" aria-label={t.ariaBarra(NOMES.alvo, p)}
         viewBox="0 0 100 10"
         preserveAspectRatio="none"
-        className="h-3.5 w-full overflow-hidden rounded-full border border-tinta-suave bg-papel"
+        className="h-3.5 w-full overflow-hidden rounded-full border border-tinta-suave bg-branco"
       >
-        <rect x="0" y="0" width={Math.max(0, Math.min(100, 100 * p))} height="10" fill={PALETA.mata} />
+        <rect x="0" y="0" width={Math.max(0, Math.min(100, 100 * p))} height="10" fill={PALETA.alvo} />
         <line x1="50" y1="0" x2="50" y2="10" stroke={PALETA.tinta} strokeWidth="2" vectorEffect="non-scaling-stroke" />
       </svg>
       <p className="text-sm text-tinta-suave">{t.notaValidos}</p>

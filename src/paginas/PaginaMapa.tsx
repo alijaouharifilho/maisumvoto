@@ -1,10 +1,11 @@
-// Tela principal (#/mapa). Desktop (≥ 960 px): painel de 420–480 px com rolagem própria + mapa à direita.
-// Celular: uma coluna, mapa (~46dvh) logo depois do resultado, Ficha em tela cheia.
+// Tela principal (#/mapa, aba Início). Desktop (≥ 960 px): mapa à esquerda, ocupando o resto da tela, e painel branco
+// de 400 px à direita, com rolagem própria. Celular: abertura azul com a busca encaixada, números do país, resultado,
+// mapa (metade da tela) e lista; Ficha em tela cheia.
 // Acessibilidade: uma região viva sempre montada anuncia o ponto novo; depois da busca ou do GPS o foco vai para a
 // manchete; com a Ficha aberta, o painel de baixo fica inert (fora do Tab e do leitor de tela).
 import { lazy, Suspense, useCallback, useEffect, useRef, useState, type Ref } from 'react'
 import { textos } from '../conteudo/textos.ts'
-import { Abertura } from '../componentes/Abertura.tsx'
+import { Abertura, NumerosDoPais } from '../componentes/Abertura.tsx'
 import { Busca } from '../componentes/Busca.tsx'
 import { Compartilhar } from '../componentes/Compartilhar.tsx'
 import { Carregando, ErroDeDados, Vazio } from '../componentes/Estados.tsx'
@@ -40,7 +41,7 @@ function BlocoDoPonto({ estado, aberta, indiceCarregando }: Props & { aberta: bo
 
 type Pendente = { readonly rolar: boolean; readonly focar: boolean }
 
-/** Depois de buscar ou usar o GPS: no celular rola até o resultado (o mapa fica abaixo dele) e o foco vai para a
+/** Depois de buscar ou usar o GPS: no celular rola até o resultado (o mapa fica logo abaixo) e o foco vai para a
  *  manchete (o botão da sugestão sumiu e o foco iria para o body). Toque no mapa e link não movem o foco. */
 function useLevarAoResultado(estado: EstadoMapa, desktop: boolean) {
   const ref = useRef<HTMLDivElement>(null)
@@ -91,17 +92,22 @@ function Painel({ estado, refBloco, mapaFalhou, onTentarMapa, escolher, inerte }
   const dica = estado.ponto === null && !mapaFalhou
   const ate = resultado?.metricas?.ate
   return (
-    <div inert={inerte} className="relative flex flex-col gap-4 px-4 pt-3 lg:h-full lg:gap-6 lg:overflow-y-auto lg:pt-5">
-      <Abertura indice={indice} />
+    <div inert={inerte} className="relative flex flex-col gap-4 px-4 pb-4 lg:h-full lg:gap-5 lg:overflow-y-auto lg:pt-5">
+      <Abertura />
+      {/* No celular, a busca sobe sobre o fim do bloco azul da abertura. */}
+      <div className="relative -mt-14 lg:mt-0">
+        <Busca carregador={carregador} onEscolher={escolher} versaoPonto={estado.versao} semMapa={mapaFalhou} />
+      </div>
       {estadoIndice.tipo === 'erro' ? <ErroDeDados tentando={estadoIndice.tentando} onTentar={tentarDeNovo} /> : null}
       {estadoIndice.tipo === 'carregando' ? <Carregando rotulo={textos.carregando.site} /> : null}
-      <Busca carregador={carregador} onEscolher={escolher} versaoPonto={estado.versao} semMapa={mapaFalhou} />
+      {/* Os números do país abrem a tela; com um ponto escolhido, o resultado dele vem logo depois da busca. */}
+      {indice === null || estado.ponto !== null ? null : <NumerosDoPais indice={indice} />}
       {estado.ponto === null ? null : (
         <div ref={refBloco} className="scroll-mt-[calc(var(--altura-cabecalho)+1rem)]">
           <BlocoDoPonto estado={estado} aberta={aberta} indiceCarregando={estadoIndice.tipo === 'carregando'} />
         </div>
       )}
-      {desktop ? null : <EncaixeMapa className="-mx-4 h-[46dvh] min-h-64" dica={dica} falhou={mapaFalhou} onTentarDeNovo={onTentarMapa} />}
+      {desktop ? null : <EncaixeMapa className="-mx-4 h-[50dvh] min-h-64" dica={dica} falhou={mapaFalhou} onTentarDeNovo={onTentarMapa} />}
       {resultado !== null && resultado.lista.length > 0 ? (
         <Lista lista={resultado.lista} semResultado={resultado.semResultado} onAbrir={estado.selecionar} />
       ) : null}
@@ -127,9 +133,10 @@ export function PaginaMapa({ estado }: Props) {
   const escolherNoMapa = useCallback((lat: number, lon: number) => escolher({ lat, lon, origem: 'mapa', rotulo: null }), [escolher])
 
   return (
-    <div className="lg:grid lg:h-full lg:grid-cols-[minmax(420px,480px)_1fr]">
+    <div className="lg:grid lg:h-full lg:grid-cols-[minmax(0,1fr)_400px]">
       <output className="sr-only">{anuncioDoPonto(estado.ponto, resultado, aberta)}</output>
-      <div className="relative lg:h-full lg:min-h-0">
+      {/* Painel primeiro no código (busca antes do mapa para o teclado e o leitor de tela), à direita na tela. */}
+      <div className="relative lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-0 lg:border-l lg:border-linha lg:bg-branco">
         <Painel estado={estado} refBloco={ref} mapaFalhou={mapa.falhou} onTentarMapa={mapa.tentarDeNovo} escolher={escolher} inerte={selecionada !== null} />
         {selecionada === null ? null : (
           <LimiteDeErro>
@@ -139,7 +146,11 @@ export function PaginaMapa({ estado }: Props) {
           </LimiteDeErro>
         )}
       </div>
-      {desktop ? <EncaixeMapa className="h-full" dica={estado.ponto === null && !mapa.falhou} falhou={mapa.falhou} onTentarDeNovo={mapa.tentarDeNovo} /> : null}
+      {desktop ? (
+        <div className="lg:col-start-1 lg:row-start-1 lg:min-h-0">
+          <EncaixeMapa className="h-full" dica={estado.ponto === null && !mapa.falhou} falhou={mapa.falhou} onTentarDeNovo={mapa.tentarDeNovo} />
+        </div>
+      ) : null}
       <MapaSincronizado
         ponto={estado.ponto}
         marcadores={marcadores}

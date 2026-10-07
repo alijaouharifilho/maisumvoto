@@ -27,7 +27,7 @@ export function Secoes({ uf, mun, local, indice }: Props) {
               aria-controls={aberta === s ? id : undefined}
               aria-label={textos.ficha.zona(local.zona, [s])}
               onClick={() => setAberta((a) => (a === s ? null : s))}
-              className="numeros min-h-11 min-w-11 rounded-lg border-2 border-tinta-suave px-2 text-sm aria-expanded:border-mata aria-expanded:bg-mata aria-expanded:text-branco"
+              className="numeros min-h-11 min-w-11 rounded-lg border-2 border-tinta-suave px-2 text-sm aria-expanded:border-marca aria-expanded:bg-marca aria-expanded:text-branco"
             >
               {s}
             </button>
@@ -63,7 +63,7 @@ type PropsResultado = { id: string; uf: string; mun: string; zona: number; secao
 function ResultadoSecao({ id, uf, mun, zona, secao, indice }: PropsResultado) {
   const estado = useSecao(uf, mun, zona, secao)
   return (
-    <div id={id} aria-live="polite" className="rounded-xl bg-papel-2 p-3 text-sm">
+    <div id={id} aria-live="polite" className="rounded-xl bg-superficie-2 p-3 text-sm">
       {estado.tipo === 'carregando' ? <p>{textos.acessibilidade.carregando}…</p> : null}
       {estado.tipo === 'erro' ? <p className="text-alerta">{textos.erroDados.titulo}</p> : null}
       {estado.tipo === 'ok' && estado.votos === null ? <p>{textos.ficha.semResultado}</p> : null}

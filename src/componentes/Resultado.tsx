@@ -30,7 +30,7 @@ function Manchete({ ate, aberta }: { ate: number; aberta: boolean }) {
   return (
     <>
       <h2 tabIndex={-1} className="font-titulo text-2xl leading-tight font-bold">
-        {m.antes} <ContaNumero valor={ate} className="numeros block text-5xl text-mata" /> {m.depois}
+        {m.antes} <ContaNumero valor={ate} className="numeros block text-5xl font-extrabold text-marca" /> {m.depois}
       </h2>
       <p className="text-sm text-tinta-suave">{t.notaTeto}</p>
     </>
@@ -41,7 +41,7 @@ export function Resultado({ ponto, votos, metricas, indice, aberta, ref }: Props
   const decomposicao = fraseDecomposicao(votos, indice)
   return (
     <section ref={ref} className="flex scroll-mt-[calc(var(--altura-cabecalho)+1rem)] flex-col gap-3">
-      <p className="text-sm font-bold tracking-wide text-petroleo uppercase">{rotuloOrigem(ponto)}</p>
+      <p className="text-sm font-bold tracking-wide text-marca uppercase">{rotuloOrigem(ponto)}</p>
       <Manchete ate={metricas.ate} aberta={aberta} />
       {decomposicao === null ? null : <p>{decomposicao}</p>}
       {votos.aptos > 0 ? <p>{t.alcance(votos.aptos, fracaoHumana(metricas.ate / votos.aptos))}</p> : null}

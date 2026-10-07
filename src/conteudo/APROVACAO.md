@@ -19,6 +19,11 @@ Como ler:
 > fim da página Sobre e a página nova que compara os dois planos (seção 18). Os trechos citados continuam
 > conferidos por programa (0 falhas).
 
+> **Nova identidade visual (06/10/2026): precisa de nova aprovação.** Cores da campanha (azul, amarelo e verde),
+> letra Montserrat nos títulos, símbolo novo “+1”, mapa à esquerda e painel à direita, e só duas abas: **Início** (o
+> mapa) e **Guia** (roteiros, plano e comparação numa página). Sobre e Privacidade passam para o rodapé. Os itens
+> desmarcados abaixo são os textos novos ou mudados e a conferência visual (seção 19); o resto do texto não mudou.
+
 ## 0. Bloqueios que não são texto (o portão de publicação depende deles)
 
 - [x] `config/candidatura.json` › `site.responsavel.nome` e `.contato` preenchidos (hoje `null`: rodapé, Sobre e Privacidade mostram “a definir” e `npm run checar:publicacao` bloqueia).
@@ -35,7 +40,8 @@ Arquivo: `src/conteudo/textos/moldura.ts`
 - [x] `textos.meta.descricao()` — declara apoio e que não é oficial (Lei 9.504, art. 57-B, §2º; 57-H) — MUDOU na revisão de tom (06/10/2026): “qual foi o resultado ali”
 - [x] `textos.meta.ogTitulo()`
 - [x] `textos.meta.ogDescricao` — também no `index.html` estático (prévia de link sem JS): diz “de apoio a um candidato; não é oficial”, sem nome (06/10/2026)
-- [x] `textos.meta.ogImagemAlt`
+- [ ] `textos.meta.ogImagemAlt` — MUDOU na identidade visual (06/10/2026): “Balão de conversa amarelo com “+1” em azul, ao lado do nome do site, sobre fundo azul.” (também no `index.html`)
+- [ ] `public/og.png` — NOVA (06/10/2026): imagem de prévia do link em azul e amarelo, com o símbolo “+1”; os textos dela são os já aprovados (selo, nome do site, chamada do `ogTitulo`, `ogDescricao` e `textos.rodape.natureza`)
 
 ## 2. Cabeçalho e navegação
 
@@ -43,10 +49,9 @@ Arquivo: `src/conteudo/textos/moldura.ts`
 
 - [x] `textos.navegacao.rotulo`
 - [x] `textos.navegacao.marcaAria()`
-- [x] `textos.navegacao.rotas.mapa`
-- [x] `textos.navegacao.rotas.prosa`
-- [x] `textos.navegacao.rotas.plano`
-- [x] `textos.navegacao.rotas.sobre`
+- [ ] `textos.navegacao.rotas.mapa` — MUDOU na identidade visual (06/10/2026): “Início” (a aba do mapa)
+- [ ] `textos.navegacao.rotas.guia` — NOVO (06/10/2026): “Guia” (a aba com roteiros, plano e comparação). As abas antigas Conversa, Plano e Sobre saíram do menu; Sobre e Privacidade continuam no rodapé
+- [ ] `textos.navegacao.selo` — NOVO (06/10/2026): “Site independente”, sempre à vista no cabeçalho, ao lado da marca (57-B; 57-H)
 - [x] `textos.navegacao.pular`
 
 ## 3. Tela do mapa: abertura, mapa e busca
@@ -195,7 +200,7 @@ Arquivo: `src/conteudo/textos/moldura.ts`
 - [x] `textos.rodape.sobre`
 - [x] `textos.rodape.privacidade`
 
-## 10. Páginas Conversa, Plano e Sobre (títulos e rótulos)
+## 10. Páginas Guia e Sobre (títulos e rótulos)
 
 Arquivo: `src/conteudo/textos/moldura.ts`
 
@@ -221,7 +226,7 @@ Arquivo: `src/conteudo/textos/moldura.ts`
 - [x] `textos.paginas.sobre.titulo`
 - [x] `textos.paginas.sobre.privacidade`
 - [x] `textos.paginas.sobre.responsavel()` — NOVO (06/10/2026): “Responsável pelo site: <nome> · <contato>”, em letra pequena no fim da página Sobre
-- [x] `textos.paginas.abasPlano.rotulo`, `.propostas()`, `.comparar` — NOVOS (06/10/2026): as duas abas da seção Plano (“Propostas de <alvo>” e “Comparar os planos”); no menu, “Plano” fica marcado nas duas
+- [ ] `textos.paginas.guia.titulo`, `.indice`, `.partes.conversa`, `.partes.plano()`, `.partes.comparar` — NOVOS (06/10/2026): a página Guia, “Guia da conversa”, com o índice fixo “Partes do guia”: “Como conversar”, “O plano de <alvo>” e “Os dois planos”. Os títulos dos blocos são os já aprovados (`prosa.titulo`, `plano.titulo()`, `comparar.titulo`). Saíram as abas internas do plano (`abasPlano`)
 - [x] `textos.paginas.comparar.titulo`, `.chamada()`, `.indice`, `.planoDe()`, `.pdfDe()`, `.emComum`, `.diferenca`, `.paginaComplemento()`, `.conferido()` — NOVOS (06/10/2026): a página #/comparar (conteúdo na seção 18)
 
 ## 11. Acessibilidade e mensagens do sistema
@@ -425,11 +430,21 @@ trechos literais com a página (conferidos por programa contra os dois PDFs, fon
 - [x] `temas[8]` **Mulheres** — pergunta, resumos, “em comum” e “a diferença” (citações: p. 17, 19 × p. 21, 21 do outro plano)
 - [x] `temas[9]` **Economia e contas públicas** — pergunta, resumos, “em comum” e “a diferença” (citações: p. 71, 69 × p. 49, 49 do outro plano)
 
+## 19. Identidade visual (NOVO em 06/10/2026) — conferir na prévia, no computador e no celular
+
+- [ ] Cores da campanha apoiada (azul, amarelo, verde) sem nenhum elemento da marca oficial: sem o logo, sem o “V”, sem o slogan e sem foto de candidato
+- [ ] O selo “Site independente” aparece no cabeçalho de todas as telas, e o rodapé (“Site independente de apoio a…”, Sobre e Privacidade) aparece no fim da tela do mapa, do Guia e do Sobre
+- [ ] Mapa: verde = <alvo> à frente, vermelho = <adversário> à frente, cinza = empate, branco = sem votos; miolo amarelo onde o resultado pode mudar; a legenda diz isso
+- [ ] Celular: a busca aparece na primeira tela; o menu de baixo (Início e Guia) não cobre o conteúdo; a ficha do local abre por cima do menu
+- [ ] Links antigos já compartilhados (#/plano, #/prosa, #/comparar) abrem o Guia no bloco certo; #/sobre continua no ar
+
 ---
 
-Aprovado por: Ali Jaouhari Filho  Data: 06/10/2026
+Aprovado por: ______________________  Data: __________
 
-Registro: revisão de tom e comparação entre os planos (branch `textos-v2`, commit `1a53542`) aprovadas pelo responsável na conversa de 06/10/2026 ("aprovo."), em resposta ao pedido de revisão da prévia na Vercel. A validação jurídica continua adiada (item no topo).
+Nova identidade visual (06/10/2026): aguarda a leitura da prévia e a aprovação do responsável.
+
+Registro anterior: revisão de tom e comparação entre os planos (branch `textos-v2`, commit `1a53542`) aprovadas pelo responsável na conversa de 06/10/2026 ("aprovo."), em resposta ao pedido de revisão da prévia na Vercel. A validação jurídica continua adiada (item no topo).
 
 Limpeza (06/10/2026, pedida pelo responsável): saíram do checklist o plano B de servidor próprio e os textos que não apareciam em nenhuma tela (`textos.mapa.atribuicao`, `textos.acessibilidade.marcador()`, `.marcadorSemResultado()`, `.abrirFicha()`, `textos.sistema.modoExemplo`, `cercaDe`). Nenhum texto novo.
 

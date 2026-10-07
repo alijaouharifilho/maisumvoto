@@ -68,19 +68,24 @@ describe('lerHash', () => {
     ['#/mapa', { rota: 'mapa', ancora: null }],
     ['#/mapa/', { rota: 'mapa', ancora: null }],
     ['#/mapa/@-25.430,-49.275', { rota: 'mapa', ancora: '@-25.430,-49.275' }],
-    ['#/prosa/abstencao', { rota: 'prosa', ancora: 'abstencao' }],
-    ['#/plano', { rota: 'plano', ancora: null }],
-    ['#/comparar', { rota: 'comparar', ancora: null }],
-    ['#/comparar/seguranca', { rota: 'comparar', ancora: 'seguranca' }],
+    ['#/guia', { rota: 'guia', ancora: null }],
+    ['#/guia/plano-seguranca', { rota: 'guia', ancora: 'plano-seguranca' }],
+    // Endereços de antes do Guia continuam valendo: abrem o bloco certo.
+    ['#/prosa/abstencao', { rota: 'guia', ancora: 'conversa-abstencao' }],
+    ['#/plano', { rota: 'guia', ancora: 'plano' }],
+    ['#/plano/seguranca', { rota: 'guia', ancora: 'plano-seguranca' }],
+    ['#/comparar', { rota: 'guia', ancora: 'comparar' }],
+    ['#/comparar/seguranca', { rota: 'guia', ancora: 'comparar-seguranca' }],
     ['#/sobre', { rota: 'sobre', ancora: null }],
-    ['#/PROSA', { rota: 'prosa', ancora: null }],
-    ['/prosa/nulo', { rota: 'prosa', ancora: 'nulo' }],
+    ['#/PROSA', { rota: 'guia', ancora: 'conversa' }],
+    ['/prosa/nulo', { rota: 'guia', ancora: 'conversa-nulo' }],
+    ['#/constructor', { rota: 'mapa', ancora: null }],
     ['#/perto/@-25.430,-49.275', { rota: 'mapa', ancora: null }],
     ['#/xyz', { rota: 'mapa', ancora: null }],
     ['#/mapa/%40-25.430%2C-49.275', { rota: 'mapa', ancora: '@-25.430,-49.275' }],
     ['#/mapa/@-25.430,-49.275?utm=x', { rota: 'mapa', ancora: '@-25.430,-49.275' }],
-    ['#/prosa/a/b', { rota: 'prosa', ancora: 'a/b' }],
-    ['#/prosa/%E0%A4%A', { rota: 'prosa', ancora: '%E0%A4%A' }],
+    ['#/guia/a/b', { rota: 'guia', ancora: 'a/b' }],
+    ['#/guia/%E0%A4%A', { rota: 'guia', ancora: '%E0%A4%A' }],
   ])('%s', (hash, esperado) => {
     expect(lerHash(hash)).toEqual(esperado)
   })
@@ -98,12 +103,12 @@ describe('montarHash', () => {
   })
 
   it('codifica caracteres fora do conjunto seguro', () => {
-    expect(montarHash('prosa', 'a b#c')).toBe('#/prosa/a%20b%23c')
+    expect(montarHash('guia', 'a b#c')).toBe('#/guia/a%20b%23c')
   })
 
   it('ida e volta com lerHash', () => {
     const hash = montarHash('mapa', formatarAncora(-23.5505, -46.6333, g))
     expect(lerHash(hash)).toEqual({ rota: 'mapa', ancora: '@-23.550,-46.635' })
-    expect(lerHash(montarHash('prosa', 'a b#c'))).toEqual({ rota: 'prosa', ancora: 'a b#c' })
+    expect(lerHash(montarHash('guia', 'a b#c'))).toEqual({ rota: 'guia', ancora: 'a b#c' })
   })
 })

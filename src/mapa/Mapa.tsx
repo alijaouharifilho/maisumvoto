@@ -45,11 +45,11 @@ export function EncaixeMapa({ className = '', dica = false, falhou = false, onTe
     }
   }, [])
   return (
-    <section aria-label={textos.mapa.rotulo} className={`relative overflow-hidden bg-papel-2 ${falhou ? '' : className}`}>
+    <section aria-label={textos.mapa.rotulo} className={`relative overflow-hidden bg-superficie-2 ${falhou ? '' : className}`}>
       <div ref={alvo} className={falhou ? 'hidden' : 'absolute inset-0'} />
       {falhou ? <AvisoSemMapa onTentarDeNovo={onTentarDeNovo} /> : null}
       {dica && !falhou ? (
-        <p className="pointer-events-none absolute top-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-papel px-4 py-2 text-sm font-bold shadow-md">
+        <p className="pointer-events-none absolute top-3 left-1/2 z-10 -translate-x-1/2 rounded-full border border-linha bg-branco px-4 py-2 text-sm font-bold shadow-md">
           {textos.mapa.dica}
         </p>
       ) : null}

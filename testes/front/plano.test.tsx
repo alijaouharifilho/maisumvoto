@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { linkPagina, plano, type Proposta } from '../../src/conteudo/conteudo.ts'
 import { dia, textos } from '../../src/conteudo/textos.ts'
 import { CartaoDoPlano } from '../../src/componentes/CartaoDoPlano.tsx'
-import { PaginaPlano } from '../../src/paginas/PaginaPlano.tsx'
+import { BlocoPlano } from '../../src/paginas/BlocoPlano.tsx'
 
 const t = textos.paginas.plano
 const todas: readonly Proposta[] = plano.capitulos.flatMap((c) => c.propostas)
@@ -108,11 +108,9 @@ describe('CartaoDoPlano', () => {
   })
 })
 
-describe('PaginaPlano', () => {
+describe('BlocoPlano (Guia)', () => {
   it('mostra um cartão para cada proposta e a data de conferência dos números', () => {
-    window.scrollTo = vi.fn()
-    render(<PaginaPlano ancora={null} />)
-    // A própria página também é um <article>; os cartões são os que têm título ligado por aria-labelledby.
+    render(<BlocoPlano />)
     const cartoes = screen.getAllByRole('article').filter((a) => a.hasAttribute('aria-labelledby'))
     expect(cartoes).toHaveLength(todas.length)
     expect(document.body.textContent).toContain(t.dadosConferidos(dia(plano.dadosConferidosEm)))

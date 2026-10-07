@@ -53,7 +53,7 @@ describe('paleta', () => {
     const svg = ler('public', 'favicon.svg')
     const cores = new Set<string>(Object.values(PALETA))
     for (const [, cor = ''] of svg.matchAll(/(?:fill|stroke)="(#[0-9a-f]{6})"/g)) expect(cores.has(cor), cor).toBe(true)
-    expect(ler('index.html')).toContain(`<meta name="theme-color" content="${PALETA.mata}" />`)
+    expect(ler('index.html')).toContain(`<meta name="theme-color" content="${PALETA.marca}" />`)
   })
 })
 

@@ -18,13 +18,16 @@ export const meta = {
   /** Vai também no index.html estático (robôs de prévia não rodam JS): sem nome, mas dizendo que é de apoio e não
    *  é oficial (item A4 do checklist; testes/front/identidade.test.ts confere a igualdade). */
   ogDescricao: 'Veja perto de você onde tem gente para conversar antes do 2º turno. Site independente de apoio a um candidato; não é oficial. Dados públicos do TSE.',
-  ogImagemAlt: 'Balão de conversa com um pino de mapa dentro, em verde e âmbar.',
+  ogImagemAlt: 'Balão de conversa amarelo com “+1” em azul, ao lado do nome do site, sobre fundo azul.',
 } as const
 
 export const navegacao = {
   rotulo: 'Seções do site',
   marcaAria: (nomeSite: string) => `${nomeSite}: voltar ao mapa`,
-  rotas: { mapa: 'Mapa', prosa: 'Conversa', plano: 'Plano', sobre: 'Sobre' },
+  /** As duas abas do menu: o mapa e o guia (roteiros, plano e comparação). */
+  rotas: { mapa: 'Início', guia: 'Guia' },
+  /** Selo no cabeçalho, sempre à vista: o site não é da campanha (Lei 9.504, art. 57-B; 57-H). */
+  selo: 'Site independente',
   pular: 'Pular para o conteúdo',
 } as const
 
@@ -144,11 +147,11 @@ export const paginas = {
     pdfCompleto: 'Ler o plano completo (PDF do TSE)',
     conferido: (data: string) => `Trechos conferidos página a página contra o PDF ${naData(data)}.`,
   },
-  /** As duas páginas da seção "Plano": as propostas do candidato apoiado e a comparação entre os planos. */
-  abasPlano: {
-    rotulo: 'Páginas do plano',
-    propostas: (alvo: string) => `Propostas de ${alvo}`,
-    comparar: 'Comparar os planos',
+  /** #/guia: uma página com os roteiros, o plano e a comparação, e um índice fixo no topo. */
+  guia: {
+    titulo: 'Guia da conversa',
+    indice: 'Partes do guia',
+    partes: { conversa: 'Como conversar', plano: (alvo: string) => `O plano de ${alvo}`, comparar: 'Os dois planos' },
   },
   comparar: {
     titulo: 'Os dois planos, lado a lado',

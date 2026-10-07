@@ -1,9 +1,17 @@
 // Link compartilhável por hash (CONTRATO §1): #/<rota>/<âncora>, com o ponto arredondado à grade.
 
-export type Rota = 'mapa' | 'prosa' | 'plano' | 'comparar' | 'sobre'
+export type Rota = 'mapa' | 'guia' | 'sobre'
 
-export const ROTAS: readonly Rota[] = ['mapa', 'prosa', 'plano', 'comparar', 'sobre']
+export const ROTAS: readonly Rota[] = ['mapa', 'guia', 'sobre']
 export const ROTA_PADRAO: Rota = 'mapa'
+
+/** Endereços de antes do Guia (links já compartilhados): #/prosa, #/plano e #/comparar abrem o bloco certo do Guia.
+ *  #/plano/seguranca → #/guia/plano-seguranca. */
+const BLOCO_DA_ROTA_ANTIGA: ReadonlyMap<string, string> = new Map([
+  ['prosa', 'conversa'],
+  ['plano', 'plano'],
+  ['comparar', 'comparar'],
+])
 
 // Caixa do Brasil: fora dela a âncora é ignorada.
 const LAT_MIN = -34
@@ -49,10 +57,12 @@ export function lerHash(hash: string): { rota: Rota; ancora: string | null } {
   const semPrefixo = hash.replace(/^#?\/?/, '').replace(/\?.*$/, '')
   const barra = semPrefixo.indexOf('/')
   const nome = (barra === -1 ? semPrefixo : semPrefixo.slice(0, barra)).toLowerCase()
-  if (!ehRota(nome)) return { rota: ROTA_PADRAO, ancora: null }
   const bruta = barra === -1 ? '' : semPrefixo.slice(barra + 1)
-  if (bruta === '') return { rota: nome, ancora: null }
-  return { rota: nome, ancora: decodificar(bruta) ?? bruta }
+  const ancora = bruta === '' ? null : (decodificar(bruta) ?? bruta)
+  const bloco = BLOCO_DA_ROTA_ANTIGA.get(nome)
+  if (bloco !== undefined) return { rota: 'guia', ancora: ancora === null ? bloco : `${bloco}-${ancora}` }
+  if (!ehRota(nome)) return { rota: ROTA_PADRAO, ancora: null }
+  return { rota: nome, ancora }
 }
 
 export function montarHash(rota: Rota, ancora?: string | null): string {
