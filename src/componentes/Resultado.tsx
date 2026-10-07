@@ -40,7 +40,7 @@ function Manchete({ ate, aberta }: { ate: number; aberta: boolean }) {
 export function Resultado({ ponto, votos, metricas, indice, aberta, ref }: Props) {
   const decomposicao = fraseDecomposicao(votos, indice)
   return (
-    <section ref={ref} className="flex scroll-mt-[calc(var(--altura-cabecalho)+1rem)] flex-col gap-3">
+    <section ref={ref} className="flex flex-col gap-3">
       <p className="text-sm font-bold tracking-wide text-marca uppercase">{rotuloOrigem(ponto)}</p>
       <Manchete ate={metricas.ate} aberta={aberta} />
       {decomposicao === null ? null : <p>{decomposicao}</p>}

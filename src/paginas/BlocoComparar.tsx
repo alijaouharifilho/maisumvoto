@@ -7,8 +7,8 @@ import { preencherTudo } from '../conteudo/modelo.ts'
 import { dia, textos } from '../conteudo/textos.ts'
 import { CitacaoDoPlano } from '../componentes/Roteiro.tsx'
 import { NOMES } from '../config.ts'
-import { hrefDe } from '../rotas.ts'
-import { ancoraNoGuia, idNoGuia, ROLAGEM_GUIA } from './guia.ts'
+import { ancoraNoGuia, idNoGuia } from './guia.ts'
+import { LinkDoGuia } from './LinkDoGuia.tsx'
 import { useValoresModelo } from './valores.ts'
 
 const t = textos.paginas.comparar
@@ -40,8 +40,8 @@ function Coluna({ lado, conteudo }: { lado: Lado; conteudo: LadoDaComparacao }) 
 function BlocoTema({ tema }: { tema: TemaComparado }) {
   const id = idNoGuia(ancoraNoGuia('comparar', tema.chave))
   return (
-    <section id={id} tabIndex={-1} aria-labelledby={`${id}-titulo`} className={`flex flex-col gap-3 border-t border-linha pt-6 ${ROLAGEM_GUIA}`}>
-      <h3 id={`${id}-titulo`} className="font-titulo text-xl font-extrabold text-marca lg:text-2xl">
+    <section id={id} tabIndex={-1} className="flex flex-col gap-3 border-t border-linha pt-6">
+      <h3 className="font-titulo text-xl font-extrabold text-marca lg:text-2xl">
         {tema.titulo}
       </h3>
       <p className="text-lg">{tema.pergunta}</p>
@@ -82,7 +82,7 @@ export function BlocoComparar() {
   const { documentoAdversario, temas } = useComparacao()
   const idBloco = idNoGuia(ancoraNoGuia('comparar'))
   return (
-    <section id={idBloco} tabIndex={-1} aria-labelledby={`${idBloco}-titulo`} className={`flex flex-col gap-6 ${ROLAGEM_GUIA}`}>
+    <section id={idBloco} tabIndex={-1} aria-labelledby={`${idBloco}-titulo`} className="flex flex-col gap-6">
       <header className="flex flex-col gap-2 border-l-8 border-destaque pl-4">
         <h2 id={`${idBloco}-titulo`} className="font-titulo text-2xl font-extrabold text-marca lg:text-3xl">
           {t.titulo}
@@ -102,12 +102,12 @@ export function BlocoComparar() {
         <ul className="flex flex-wrap gap-2">
           {temas.map((tema) => (
             <li key={tema.chave}>
-              <a
-                href={hrefDe('guia', ancoraNoGuia('comparar', tema.chave))}
+              <LinkDoGuia
+                ancora={ancoraNoGuia('comparar', tema.chave)}
                 className="inline-flex min-h-11 items-center rounded-full border border-linha bg-branco px-3 text-sm font-bold no-underline hover:bg-marca-clara"
               >
                 {tema.titulo}
-              </a>
+              </LinkDoGuia>
             </li>
           ))}
         </ul>

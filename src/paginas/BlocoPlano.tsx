@@ -4,8 +4,8 @@ import { linkPagina, plano, type Capitulo } from '../conteudo/conteudo.ts'
 import { dia, textos } from '../conteudo/textos.ts'
 import { CartaoDoPlano } from '../componentes/CartaoDoPlano.tsx'
 import { NOMES } from '../config.ts'
-import { hrefDe } from '../rotas.ts'
-import { ancoraNoGuia, idNoGuia, ROLAGEM_GUIA } from './guia.ts'
+import { ancoraNoGuia, idNoGuia } from './guia.ts'
+import { LinkDoGuia } from './LinkDoGuia.tsx'
 
 const t = textos.paginas.plano
 
@@ -13,8 +13,8 @@ function BlocoCapitulo({ capitulo }: { capitulo: Capitulo }) {
   const [inicio, fim] = capitulo.paginas
   const id = idNoGuia(ancoraNoGuia('plano', capitulo.chave))
   return (
-    <section id={id} tabIndex={-1} aria-labelledby={`${id}-titulo`} className={`flex flex-col gap-3 border-t border-linha pt-6 ${ROLAGEM_GUIA}`}>
-      <h3 id={`${id}-titulo`} className="font-titulo text-xl font-extrabold text-marca lg:text-2xl">
+    <section id={id} tabIndex={-1} className="flex flex-col gap-3 border-t border-linha pt-6">
+      <h3 className="font-titulo text-xl font-extrabold text-marca lg:text-2xl">
         {capitulo.titulo}
       </h3>
       <p className="text-sm text-tinta-suave">
@@ -44,7 +44,7 @@ function BlocoCapitulo({ capitulo }: { capitulo: Capitulo }) {
 export function BlocoPlano() {
   const idBloco = idNoGuia(ancoraNoGuia('plano'))
   return (
-    <section id={idBloco} tabIndex={-1} aria-labelledby={`${idBloco}-titulo`} className={`flex flex-col gap-6 ${ROLAGEM_GUIA}`}>
+    <section id={idBloco} tabIndex={-1} aria-labelledby={`${idBloco}-titulo`} className="flex flex-col gap-6">
       <header className="flex flex-col gap-2 border-l-8 border-destaque pl-4">
         <h2 id={`${idBloco}-titulo`} className="font-titulo text-2xl font-extrabold text-marca lg:text-3xl">
           {t.titulo(NOMES.alvo)}
@@ -64,12 +64,12 @@ export function BlocoPlano() {
         <ul className="flex flex-wrap gap-2">
           {plano.capitulos.map((c) => (
             <li key={c.chave}>
-              <a
-                href={hrefDe('guia', ancoraNoGuia('plano', c.chave))}
+              <LinkDoGuia
+                ancora={ancoraNoGuia('plano', c.chave)}
                 className="inline-flex min-h-11 items-center rounded-full border border-linha bg-branco px-3 text-sm font-bold no-underline hover:bg-marca-clara"
               >
                 {c.titulo}
-              </a>
+              </LinkDoGuia>
             </li>
           ))}
         </ul>

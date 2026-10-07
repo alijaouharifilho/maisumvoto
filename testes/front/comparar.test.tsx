@@ -22,17 +22,20 @@ afterEach(() => {
   vi.unstubAllGlobals()
 })
 
+/** A seção do assunto (seção comum, não região: só os três blocos do Guia são marcos). */
 function bloco(tema: TemaComparado): HTMLElement {
-  return screen.getByRole('region', { name: tema.titulo })
+  const secao = screen.getByRole('heading', { level: 3, name: tema.titulo }).closest('section')
+  if (secao === null) throw new Error(`assunto sem seção: ${tema.titulo}`)
+  return secao
 }
 
 describe('BlocoComparar (Guia)', () => {
   it('um bloco por assunto, com os dois planos, o que há em comum e a diferença (nomes preenchidos)', () => {
     comDados(<BlocoComparar />)
-    expect(screen.getByRole('heading', { level: 2, name: t.titulo })).toBeTruthy()
+    expect(screen.getByRole('region', { name: t.titulo })).toBeTruthy()
+    expect(screen.getAllByRole('region')).toHaveLength(1)
     for (const tema of comparacao.temas) {
       const b = bloco(tema)
-      expect(within(b).getByRole('heading', { level: 3, name: tema.titulo })).toBeTruthy()
       expect(within(b).getByRole('heading', { level: 4, name: t.planoDe(NOMES.alvo) })).toBeTruthy()
       expect(within(b).getByRole('heading', { level: 4, name: t.planoDe(NOMES.adversario) })).toBeTruthy()
       expect(b.textContent).toContain(tema.alvo.resumo)

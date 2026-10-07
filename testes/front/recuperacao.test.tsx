@@ -32,7 +32,7 @@ describe('recuperação depois de um deploy', () => {
     vi.resetModules()
     const rec = await import('../../src/recuperacao.ts')
     window.sessionStorage.clear()
-    const erro = new TypeError("Cannot read properties of undefined (reading 'PaginaProsa')")
+    const erro = new TypeError("Cannot read properties of undefined (reading 'PaginaGuia')")
     expect(rec.pareceFalhaDeVersao(erro)).toBe(false)
     rec.aoFalharPreload(new Event('vite:preloadError', { cancelable: true }), 5_000_000, () => undefined)
     expect(rec.pareceFalhaDeVersao(erro)).toBe(true)

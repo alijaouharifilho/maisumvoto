@@ -1,6 +1,6 @@
 // Comparação por assunto entre os dois planos registrados no TSE: um resumo de cada lado, os trechos literais com
 // a página (conferidos por ferramentas/conferir_citacoes.py, fonte "adversario" = PDF do outro plano) e o que há
-// em comum e de diferente. Fica num módulo à parte para entrar só no pedaço da página #/comparar.
+// em comum e de diferente. Fica num módulo à parte para entrar só no pedaço do Guia (#/guia/comparar).
 // Os textos nossos citam os candidatos por {{alvo.nomeCurto}} e {{adversario.nomeCurto}}; a página preenche
 // com preencherTudo (modelo.ts), como nos roteiros. Os trechos são literais e não levam modelo.
 // Não importa conteudo.ts: os testes de conteúdo rodam no tsc do Node, onde o "?raw" do Vite não existe.

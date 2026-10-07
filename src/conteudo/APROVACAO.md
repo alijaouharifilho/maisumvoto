@@ -128,7 +128,7 @@ Arquivo: `src/conteudo/textos/mapa.ts`
 - [x] `textos.lista.porBairro`
 - [x] `textos.lista.raio()`
 - [x] `textos.lista.legendaComResultado` — MUDOU (06/10/2026): “Cor: quem ficou à frente no 1º turno. Miolo: onde, em tese, o resultado pode mudar.”
-- [x] `textos.legendaMapa.*` — NOVO (06/10/2026): uma entrada por símbolo do mapa e da lista. Verde = <alvo> à frente, vermelho = <adversário> à frente, âmbar = empate, branco = sem votos válidos; o miolo âmbar marca “em tese dá para virar” (vermelho) e “vantagem a defender” (verde)
+- [x] `textos.legendaMapa.*` — NOVO (06/10/2026): uma entrada por símbolo do mapa e da lista. Verde = <alvo> à frente, vermelho = <adversário> à frente, cinza = empate (cores da identidade visual de 06/10/2026), branco = sem votos válidos; o miolo amarelo marca “em tese dá para virar” (vermelho) e “vantagem a defender” (verde)
 - [x] `textos.lista.legendaSemResultado`
 - [x] `textos.lista.itemDetalhe()`
 - [x] `textos.lista.itemAte()`
@@ -368,7 +368,7 @@ diagnóstico) e citações novas onde a anterior soava como ataque. Os cuidados 
 - [x] Quem faz (apoio declarado, “não é oficial”, sem anúncios, doações ou impulsionamento) — MUDOU (06/10/2026): o responsável saiu deste parágrafo e foi para uma linha discreta no fim da página
 - [x] Para que serve — MUDOU na revisão de tom (06/10/2026): “o resultado de cada local”
 - [x] Como ler os números (“até”, “dá para virar”, “vantagem a defender”, “folga” — todos como teto)
-- [x] De onde vêm os números (TSE CC-BY com nota de modificação, conferência, reclassificação, reserva MIT, locais sem posição, voto em trânsito e presos provisórios fora do mapa, eleitores no exterior fora do número “no Brasil” — NOVO em 06/10/2026, com `{{exterior.ate}}` vindo do índice —, IBGE, plano, mapa, fontes)
+- [ ] De onde vêm os números (TSE CC-BY com nota de modificação, conferência, reclassificação, reserva MIT, locais sem posição, voto em trânsito e presos provisórios fora do mapa, eleitores no exterior fora do número “no Brasil” — NOVO em 06/10/2026, com `{{exterior.ate}}` vindo do índice —, IBGE, plano, mapa, fontes) — MUDOU na identidade visual (06/10/2026): fontes tipográficas agora Montserrat e Atkinson Hyperlegible Next
 - [x] Limitações
 - [x] Atualização (data do índice)
 

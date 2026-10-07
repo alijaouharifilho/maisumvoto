@@ -12,9 +12,9 @@ export const PALETA = {
   destaque: '#ffca05',
   destaqueClaro: '#fff4c2',
   destaqueTexto: '#8a6a00',
-  alvo: '#0db04b',
+  alvo: '#08963f',
   adversario: '#cc272e',
-  neutro: '#8a97a8',
+  neutro: '#7a8798',
   alerta: '#be241f',
   branco: '#ffffff',
 } as const

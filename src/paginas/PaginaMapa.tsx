@@ -103,7 +103,7 @@ function Painel({ estado, refBloco, mapaFalhou, onTentarMapa, escolher, inerte }
       {/* Os números do país abrem a tela; com um ponto escolhido, o resultado dele vem logo depois da busca. */}
       {indice === null || estado.ponto !== null ? null : <NumerosDoPais indice={indice} />}
       {estado.ponto === null ? null : (
-        <div ref={refBloco} className="scroll-mt-[calc(var(--altura-cabecalho)+1rem)]">
+        <div ref={refBloco}>
           <BlocoDoPonto estado={estado} aberta={aberta} indiceCarregando={estadoIndice.tipo === 'carregando'} />
         </div>
       )}

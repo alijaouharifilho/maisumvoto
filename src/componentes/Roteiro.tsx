@@ -1,5 +1,5 @@
 // Uma ficha de conversa (abstenção, branco, nulo...): frase-guia, contexto, passos, pontes com o plano e cuidados.
-// Usada na página Conversa e dentro da Ficha da região (um nível de título abaixo).
+// Usada no Guia (bloco "Como conversar") e dentro da Ficha da região (um nível de título abaixo).
 import type { Citacao, FichaVoto, Ponte, RoteiroGeral } from '../conteudo/conteudo.ts'
 import { linkPagina } from '../conteudo/conteudo.ts'
 import { textos } from '../conteudo/textos.ts'

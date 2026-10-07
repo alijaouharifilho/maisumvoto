@@ -1,5 +1,5 @@
 // Valores dos textos-modelo ({{chave}}) e roteiros já preenchidos. Só os módulos carregados sob demanda
-// (Ficha, Conversa, Plano, Sobre) importam daqui: o conteúdo editorial fica fora do JS de entrada.
+// (Ficha, Guia, Sobre) importam daqui: o conteúdo editorial fica fora do JS de entrada.
 import { useMemo } from 'react'
 import { derivar } from '../../nucleo/metricas.ts'
 import { plano, roteiros, type Roteiros } from '../conteudo/conteudo.ts'

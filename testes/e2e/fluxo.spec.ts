@@ -233,7 +233,7 @@ test('comparar: o índice do guia leva à comparação (e o link antigo #/compar
   await aplicarCsp(page)
   const comparacao = JSON.parse(readFileSync(join(RAIZ, 'src', 'conteudo', 'comparacao.json'), 'utf8')) as {
     documentoAdversario: { url: string }
-    temas: { titulo: string; adversario: { citacoes: { pagina: number }[] } }[]
+    temas: { chave: string; titulo: string; adversario: { citacoes: { pagina: number }[] } }[]
   }
   const [tema] = comparacao.temas
   const [citacao] = tema?.adversario.citacoes ?? []
@@ -246,7 +246,7 @@ test('comparar: o índice do guia leva à comparação (e o link antigo #/compar
   await page.goto('/#/comparar')
   await expect(page.getByRole('heading', { level: 2, name: textos.paginas.comparar.titulo })).toBeInViewport()
 
-  const bloco = page.getByRole('region', { name: tema.titulo })
+  const bloco = page.locator(`#guia-comparar-${tema.chave}`)
   const nome = `${textos.paginas.plano.pagina(citacao.pagina)} ${textos.paginas.comparar.paginaComplemento(cfg.adversario.nomeCurto)}`
   const link = bloco.getByRole('link', { name: new RegExp(`^${nome}`) }).first()
   await expect(link).toHaveAttribute('href', `${comparacao.documentoAdversario.url}#page=${citacao.pagina}`)

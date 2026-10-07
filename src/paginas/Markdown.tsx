@@ -28,7 +28,7 @@ function Trechos({ trechos }: { trechos: readonly Trecho[] }) {
 /** deslocamento: quanto descer o nível dos títulos (a Privacidade vira seção da página Sobre). */
 function Titulo({ bloco, deslocamento }: { bloco: Extract<Bloco, { tipo: 'titulo' }>; deslocamento: number }) {
   const nivel = Math.min(4, bloco.nivel + deslocamento)
-  const props = { id: bloco.ancora, tabIndex: -1, className: 'scroll-mt-20 font-titulo font-bold' }
+  const props = { id: bloco.ancora, tabIndex: -1, className: 'font-titulo font-bold' }
   const conteudo = <Trechos trechos={bloco.conteudo} />
   if (nivel === 1) return <h1 {...props} className={`${props.className} text-3xl`}>{conteudo}</h1>
   if (nivel === 2) return <h2 {...props} className={`${props.className} mt-4 text-2xl`}>{conteudo}</h2>

@@ -17,7 +17,7 @@ export function Vazio({ semResultado }: { semResultado: boolean }) {
   const titulo = semResultado ? textos.vazio.semResultado.titulo : textos.vazio.semLocal.titulo(RAIO_TEXTO)
   const texto = semResultado ? textos.vazio.semResultado.texto : textos.vazio.semLocal.texto(RAIO_TEXTO)
   return (
-    <section className="cartao flex scroll-mt-[calc(var(--altura-cabecalho)+1rem)] flex-col gap-1">
+    <section className="cartao flex flex-col gap-1">
       <h2 tabIndex={-1} className="font-titulo text-xl font-bold">{titulo}</h2>
       <p>{texto}</p>
     </section>

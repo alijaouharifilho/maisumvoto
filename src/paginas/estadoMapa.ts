@@ -1,5 +1,5 @@
 // Estado da tela do mapa: ponto escolhido (sincronizado com o hash arredondado), regiões do raio e seleção.
-// Fica no App, não na página: ir ao Plano e voltar não perde o ponto.
+// Fica no App, não na página: ir ao Guia e voltar não perde o ponto.
 // O ponto escolhido (busca, GPS, toque) já entra arredondado à grade do link: o número e a lista na tela são os
 // mesmos que o link e a mensagem do WhatsApp mostram a quem recebe, e o ponto exato nunca é guardado.
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'

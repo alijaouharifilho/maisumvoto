@@ -35,7 +35,7 @@ A ideia é conversa pessoal, de vizinho para vizinho, com respeito. A conversa v
 - **Malha dos municípios:** Instituto Brasileiro de Geografia e Estatística (IBGE).
 - **Plano de governo:** trechos copiados ao pé da letra do [PDF registrado no TSE]({{plano.url}}), cada um com a página. Um programa confere cada trecho contra a página do PDF antes de publicar.
 - **Mapa:** © colaboradores do OpenStreetMap (licença ODbL). Desenho do mapa servido pelo OpenFreeMap, no esquema OpenMapTiles.
-- **Fontes tipográficas:** Bricolage Grotesque e Atkinson Hyperlegible Next, licença SIL Open Font License 1.1.
+- **Fontes tipográficas:** Montserrat e Atkinson Hyperlegible Next, licença SIL Open Font License 1.1.
 
 ## Limitações
 

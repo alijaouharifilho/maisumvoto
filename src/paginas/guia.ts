@@ -14,5 +14,3 @@ export function idNoGuia(ancora: string): string {
   return `guia-${ancora}`
 }
 
-/** Margem do topo ao rolar até uma âncora: cabeçalho fixo + índice fixo do Guia. */
-export const ROLAGEM_GUIA = 'scroll-mt-32'

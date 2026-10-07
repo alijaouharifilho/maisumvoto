@@ -247,7 +247,7 @@ describe('comparação entre os planos (mesmos assuntos, os dois lados com trech
     expect(JSON.stringify(temas)).not.toContain('{{')
   })
 
-  it('assuntos com chave única, que serve de âncora no link (#/comparar/<chave>)', () => {
+  it('assuntos com chave única, que serve de âncora no link (#/guia/comparar-<chave>)', () => {
     expect(temas.length).toBeGreaterThanOrEqual(4)
     expect(new Set(temas.map((t) => t.chave)).size).toBe(temas.length)
     for (const t of temas) expect(t.chave).toMatch(/^[a-z0-9-]+$/)

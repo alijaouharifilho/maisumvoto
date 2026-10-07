@@ -12,7 +12,7 @@ const t = textos.abertura
 export function Abertura() {
   const { aberta } = useFaseAtual()
   return (
-    <section className="sobre-azul -mx-4 flex flex-col gap-2 bg-marca px-4 pt-5 pb-14 lg:mx-0 lg:gap-3 lg:bg-transparent lg:p-0 lg:text-tinta">
+    <section className="-mx-4 flex flex-col gap-2 bg-marca px-4 pt-5 pb-14 text-branco lg:mx-0 lg:gap-3 lg:bg-transparent lg:p-0 lg:text-tinta">
       <p className="self-start rounded-full bg-destaque px-3 py-0.5 text-xs font-bold text-tinta lg:text-sm">{t.selo(DIA_2T)}</p>
       <h1 className="animate-entrada font-titulo text-2xl font-extrabold lg:text-3xl lg:text-marca">{t.titulo(NOME_SITE)}</h1>
       <p className="leading-snug lg:leading-normal">{aberta ? t.chamada(NOMES.alvo, FIM_CONVERSA) : t.chamadaConsulta(FIM_CONVERSA)}</p>

@@ -42,7 +42,9 @@ function useTituloEFoco(rota: EstadoRota): void {
       primeira.current = false
       return
     }
-    if (ancora.current === null) document.getElementById(ID_CONTEUDO)?.focus({ preventScroll: true })
+    if (ancora.current !== null) return
+    window.scrollTo({ top: 0 })
+    document.getElementById(ID_CONTEUDO)?.focus({ preventScroll: true })
   }, [rota.rota])
 }
 
@@ -85,7 +87,7 @@ export function App() {
         {versaoNova ? <AvisoVersaoNova /> : null}
         <FaixaDeFase fase={fase.fase} />
         {/* No celular, o menu fica fixo embaixo: a <main> reserva a altura dele para o fim da página não ficar coberto. */}
-        <main id={ID_CONTEUDO} tabIndex={-1} className="flex-1 pb-[calc(var(--altura-menu-inferior)+env(safe-area-inset-bottom))] outline-none lg:min-h-0 lg:pb-0">
+        <main id={ID_CONTEUDO} tabIndex={-1} className="flex-1 pb-[calc(var(--altura-menu-inferior)+1px+env(safe-area-inset-bottom))] outline-none lg:min-h-0 lg:pb-0">
           <LimiteDeErro key={rota.rota}>
             <Suspense fallback={<Esperando />}>
               <Conteudo rota={rota} fase={fase.fase} estadoMapa={estadoMapa} />

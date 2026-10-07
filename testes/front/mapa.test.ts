@@ -56,7 +56,7 @@ describe('marcadores', () => {
 
   it('verde e vermelho se distinguem também sem cor (daltonismo): contorno claro × escuro, contraste ≥ 3:1', () => {
     expect(contraste(SIMBOLOGIA.alvoNaFrente.contorno, SIMBOLOGIA.dificil.contorno)).toBeGreaterThanOrEqual(3)
-    for (const c of ['alvoNaFrente', 'dificil', 'empate'] as const) expect(contraste(SIMBOLOGIA[c].preenchimento, PALETA.fundo)).toBeGreaterThanOrEqual(1.5)
+    for (const c of ['alvoNaFrente', 'dificil', 'empate'] as const) expect(contraste(SIMBOLOGIA[c].preenchimento, PALETA.fundo)).toBeGreaterThanOrEqual(3)
   })
 
   it('cada entrada da legenda tem um símbolo que se reconhece em preto e branco', () => {

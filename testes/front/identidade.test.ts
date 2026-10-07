@@ -49,6 +49,29 @@ describe('paleta', () => {
     }
   })
 
+  it('pares de texto da paleta passam no contraste WCAG AA (4,5:1); o amarelo nunca é texto sobre claro', () => {
+    const lum = (hex: string): number => {
+      const [r = 0, g = 0, b = 0] = canais(hex).map((c) => c / 255).map((c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4))
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b
+    }
+    const contraste = (a: string, b: string): number => {
+      const [claro = 0, escuro = 0] = [lum(a), lum(b)].sort((x, y) => y - x)
+      return (claro + 0.05) / (escuro + 0.05)
+    }
+    const pares: [string, string, string][] = [
+      ['tinta', 'fundo', 'texto'], ['tinta', 'branco', 'texto'], ['tintaSuave', 'fundo', 'texto secundário'],
+      ['tintaSuave', 'branco', 'texto secundário'], ['marca', 'branco', 'link'], ['marca', 'fundo', 'link'],
+      ['branco', 'marca', 'cabeçalho'], ['branco', 'marcaEscura', 'rodapé'], ['tinta', 'destaque', 'faixa e botão amarelos'],
+      ['destaqueTexto', 'branco', 'cuidado'], ['destaqueTexto', 'destaqueClaro', 'cuidado na caixa amarela'],
+      ['tinta', 'marcaClara', 'caixa azul-clara'], ['marca', 'marcaClara', 'número e aba atual'], ['alerta', 'branco', 'erro'],
+    ]
+    for (const [texto, fundo, uso] of pares) {
+      const c = contraste(PALETA[texto as keyof typeof PALETA], PALETA[fundo as keyof typeof PALETA])
+      expect(c, `${texto} sobre ${fundo} (${uso})`).toBeGreaterThanOrEqual(4.5)
+    }
+    expect(contraste(PALETA.destaque, PALETA.branco)).toBeLessThan(4.5)
+  })
+
   it('o favicon usa só cores da paleta e o theme-color é a cor primária', () => {
     const svg = ler('public', 'favicon.svg')
     const cores = new Set<string>(Object.values(PALETA))

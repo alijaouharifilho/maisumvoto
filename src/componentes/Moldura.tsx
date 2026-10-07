@@ -40,7 +40,7 @@ function IconeDaAba({ rota }: { rota: RotaDoMenu }) {
 const ESTILO_ABA = {
   topo: 'flex min-h-11 items-center border-b-4 border-transparent px-3 pt-1 font-titulo text-[0.95rem] font-bold no-underline hover:bg-marca-escura aria-[current=page]:border-destaque',
   baixo:
-    'flex h-(--altura-menu-inferior) flex-col items-center justify-center gap-0.5 border-t-4 border-transparent font-titulo text-sm font-bold text-tinta-suave no-underline hover:bg-superficie-2 aria-[current=page]:border-destaque aria-[current=page]:bg-marca-clara aria-[current=page]:text-marca',
+    'flex h-(--altura-menu-inferior) flex-col items-center justify-center gap-0.5 border-t-4 border-transparent font-titulo text-sm font-bold text-tinta-suave no-underline hover:bg-superficie-2 focus-visible:-outline-offset-4 aria-[current=page]:border-marca aria-[current=page]:bg-marca-clara aria-[current=page]:text-marca',
 } as const
 
 /** As duas abas. Só uma das versões é montada por vez (topo no computador, embaixo no celular). */

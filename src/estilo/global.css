@@ -9,8 +9,25 @@
     --altura-cabecalho: 3.5rem;
     /* Menu fixo embaixo, só no celular (abaixo de 960 px). */
     --altura-menu-inferior: 4rem;
+    /* Índice fixo do Guia (chips de 44 px + respiro). */
+    --altura-indice-guia: 4rem;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+  }
+
+  /* O que recebe foco ou âncora nunca fica atrás das barras fixas (WCAG 2.4.11): cabeçalho em cima, menu embaixo
+     no celular e, no Guia, o índice fixo logo abaixo do cabeçalho. */
+  html {
+    scroll-padding-top: calc(var(--altura-cabecalho) + env(safe-area-inset-top) + 1rem);
+    scroll-padding-bottom: calc(var(--altura-menu-inferior) + 1px + env(safe-area-inset-bottom) + 0.5rem);
+  }
+  html:has(.pagina-guia) {
+    scroll-padding-top: calc(var(--altura-cabecalho) + env(safe-area-inset-top) + var(--altura-indice-guia) + 1rem);
+  }
+  @media (min-width: 960px) {
+    html {
+      scroll-padding-bottom: 0;
+    }
   }
 
   html {
